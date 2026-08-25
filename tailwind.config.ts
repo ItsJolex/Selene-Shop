@@ -9,8 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'selene-nude': '#F9EAD8',
+        'selene-dark': '#2D2926',
+        'selene-rosegold': '#D4A373',
       },
     },
   },
