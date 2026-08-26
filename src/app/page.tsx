@@ -458,16 +458,16 @@ export default function Home() {
         </>
       )}
 
-      <main className="pt-[64px] md:pt-[88px] pb-section-gap">
-        <section className="relative w-full min-h-[60vh] md:min-h-[75vh] flex items-center bg-surface-container-low overflow-hidden border-b border-outline-variant/30">
+      <main className="pt-[68px] md:pt-[96px] pb-section-gap">
+        <section className="relative w-full bg-surface-container-low overflow-hidden border-b border-outline-variant/30">
           {/* Decorative Background Elements */}
           <div className="absolute top-[-10%] right-[-5%] w-[50%] h-[120%] bg-rose-gold/40 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
           <div className="absolute bottom-0 left-[-10%] w-[40%] h-[50%] bg-surface-container-highest/50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
           
-          <div className="px-4 md:px-margin-desktop w-full max-w-[1280px] mx-auto relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-16 md:py-24">
+          <div className="px-4 md:px-margin-desktop w-full max-w-[1200px] mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center py-12 md:py-20 lg:py-28">
             
             {/* Left Column: Typography */}
-            <div className="md:col-span-7 flex flex-col items-start text-left">
+            <div className="flex flex-col items-start text-left">
               <div className="flex items-center gap-4 mb-6 animate-fade-up stagger-1">
                 <div className="w-12 h-[1px] bg-on-surface/30"></div>
                 <p className="font-label-sm text-[10px] md:text-xs uppercase tracking-[0.25em] text-on-surface/70">Tu tienda de makeup en Venezuela</p>
@@ -494,7 +494,7 @@ export default function Home() {
             </div>
 
             {/* Right Column: Editorial Element (since we lack images, use a typography art piece or badge) */}
-            <div className="md:col-span-5 hidden md:flex flex-col items-end justify-center relative animate-fade-in stagger-5">
+            <div className="hidden md:flex flex-col items-center justify-center relative animate-fade-in stagger-5">
               <div className="relative w-64 h-64 md:w-80 md:h-80 border-[1px] border-on-surface/10 rounded-full flex items-center justify-center p-4">
                 <div className="absolute inset-0 border-[1px] border-rose-gold/30 rounded-full rotate-45 scale-95"></div>
                 <div className="text-center">
