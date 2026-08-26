@@ -32,31 +32,31 @@ const ALL_PRODUCTS: Product[] = [
   { id: "db-blush", image: "/products/db-blush.webp", brand: "Dolce Bella", name: "Blush en Polvo / Rubor Individual", category: "Rostro", shades: ["05", "11"], stock: 3, price: 5, },
   { id: "db-mascara", image: "/products/db-mascara.webp", brand: "Dolce Bella", name: "Máscara Volumen & Definition", category: "Ojos", stock: 1, price: 5, },
   { id: "db-pencil", image: "/products/db-pencil.webp", brand: "Dolce Bella", name: "Makeup Pencil", category: "Ojos", shades: ["Dark Brown 803", "Medium Brown 808"], stock: 4, price: 5, },
-  { id: "db-lipgloss-tubo", image: "/products/db-lipgloss-tubo.webp", brand: "Dolce Bella", name: "Lip Gloss (Tubo)", category: "Labios", shades: ["D6", "07", "D5", "04"], stock: 7, price: 5, },
-  { id: "db-lipgloss-aplicador", image: "/products/db-lipgloss-aplicador.webp", brand: "Dolce Bella", name: "Lip Gloss (Con Aplicador)", category: "Labios", shades: ["03", "01", "05"], stock: 5, price: 5, },
+  { id: "db-lipgloss-tubo", image: "/products/db-lipgloss-tubo.webp", brand: "Dolce Bella", name: "Lip Gloss Tubo", category: "Labios", shades: ["D6", "07", "D5", "04"], stock: 7, price: 5, },
+  { id: "db-lipgloss-aplicador", image: "/products/db-lipgloss-aplicador.webp", brand: "Dolce Bella", name: "Lip Gloss Aplicador", category: "Labios", shades: ["03", "01", "05"], stock: 5, price: 5, },
   { id: "db-grace-marble", image: "/products/db-grace-marble.webp", brand: "Dolce Bella", name: "Grace Marble", category: "Labios", shades: ["Dusty Rose"], stock: 3, price: 5, },
   { id: "db-glossy-lipbalm", image: "/products/db-glossy-lipbalm.webp", brand: "Dolce Bella", name: "Glossy Lip Balm", category: "Labios", shades: ["Grace", "Smile"], stock: 2, price: 5, },
   { id: "db-vinyl-lip", image: "/products/db-vinyl-lip.webp", brand: "Dolce Bella", name: "Vinyl Lasting Lip Stain", category: "Labios", shades: ["Sweet Tart"], stock: 1, price: 5, },
   { id: "sa-concealer", image: "/products/sa-concealer.webp", brand: "Salomé", name: "Hydratint Concealer", category: "Rostro", shades: ["01", "03"], stock: 5, price: 5, },
   { id: "sa-lipstick", image: "/products/sa-lipstick.webp", brand: "Salomé", name: "Vegan Smooth Creamy Lipstick", category: "Labios", shades: ["01", "04"], stock: 2, price: 5, },
   { id: "sa-sacapuntas", image: "/products/sa-sacapuntas.webp", brand: "Salomé", name: "Sacapuntas 2 en 1", category: "Accesorios", stock: 4, price: 5, },
-  { id: "papel-absorbente", image: "/products/papel-absorbente.webp", brand: "Sin Marca", name: "Papel Absorbente de Grasa – Presentación Animalitos", category: "Skincare", stock: 9, price: 5, },
+  { id: "papel-absorbente", image: "/products/papel-absorbente.webp", brand: "Sin Marca", name: "Papel Absorbente Animalitos", category: "Skincare", stock: 9, price: 5, },
   { id: "us-lipbalm", image: "/products/us-lipbalm.webp", brand: "Ushas", name: "Sweet Lip Balm", category: "Labios", shades: ["05", "06"], stock: 2, price: 5, },
   { id: "us-lipink", image: "/products/us-lipink.webp", brand: "Ushas", name: "Lip Ink", category: "Labios", shades: ["Watermelon 02"], stock: 1, price: 5, },
-  { id: "mg-matelips", image: "/products/mg-matelips.webp", brand: "Max Glow", name: "Mate Lips Lip Color Liquid", category: "Labios", shades: ["Raspberry Rose", "Deep Rose"], stock: 2, price: 5, },
-  { id: "mg-lipoil", image: "/products/mg-lipoil.webp", brand: "Max Glow", name: "Lip Oil Fruity Gloss Plumping Lips", category: "Labios", shades: ["02", "04"], stock: 3, price: 5, },
+  { id: "mg-matelips", image: "/products/mg-matelips.webp", brand: "Max Glow", name: "Mate Lips Liquid", category: "Labios", shades: ["Raspberry Rose", "Deep Rose"], stock: 2, price: 5, },
+  { id: "mg-lipoil", image: "/products/mg-lipoil.webp", brand: "Max Glow", name: "Lip Oil Fruity Gloss", category: "Labios", shades: ["02", "04"], stock: 3, price: 5, },
   { id: "bc-lipoil", image: "/products/bc-lipoil.webp", brand: "Beauty Creations", name: "Sweet Dose Lip Oil", category: "Labios", shades: ["Water Melon"], stock: 1, price: 5, },
   { id: "bc-pencil", image: "/products/bc-pencil.webp", brand: "Beauty Creations", name: "Wooden Lip Pencil", category: "Labios", shades: ["Ur Cherry Sweet", "U Had Me At Expresso", "Wine About It"], stock: 3, price: 5, },
   { id: "kc-blusher", image: "/products/kc-blusher.webp", brand: "Kevin & Coco", name: "Blusher Lotion", category: "Rostro", shades: ["Thus", "Be Mine"], stock: 2, price: 5, },
   { id: "dici-paso1", image: "/products/dici-paso1.webp", brand: "Dici", name: "Paso 1", category: "Skincare", stock: 1, price: 5, },
   { id: "trendy-espejo", image: "/products/trendy-espejo.webp", brand: "Trendy", name: "Espejo Plegable", category: "Accesorios", stock: 1, price: 5, },
-  { id: "sm-sacapuntas", image: "/products/sm-sacapuntas.webp", brand: "Sin Marca", name: "Sacapuntas 2 en 1 Sin Depósito (Morado)", category: "Accesorios", stock: 1, price: 5, },
+  { id: "sm-sacapuntas", image: "/products/sm-sacapuntas.webp", brand: "Sin Marca", name: "Sacapuntas 2 en 1 (Morado)", category: "Accesorios", stock: 1, price: 5, },
   { id: "sm-borlas-grandes", image: "/products/sm-borlas-grandes.webp", brand: "Sin Marca", name: "Borlas Grandes", category: "Accesorios", stock: 2, price: 5, },
   { id: "sm-borlas-pequenas", image: "/products/sm-borlas-pequenas.webp", brand: "Sin Marca", name: "Borlas Pequeñas", category: "Accesorios", stock: 4, price: 5, },
-  { id: "sm-esponja", image: "/products/sm-esponja.webp", brand: "Sin Marca", name: "Esponja Beauty Blender Amarilla", category: "Accesorios", stock: 1, price: 5, },
+  { id: "sm-esponja", image: "/products/sm-esponja.webp", brand: "Sin Marca", name: "Esponja Beauty Blender", category: "Accesorios", stock: 1, price: 5, },
   { id: "sm-sadoer-lip", image: "/products/sm-sadoer-lip.webp", brand: "Sin Marca", name: "Sadoer Repair Lip Mask", category: "Skincare", stock: 1, price: 5, },
   { id: "sm-kaberline-lip", image: "/products/sm-kaberline-lip.webp", brand: "Sin Marca", name: "Kaberline Lip Mask", category: "Skincare", stock: 1, price: 5, },
-  { id: "sm-sadoer-face", image: "/products/sm-sadoer-face.webp", brand: "Sin Marca", name: "Sadoer Real Rose Moisturizing Facial Mask", category: "Skincare", stock: 2, price: 5, },
+  { id: "sm-sadoer-face", image: "/products/sm-sadoer-face.webp", brand: "Sin Marca", name: "Sadoer Rose Facial Mask", category: "Skincare", stock: 2, price: 5, },
   { id: "sm-grippies", image: "/products/sm-grippies.webp", brand: "Sin Marca", name: "Grippies", category: "Accesorios", stock: 2, price: 5, },
   { id: "sm-chokers", image: "/products/sm-chokers.webp", brand: "Sin Marca", name: "Chokers Negros", category: "Accesorios", stock: 2, price: 5, },
 ];
@@ -64,158 +64,232 @@ const ALL_PRODUCTS: Product[] = [
 const ALL_BRANDS: (Brand | "Todas")[] = ["Todas", "Dolce Bella", "Salomé", "Ushas", "Max Glow", "Beauty Creations", "Kevin & Coco", "Dici", "Trendy", "Sin Marca"];
 const ALL_CATEGORIES: (Category | "Todas")[] = ["Todas", "Labios", "Rostro", "Ojos", "Accesorios", "Skincare"];
 
-const categoryIcon: Record<Category, string> = {
-  Labios: "favorite",
-  Rostro: "face",
-  Ojos: "visibility",
-  Accesorios: "diamond",
-  Skincare: "spa",
-};
-
-function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Product; onAddToCart: (p: Product, shade?: string) => void; onQuickView: (p: Product) => void; index?: number }) {
+/* ─── ProductCard ─────────────────────────────────────────────────────────── */
+function ProductCard({ product, onAddToCart, onQuickView, index }: {
+  product: Product;
+  onAddToCart: (p: Product, shade?: string) => void;
+  onQuickView: (p: Product) => void;
+  index?: number;
+}) {
   const [selectedShade, setSelectedShade] = useState<string | undefined>(product.shades?.[0]);
-  const stagger = index !== undefined ? `stagger-${Math.min((index % 8) + 1, 8)}` : "";
+  const delay = index !== undefined ? `${Math.min(index % 8, 7) * 0.07}s` : "0s";
+  const isOOS = product.stock === 0;
+
   return (
-    <div onClick={() => onQuickView(product)} className={`product-card group cursor-pointer flex flex-col animate-fade-up ${stagger} ${product.stock === 0 ? "opacity-60 grayscale-[0.2]" : ""}`}>
-      {/* ── Image area ─────────────────────────────────────────────── */}
-      <div className="relative aspect-[3/4] mb-3 overflow-hidden rounded-xl bg-surface-container flex flex-col items-center justify-center border border-outline-variant/30">
+    <div
+      onClick={() => onQuickView(product)}
+      className={`product-card group cursor-pointer flex flex-col animate-fade-up ${isOOS ? "opacity-55" : ""}`}
+      style={{ animationDelay: delay }}
+    >
+      {/* Image */}
+      <div className="relative aspect-[3/4] overflow-hidden bg-surface-container-low">
         {product.image ? (
           <>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <img
+              src={product.image}
+              alt={product.name}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.07]"
+              loading="lazy"
+            />
+            {/* Gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </>
         ) : (
-          <>
-            <div className="absolute inset-0 bg-gradient-to-br from-surface-container-low/70 to-rose-gold/50 group-hover:from-surface-container-low/90 group-hover:to-rose-gold/70 transition-all duration-500" />
-            {/* Category icon */}
-            <div className="relative z-10 flex flex-col items-center gap-2 px-3 text-center">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:bg-white/80 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl sm:text-3xl text-rose-gold/80 transition-transform duration-300 group-hover:scale-110">
-                  {categoryIcon[product.category]}
-                </span>
-              </div>
-              <p className="font-label-sm text-[9px] text-on-surface-variant/60 uppercase tracking-widest leading-tight px-1 line-clamp-2">{product.name}</p>
-            </div>
-          </>
+          <div className="absolute inset-0 flex items-center justify-center bg-surface-container">
+            <span className="material-symbols-outlined text-4xl text-rose-gold/50">auto_awesome</span>
+          </div>
         )}
-        {/* Stock badge */}
-        <span className={`absolute top-2.5 left-2.5 backdrop-blur-sm font-label-sm text-[11px] px-2 py-0.5 rounded-full border z-10 font-medium ${product.stock > 0 ? "bg-white/80 text-on-surface-variant border-outline-variant/30" : "bg-error/90 text-white border-error"}`}>
-          {product.stock > 0 ? `Stock: ${product.stock}` : "Agotado"}
-        </span>
-        {/* Add to cart quick button */}
-        <button
-          onClick={(e) => { e.stopPropagation(); if (product.stock > 0) onAddToCart(product, selectedShade); }}
-          disabled={product.stock === 0}
-          className="absolute bottom-2.5 right-2.5 bg-white/90 backdrop-blur-sm rounded-full p-2 text-on-surface hover:bg-rose-gold hover:text-white active:bg-rose-gold active:text-white transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 shadow-sm z-10 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-          aria-label={`Agregar ${product.name}`}>
-          <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
-        </button>
+
+        {/* Out of stock overlay */}
+        {isOOS && (
+          <div className="absolute inset-0 flex items-end justify-center pb-4 bg-white/10">
+            <span className="bg-white/95 text-on-surface text-[9px] font-semibold uppercase tracking-widest px-3 py-1 rounded-sm">
+              Agotado
+            </span>
+          </div>
+        )}
+
+        {/* Quick add button (bottom-right, appears on hover) */}
+        {!isOOS && (
+          <button
+            onClick={(e) => { e.stopPropagation(); onAddToCart(product, selectedShade); }}
+            className="absolute bottom-2.5 right-2.5 w-9 h-9 bg-white/95 rounded-full flex items-center justify-center text-on-surface shadow-sm z-10
+                       md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0
+                       hover:bg-deep-charcoal hover:text-white
+                       transition-all duration-250 ease-out"
+            aria-label={`Agregar ${product.name}`}
+          >
+            <span className="material-symbols-outlined text-[16px]">add</span>
+          </button>
+        )}
       </div>
 
-      {/* ── Info area ──────────────────────────────────────────────── */}
-      <div className="flex flex-col flex-1 px-1">
-        {/* Brand label */}
-        <p className="font-label-sm text-[9px] text-rose-gold/80 mb-0.5 uppercase tracking-[0.15em] truncate">{product.brand}</p>
-        {/* Product name & Price */}
-        <div className="flex justify-between items-start gap-2 mb-1.5">
-          <h3 className="font-headline-sm text-[11px] sm:text-xs text-on-surface leading-snug line-clamp-2">{product.name}</h3>
-          <span className="font-label-md text-[11px] sm:text-xs text-primary shrink-0">${product.price.toFixed(2)}</span>
+      {/* Info */}
+      <div className="product-card-info flex flex-col flex-1">
+        {/* Brand */}
+        <p className="text-[9px] font-medium uppercase tracking-[0.16em] text-rose-gold mb-1 truncate">
+          {product.brand}
+        </p>
+
+        {/* Name + Price row */}
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <h3 className="font-['Libre_Caslon_Text'] text-[11px] sm:text-[12px] text-on-surface leading-snug line-clamp-2 flex-1">
+            {product.name}
+          </h3>
+          <span className="text-[11px] font-semibold text-primary shrink-0 mt-0.5">
+            ${product.price.toFixed(2)}
+          </span>
         </div>
+
         {/* Note */}
         {product.note && (
-          <p className="font-label-sm text-[9px] text-secondary/70 italic mb-1 truncate">{product.note}</p>
+          <p className="text-[9px] text-secondary/60 italic mb-2 truncate">{product.note}</p>
         )}
-        {/* Shade selector */}
+
+        {/* Shades */}
         {product.shades && product.shades.length > 0 && (
           <div className="flex flex-wrap gap-1 mb-2">
             {product.shades.map((shade) => (
               <button
                 key={shade}
                 onClick={(e) => { e.stopPropagation(); setSelectedShade(shade); }}
-                className={`px-1.5 py-0.5 rounded-md border font-label-sm text-[8px] sm:text-[9px] transition-all duration-200 min-h-[20px] ${
+                className={`px-1.5 py-0.5 border text-[8px] uppercase tracking-wide transition-all duration-150 rounded-sm ${
                   selectedShade === shade
-                    ? "bg-on-surface text-white border-on-surface"
-                    : "bg-surface-container/60 text-secondary border-outline-variant/50 hover:border-secondary"
-                }`}>
+                    ? "bg-deep-charcoal text-white border-deep-charcoal"
+                    : "bg-transparent text-secondary/70 border-outline-variant/50 hover:border-secondary/60"
+                }`}
+              >
                 {shade}
               </button>
             ))}
           </div>
         )}
-        {/* Footer row */}
-        <div className="flex items-center justify-between mt-auto pt-1.5 border-t border-outline-variant/20 gap-1">
-          <span className="font-label-sm text-[9px] text-on-surface-variant/50 truncate">{product.category}</span>
-          <button
-            onClick={(e) => { e.stopPropagation(); if (product.stock > 0) onAddToCart(product, selectedShade); }}
-            disabled={product.stock === 0}
-            className="flex items-center gap-0.5 font-label-sm text-[9px] sm:text-[10px] text-rose-gold/80 hover:text-rose-gold active:text-rose-gold transition-colors shrink-0 min-h-[32px] px-1 disabled:opacity-50 disabled:cursor-not-allowed">
-            <span className="material-symbols-outlined text-xs sm:text-sm">add_shopping_cart</span>
-            <span className="hidden xs:inline sm:inline">Agregar</span>
-          </button>
+
+        {/* Footer: category + add */}
+        <div className="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20 gap-2">
+          <span className="text-[9px] text-on-surface-variant/40 uppercase tracking-wider truncate">
+            {product.category}
+          </span>
+          {!isOOS ? (
+            <button
+              onClick={(e) => { e.stopPropagation(); onAddToCart(product, selectedShade); }}
+              className="text-[9px] uppercase tracking-widest font-medium text-on-surface/50 hover:text-rose-gold transition-colors duration-200 flex items-center gap-1 shrink-0 py-1"
+            >
+              <span className="material-symbols-outlined text-[13px]">add_shopping_cart</span>
+              Agregar
+            </button>
+          ) : (
+            <span className="text-[9px] uppercase tracking-widest text-error/50 shrink-0">Agotado</span>
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-
-function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; onClose: () => void; onAddToCart: (p: Product, shade?: string) => void }) {
+/* ─── QuickViewModal ──────────────────────────────────────────────────────── */
+function QuickViewModal({ product, onClose, onAddToCart }: {
+  product: Product;
+  onClose: () => void;
+  onAddToCart: (p: Product, shade?: string) => void;
+}) {
   const [selectedShade, setSelectedShade] = useState<string | undefined>(product.shades?.[0]);
+  const isOOS = product.stock === 0;
+
+  // Close on Escape
+  useEffect(() => {
+    const h = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", h);
+    return () => window.removeEventListener("keydown", h);
+  }, [onClose]);
+
   return (
-    <div className="fixed inset-0 z-[120] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full max-w-3xl bg-paper-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row animate-scale-pop max-h-[90vh]">
-        <button onClick={onClose} className="absolute top-3 right-3 z-10 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-rose-gold hover:text-white transition-colors shadow-sm">
-          <span className="material-symbols-outlined">close</span>
+    <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6">
+      <div className="absolute inset-0 bg-deep-charcoal/50 backdrop-blur-sm animate-fade-in" onClick={onClose} />
+      <div className="relative w-full max-w-2xl bg-paper-white shadow-2xl overflow-hidden flex flex-col md:flex-row animate-scale-pop max-h-[88vh] rounded-sm">
+
+        {/* Close */}
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 z-10 w-9 h-9 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-deep-charcoal hover:text-white transition-all duration-200 shadow-sm"
+          aria-label="Cerrar"
+        >
+          <span className="material-symbols-outlined text-[18px]">close</span>
         </button>
-        
-        <div className="md:w-1/2 bg-surface-container relative aspect-square md:aspect-auto">
+
+        {/* Image */}
+        <div className="md:w-[45%] relative aspect-square md:aspect-auto bg-surface-container-low shrink-0">
           {product.image ? (
-            <>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-            </>
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={product.image}
+              alt={product.name}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
           ) : (
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <span className="material-symbols-outlined text-6xl text-rose-gold/70">{categoryIcon[product.category]}</span>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="material-symbols-outlined text-6xl text-rose-gold/40">auto_awesome</span>
+            </div>
+          )}
+          {isOOS && (
+            <div className="absolute inset-0 bg-white/40 flex items-center justify-center">
+              <span className="bg-white text-on-surface text-xs font-semibold uppercase tracking-widest px-4 py-2">Agotado</span>
             </div>
           )}
         </div>
-        
-        <div className="md:w-1/2 p-6 md:p-8 flex flex-col overflow-y-auto">
-          <p className="font-label-sm text-xs text-secondary uppercase tracking-widest mb-1">{product.brand}</p>
-          <h2 className="font-headline-md text-2xl sm:text-3xl text-on-surface leading-tight mb-2">{product.name}</h2>
-          {product.note && <p className="text-sm italic text-error/80 mb-4">{product.note}</p>}
-          
-          <div className="flex items-center gap-2 mb-4">
-             <span className="bg-surface-container-low px-3 py-1 rounded-full text-xs font-label-md flex items-center gap-1"><span className="material-symbols-outlined text-sm">{categoryIcon[product.category]}</span> {product.category}</span>
-             <span className={`px-3 py-1 rounded-full text-xs font-label-md flex items-center gap-1 ${product.stock > 0 ? "bg-surface-container-low" : "bg-error text-white"}`}>
-               <span className="material-symbols-outlined text-sm">{product.stock > 0 ? "inventory_2" : "block"}</span> 
-               {product.stock > 0 ? `Stock: ${product.stock}` : "Agotado"}
-             </span>
+
+        {/* Details */}
+        <div className="flex-1 p-6 md:p-8 flex flex-col overflow-y-auto">
+          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-rose-gold mb-2">{product.brand}</p>
+          <h2 className="font-['Libre_Caslon_Text'] text-2xl sm:text-3xl text-on-surface leading-tight mb-3">
+            {product.name}
+          </h2>
+
+          {product.note && (
+            <p className="text-xs italic text-secondary/70 mb-4 leading-relaxed">{product.note}</p>
+          )}
+
+          {/* Price + Stock */}
+          <div className="flex items-center gap-4 mb-6 pb-5 border-b border-outline-variant/20">
+            <span className="font-['Libre_Caslon_Text'] text-2xl text-primary">${product.price.toFixed(2)}</span>
+            <span className={`text-[10px] uppercase tracking-widest font-medium px-2.5 py-1 rounded-sm ${
+              isOOS ? "bg-error/10 text-error" : "bg-surface-container text-on-surface-variant"
+            }`}>
+              {isOOS ? "Agotado" : `${product.stock} disponibles`}
+            </span>
           </div>
-          <p className="font-headline-md text-2xl text-primary mb-6">${product.price.toFixed(2)}</p>
-          
+
+          {/* Shades */}
           {product.shades && product.shades.length > 0 && (
             <div className="mb-6">
-              <p className="font-label-md text-sm mb-2">Selecciona un tono:</p>
+              <p className="text-[10px] uppercase tracking-widest font-medium text-on-surface-variant mb-3">Tono</p>
               <div className="flex flex-wrap gap-2">
                 {product.shades.map((shade) => (
-                  <button key={shade} onClick={() => setSelectedShade(shade)}
-                    className={`px-3 py-1.5 rounded-full border text-xs sm:text-sm transition-all duration-200 ${selectedShade === shade ? "bg-on-surface text-white border-on-surface" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>
+                  <button
+                    key={shade}
+                    onClick={() => setSelectedShade(shade)}
+                    className={`px-3 py-1.5 border text-xs transition-all duration-200 rounded-sm ${
+                      selectedShade === shade
+                        ? "bg-deep-charcoal text-white border-deep-charcoal"
+                        : "bg-transparent text-secondary border-outline-variant hover:border-secondary"
+                    }`}
+                  >
                     {shade}
                   </button>
                 ))}
               </div>
             </div>
           )}
-          
-          <div className="mt-auto pt-6 border-t border-outline-variant/30">
-            <button onClick={() => { if (product.stock > 0) { onAddToCart(product, selectedShade); onClose(); } }} 
-              disabled={product.stock === 0}
-              className="w-full bg-on-surface text-white font-label-md text-sm sm:text-base py-4 rounded-xl hover:bg-surface-tint active:bg-surface-tint transition-colors flex items-center justify-center gap-2 shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
-              <span className="material-symbols-outlined">add_shopping_cart</span>
+
+          <div className="mt-auto space-y-3">
+            <button
+              onClick={() => { if (!isOOS) { onAddToCart(product, selectedShade); onClose(); } }}
+              disabled={isOOS}
+              className="btn-primary w-full justify-center disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none"
+            >
+              <span className="material-symbols-outlined text-[16px]">add_shopping_cart</span>
               Agregar al carrito
             </button>
           </div>
@@ -225,64 +299,121 @@ function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; o
   );
 }
 
-function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem[]; onClose: () => void; onRemove: (id: string, shade?: string) => void; onQtyChange: (id: string, shade: string | undefined, delta: number) => void }) {
-  const total = items.reduce((acc, i) => acc + i.qty, 0);
-  const totalPrice = items.reduce((acc, i) => acc + (i.qty * i.product.price), 0);
-  const whatsappItems = items.map((i) => `• ${i.product.name}${i.shade ? ` (${i.shade})` : ""} x${i.qty} ($${(i.product.price * i.qty).toFixed(2)})`).join("%0A");
-  const whatsappMsg = `Hola! Me interesa pedir:%0A${whatsappItems}%0A%0ATotal: ${total} producto(s)%0ATotal a pagar: $${totalPrice.toFixed(2)}`;
-  const whatsappUrl = `https://wa.me/584244162454?text=${whatsappMsg}`;
+/* ─── CartDrawer ──────────────────────────────────────────────────────────── */
+function CartDrawer({ items, onClose, onRemove, onQtyChange }: {
+  items: CartItem[];
+  onClose: () => void;
+  onRemove: (id: string, shade?: string) => void;
+  onQtyChange: (id: string, shade: string | undefined, delta: number) => void;
+}) {
+  const totalQty = items.reduce((acc, i) => acc + i.qty, 0);
+  const totalPrice = items.reduce((acc, i) => acc + i.qty * i.product.price, 0);
+  const waItems = items.map((i) => `• ${i.product.name}${i.shade ? ` (${i.shade})` : ""} x${i.qty} ($${(i.product.price * i.qty).toFixed(2)})`).join("%0A");
+  const waMsg = `Hola! Me interesa pedir:%0A${waItems}%0A%0ATotal: ${totalQty} producto(s)%0ATotal a pagar: $${totalPrice.toFixed(2)}`;
+  const waUrl = `https://wa.me/584244162454?text=${waMsg}`;
+
   return (
     <div className="fixed inset-0 z-[100] flex justify-end">
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
-      {/* Cart panel — full width on mobile, max-sm on desktop */}
+      <div className="absolute inset-0 bg-deep-charcoal/40 backdrop-blur-sm animate-fade-in" onClick={onClose} />
       <div className="relative w-full sm:max-w-sm bg-paper-white shadow-2xl flex flex-col h-full animate-slide-in-right">
-        <div className="flex items-center justify-between px-5 py-4 border-b border-outline-variant/30">
-          <h2 className="font-headline-sm text-lg sm:text-xl text-on-surface">Mi Carrito</h2>
-          <button onClick={onClose} className="text-on-surface-variant hover:text-on-surface min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Cerrar carrito">
-            <span className="material-symbols-outlined">close</span>
+
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-5 border-b border-outline-variant/25">
+          <div>
+            <h2 className="font-['Libre_Caslon_Text'] text-xl text-on-surface">Mi selección</h2>
+            {totalQty > 0 && (
+              <p className="text-[10px] uppercase tracking-widest text-on-surface-variant mt-0.5">{totalQty} producto{totalQty !== 1 ? "s" : ""}</p>
+            )}
+          </div>
+          <button
+            onClick={onClose}
+            className="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-200"
+            aria-label="Cerrar"
+          >
+            <span className="material-symbols-outlined text-[20px]">close</span>
           </button>
         </div>
-        <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
+
+        {/* Items */}
+        <div className="flex-1 overflow-y-auto px-6 py-4 space-y-5">
           {items.length === 0 ? (
-            <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
-              <span className="material-symbols-outlined text-6xl text-outline-variant">shopping_bag</span>
-              <p className="font-body-md text-body-md text-on-surface-variant">Tu carrito está vacío.</p>
+            <div className="flex flex-col items-center justify-center h-full gap-4 text-center py-16">
+              <span className="material-symbols-outlined text-5xl text-outline-variant/60">shopping_bag</span>
+              <p className="text-sm text-on-surface-variant">Tu selección está vacía.</p>
+              <button onClick={onClose} className="text-[10px] uppercase tracking-widest text-rose-gold font-medium hover:underline">
+                Explorar catálogo
+              </button>
             </div>
-          ) : items.map((item) => (
-            <div key={`${item.product.id}-${item.shade}`} className="flex items-center gap-3 pb-4 border-b border-outline-variant/20 last:border-0">
-              <div className="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-xl text-rose-gold/70">{categoryIcon[item.product.category]}</span>
+          ) : (
+            items.map((item) => (
+              <div key={`${item.product.id}-${item.shade}`} className="flex items-start gap-3 pb-5 border-b border-outline-variant/15 last:border-0">
+                {/* Thumbnail */}
+                <div className="w-14 h-14 rounded-sm bg-surface-container-low overflow-hidden shrink-0">
+                  {item.product.image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={item.product.image} alt={item.product.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="material-symbols-outlined text-xl text-rose-gold/50">auto_awesome</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <p className="text-[9px] uppercase tracking-widest text-on-surface-variant/60 mb-0.5 truncate">{item.product.brand}</p>
+                  <p className="text-sm text-on-surface leading-tight line-clamp-2 font-medium mb-1">{item.product.name}</p>
+                  {item.shade && <p className="text-[9px] text-rose-gold mb-1.5">{item.shade}</p>}
+
+                  <div className="flex items-center justify-between">
+                    {/* Qty controls */}
+                    <div className="flex items-center gap-2">
+                      <button onClick={() => onQtyChange(item.product.id, item.shade, -1)} className="qty-btn" aria-label="Reducir">
+                        <span className="material-symbols-outlined text-[13px]">remove</span>
+                      </button>
+                      <span className="text-sm font-medium w-4 text-center tabular-nums">{item.qty}</span>
+                      <button onClick={() => onQtyChange(item.product.id, item.shade, 1)} className="qty-btn" aria-label="Aumentar">
+                        <span className="material-symbols-outlined text-[13px]">add</span>
+                      </button>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-semibold text-primary">${(item.product.price * item.qty).toFixed(2)}</span>
+                      <button
+                        onClick={() => onRemove(item.product.id, item.shade)}
+                        className="text-on-surface-variant/30 hover:text-error transition-colors duration-200"
+                        aria-label="Eliminar"
+                      >
+                        <span className="material-symbols-outlined text-[16px]">delete</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest mb-0.5 truncate">{item.product.brand}</p>
-                <p className="font-headline-sm text-sm text-on-surface leading-tight line-clamp-2">{item.product.name}</p>
-                {item.shade && <p className="font-label-sm text-[10px] text-secondary mt-0.5">{item.shade}</p>}
-                <p className="font-label-md text-xs text-primary mt-1">${(item.product.price * item.qty).toFixed(2)}</p>
-              </div>
-              <div className="flex items-center gap-1 shrink-0">
-                <button onClick={() => onQtyChange(item.product.id, item.shade, -1)} className="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container active:bg-surface-container" aria-label="Reducir cantidad">
-                  <span className="material-symbols-outlined text-xs">remove</span>
-                </button>
-                <span className="font-label-md text-sm w-5 text-center">{item.qty}</span>
-                <button onClick={() => onQtyChange(item.product.id, item.shade, 1)} className="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container active:bg-surface-container" aria-label="Aumentar cantidad">
-                  <span className="material-symbols-outlined text-xs">add</span>
-                </button>
-                <button onClick={() => onRemove(item.product.id, item.shade)} className="ml-1 text-error/60 hover:text-error active:text-error w-8 h-8 flex items-center justify-center" aria-label="Eliminar">
-                  <span className="material-symbols-outlined text-sm">delete</span>
-                </button>
-              </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
+
+        {/* Footer */}
         {items.length > 0 && (
-          <div className="px-5 py-5 pb-6 border-t border-outline-variant/30 space-y-3">
-            <div className="flex justify-between font-label-md text-sm text-on-surface-variant"><span>Total productos:</span><span>{total}</span></div>
-            <div className="flex justify-between font-headline-sm text-lg text-on-surface mb-2"><span>Total a pagar:</span><span>${totalPrice.toFixed(2)}</span></div>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-label-md text-label-md py-4 rounded-lg hover:opacity-90 active:opacity-90 min-h-[52px]">
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d={WaPath} /></svg>
+          <div className="px-6 py-5 border-t border-outline-variant/25 space-y-4 bg-surface-container-low/50">
+            <div className="flex justify-between items-baseline">
+              <span className="text-[10px] uppercase tracking-widest text-on-surface-variant">Total</span>
+              <span className="font-['Libre_Caslon_Text'] text-2xl text-on-surface">${totalPrice.toFixed(2)}</span>
+            </div>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 w-full bg-[#25D366] text-white text-[11px] font-semibold uppercase tracking-widest py-4 rounded-sm hover:bg-[#20bb5a] transition-colors duration-200 min-h-[52px]"
+            >
+              <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d={WaPath} /></svg>
               Pedir por WhatsApp
             </a>
-            <button onClick={onClose} className="w-full border border-outline-variant text-on-surface-variant font-label-md text-label-md py-3 rounded-lg hover:bg-surface-container active:bg-surface-container min-h-[48px]">Seguir comprando</button>
+            <button
+              onClick={onClose}
+              className="w-full text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors py-2"
+            >
+              Seguir explorando
+            </button>
           </div>
         )}
       </div>
@@ -290,6 +421,7 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem
   );
 }
 
+/* ─── Home ────────────────────────────────────────────────────────────────── */
 export default function Home() {
   const [activeBrand, setActiveBrand] = useState<Brand | "Todas">("Todas");
   const [activeCategory, setActiveCategory] = useState<Category | "Todas">("Todas");
@@ -299,26 +431,20 @@ export default function Home() {
   const [cartOpen, setCartOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [toast, setToast] = useState<string | null>(null);
+  const [toast, setToast] = useState<{ msg: string; key: number } | null>(null);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
-  const [visibleCount, setVisibleCount] = useState(15);
-  
-  useEffect(() => {
-    setVisibleCount(15);
-  }, [activeBrand, activeCategory, searchQuery]);
+  const [visibleCount, setVisibleCount] = useState(16);
 
+  useEffect(() => { setVisibleCount(16); }, [activeBrand, activeCategory, searchQuery]);
+
+  // Persist cart
   useEffect(() => {
     const saved = localStorage.getItem("selene_cart");
-    if (saved) {
-      try { setCartItems(JSON.parse(saved)); } catch { }
-    }
+    if (saved) { try { setCartItems(JSON.parse(saved)); } catch { } }
     setCartLoaded(true);
   }, []);
-
   useEffect(() => {
-    if (cartLoaded) {
-      localStorage.setItem("selene_cart", JSON.stringify(cartItems));
-    }
+    if (cartLoaded) localStorage.setItem("selene_cart", JSON.stringify(cartItems));
   }, [cartItems, cartLoaded]);
 
   const filteredProducts = useMemo(() => ALL_PRODUCTS.filter((p) => {
@@ -331,125 +457,182 @@ export default function Home() {
 
   const cartCount = cartItems.reduce((a, b) => a + b.qty, 0);
 
-  function showToast(msg: string) { setToast(msg); setTimeout(() => setToast(null), 2500); }
+  function showToast(msg: string) {
+    setToast({ msg, key: Date.now() });
+    setTimeout(() => setToast(null), 2200);
+  }
 
   function addToCart(product: Product, shade?: string) {
     if (product.stock <= 0) return;
+    let didAdd = true;
     setCartItems((prev) => {
       const ex = prev.find((i) => i.product.id === product.id && i.shade === shade);
       if (ex) {
-        if (ex.qty >= product.stock) {
-          showToast(`⚠️ Solo hay ${product.stock} disponibles`);
-          return prev;
-        }
+        if (ex.qty >= product.stock) { didAdd = false; showToast(`Solo hay ${product.stock} disponibles`); return prev; }
         return prev.map((i) => i.product.id === product.id && i.shade === shade ? { ...i, qty: i.qty + 1 } : i);
       }
       return [...prev, { product, shade, qty: 1 }];
     });
-    
-    // Solo mostrar toast si realmente se va a agregar (no excedió límite)
-    setCartItems(prev => {
-      const ex = prev.find((i) => i.product.id === product.id && i.shade === shade);
-      if (!ex || ex.qty < product.stock || (ex && ex.qty === product.stock && prev !== cartItems)) {
-         showToast(`✓ ${product.name}${shade ? ` · ${shade}` : ""} agregado`);
-      }
-      return prev;
-    });
+    if (didAdd) showToast(`${product.name}${shade ? ` · ${shade}` : ""} — agregado`);
   }
 
-  function removeFromCart(id: string, shade?: string) { setCartItems((prev) => prev.filter((i) => !(i.product.id === id && i.shade === shade))); }
-  
-  function changeQty(id: string, shade: string | undefined, delta: number) { 
+  function removeFromCart(id: string, shade?: string) {
+    setCartItems((prev) => prev.filter((i) => !(i.product.id === id && i.shade === shade)));
+  }
+
+  function changeQty(id: string, shade: string | undefined, delta: number) {
     setCartItems((prev) => prev.map((i) => {
       if (i.product.id === id && i.shade === shade) {
         const newQty = i.qty + delta;
-        if (newQty > i.product.stock) {
-          showToast(`⚠️ Solo hay ${i.product.stock} disponibles`);
-          return { ...i, qty: i.product.stock };
-        }
+        if (newQty > i.product.stock) { showToast(`Solo hay ${i.product.stock} disponibles`); return { ...i, qty: i.product.stock }; }
         return { ...i, qty: newQty };
       }
       return i;
-    }).filter((i) => i.qty > 0)); 
+    }).filter((i) => i.qty > 0));
   }
-  
+
   const scrollToCatalog = () => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <div className="bg-surface text-on-surface min-h-screen">
+
+      {/* Toast */}
       {toast && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] bg-on-surface text-white font-label-md text-[11px] sm:text-label-md px-4 py-3 rounded-full shadow-lg max-w-[90vw] text-center animate-scale-pop">{toast}</div>
+        <div
+          key={toast.key}
+          className="toast fixed top-5 left-1/2 -translate-x-1/2 z-[200] animate-scale-pop max-w-[85vw] text-center"
+        >
+          {toast.msg}
+        </div>
       )}
 
-      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop py-3 md:py-4 backdrop-blur-xl bg-paper-white/90 border-b border-outline-variant/30 text-on-surface">
-        {/* Mobile left: menu & search buttons */}
-        <div className="flex-1 flex justify-start md:hidden gap-1">
-          <button className="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Menú">
-            <span className="material-symbols-outlined">{mobileMenuOpen ? "close" : "menu"}</span>
+      {/* ── Header ──────────────────────────────────────────────────────────── */}
+      <header className="fixed top-0 left-0 w-full z-50 flex items-center px-4 md:px-12 py-0 h-[60px] md:h-[72px] backdrop-blur-xl bg-paper-white/92 border-b border-outline-variant/20">
+
+        {/* Left: mobile menu+search / desktop nav */}
+        <div className="flex-1 flex items-center gap-1">
+          {/* Mobile */}
+          <button className="md:hidden w-10 h-10 flex items-center justify-center text-on-surface/70 hover:text-on-surface transition-colors" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Menú">
+            <span className="material-symbols-outlined text-[22px]">{mobileMenuOpen ? "close" : "menu"}</span>
           </button>
-          <button className="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" onClick={() => setSearchOpen((v) => !v)} aria-label="Buscar">
-            <span className="material-symbols-outlined">search</span>
+          <button className="md:hidden w-10 h-10 flex items-center justify-center text-on-surface/70 hover:text-on-surface transition-colors" onClick={() => setSearchOpen((v) => !v)} aria-label="Buscar">
+            <span className="material-symbols-outlined text-[22px]">search</span>
+          </button>
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {ALL_CATEGORIES.filter((c) => c !== "Todas").map((cat) => (
+              <button
+                key={cat}
+                onClick={() => { setActiveCategory(cat as Category); scrollToCatalog(); }}
+                className={`text-[11px] uppercase tracking-[0.12em] font-medium pb-0.5 border-b transition-all duration-200 ${
+                  activeCategory === cat
+                    ? "text-on-surface border-rose-gold"
+                    : "text-on-surface/50 border-transparent hover:text-on-surface hover:border-on-surface/30"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </nav>
+        </div>
+
+        {/* Center: Logo */}
+        <div className="flex items-center justify-center shrink-0">
+          <button
+            onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            className="flex items-center"
+            aria-label="Inicio"
+          >
+            <Image
+              alt="Selene"
+              src="/logo.png"
+              width={120}
+              height={48}
+              priority
+              className="h-9 md:h-12 w-auto object-contain"
+            />
           </button>
         </div>
-        
-        {/* Desktop left: nav */}
-        <nav className="hidden md:flex items-center gap-stack-lg flex-1">
-          {ALL_CATEGORIES.filter((c) => c !== "Todas").map((cat) => (
-            <button key={cat} onClick={() => { setActiveCategory(cat as Category); scrollToCatalog(); }}
-              className={`font-label-md text-label-md transition-colors border-b-2 pb-1 ${activeCategory === cat ? "text-primary border-primary" : "text-on-surface-variant border-transparent hover:text-primary"}`}>{cat}</button>
-          ))}
-        </nav>
 
-        {/* Logo */}
-        <div className="flex flex-col items-center justify-center flex-1 shrink-0 z-10 pointer-events-none">
-          <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); scrollToCatalog(); }} className="flex flex-col items-center gap-0.5 pointer-events-auto">
-            <Image alt="Selene Logo" className="header-logo h-10 md:h-16 w-auto object-contain max-w-[120px] sm:max-w-[150px]" src="/logo.png" width={150} height={64} priority />
-          </button>
-        </div>
-
-        {/* Right actions */}
-        <div className="flex items-center justify-end gap-1 md:gap-stack-md flex-1">
-          <div className="hidden md:flex relative">
-            <input className="bg-transparent border-0 border-b border-on-surface px-0 py-1 text-sm w-48 outline-none focus:border-rose-gold transition-colors"
-              placeholder="Buscar..." type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); scrollToCatalog(); }} />
-            <span className="material-symbols-outlined absolute right-0 top-1 text-[18px]">search</span>
+        {/* Right: search, whatsapp, cart */}
+        <div className="flex-1 flex items-center justify-end gap-1 md:gap-2">
+          <div className="hidden md:flex relative items-center">
+            <input
+              className="bg-transparent border-0 border-b border-on-surface/20 px-0 pr-6 py-1 text-[12px] w-40 outline-none focus:border-rose-gold transition-colors placeholder:text-on-surface/30"
+              placeholder="Buscar..."
+              type="text"
+              value={searchQuery}
+              onChange={(e) => { setSearchQuery(e.target.value); scrollToCatalog(); }}
+            />
+            <span className="material-symbols-outlined absolute right-0 text-[16px] text-on-surface/30">search</span>
           </div>
-          <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" aria-label="WhatsApp">
-            <span className="material-symbols-outlined">chat</span>
+          <a
+            href="https://wa.me/584244162454"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center text-on-surface/60 hover:text-on-surface transition-colors"
+            aria-label="WhatsApp"
+          >
+            <span className="material-symbols-outlined text-[20px]">chat</span>
           </a>
-          <button onClick={() => setCartOpen(true)} className="relative min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" aria-label="Carrito">
-            <span className="material-symbols-outlined">shopping_cart</span>
-            {cartCount > 0 && <span className="absolute top-1 right-1 bg-rose-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold animate-scale-pop">{cartCount}</span>}
+          <button
+            onClick={() => setCartOpen(true)}
+            className="relative w-10 h-10 flex items-center justify-center text-on-surface/60 hover:text-on-surface transition-colors"
+            aria-label="Carrito"
+          >
+            <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
+            {cartCount > 0 && (
+              <span className="absolute top-1.5 right-1 bg-rose-gold text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold animate-scale-pop leading-none">
+                {cartCount}
+              </span>
+            )}
           </button>
         </div>
       </header>
 
+      {/* Mobile search bar */}
       {searchOpen && (
-        <div className="fixed top-[64px] left-0 w-full z-40 px-4 py-3 bg-paper-white/95 backdrop-blur-xl border-b border-outline-variant/30 animate-slide-in-down">
-          <input autoFocus className="w-full bg-surface-container rounded-lg px-4 py-3 text-sm outline-none border border-outline-variant/40 focus:border-primary"
-            placeholder="Buscar productos..." type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+        <div className="fixed top-[60px] left-0 w-full z-40 px-4 py-3 bg-paper-white/98 backdrop-blur-xl border-b border-outline-variant/20 animate-slide-in-down">
+          <input
+            autoFocus
+            className="w-full bg-surface-container rounded-none border-b border-outline-variant/40 focus:border-primary px-3 py-2.5 text-sm outline-none"
+            placeholder="Buscar productos..."
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
       )}
+
+      {/* Mobile side menu */}
       {mobileMenuOpen && (
         <>
-          {/* Backdrop closes menu on tap outside */}
           <div className="fixed inset-0 z-[39] bg-black/20" onClick={() => setMobileMenuOpen(false)} />
-          <div className="fixed top-[64px] left-0 w-4/5 max-w-xs z-40 bg-paper-white shadow-xl flex flex-col h-[calc(100vh-64px)] animate-slide-in-left">
-            <div className="px-6 py-5 border-b border-outline-variant/20">
-              <p className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant mb-3">Categorías</p>
+          <div className="fixed top-[60px] left-0 w-4/5 max-w-xs z-40 bg-paper-white shadow-2xl flex flex-col h-[calc(100vh-60px)] animate-slide-in-left">
+            <div className="px-6 py-5 border-b border-outline-variant/15">
+              <p className="text-[9px] uppercase tracking-widest text-on-surface-variant/50 mb-4">Categorías</p>
               {ALL_CATEGORIES.map((cat) => (
-                <button key={cat} onClick={() => { setActiveCategory(cat as Category | "Todas"); setMobileMenuOpen(false); scrollToCatalog(); }}
-                  className={`flex items-center w-full text-left font-label-md text-label-md py-3 border-b border-outline-variant/10 last:border-0 gap-3 min-h-[44px] ${activeCategory === cat ? "text-primary" : "text-on-surface-variant"}`}>
-                  {cat !== "Todas" && <span className="material-symbols-outlined text-base text-rose-gold/70">{categoryIcon[cat as Category]}</span>}
+                <button
+                  key={cat}
+                  onClick={() => { setActiveCategory(cat as Category | "Todas"); setMobileMenuOpen(false); scrollToCatalog(); }}
+                  className={`flex items-center w-full text-left text-sm py-3 border-b border-outline-variant/10 last:border-0 gap-3 min-h-[44px] transition-colors ${
+                    activeCategory === cat ? "text-on-surface font-medium" : "text-on-surface-variant hover:text-on-surface"
+                  }`}
+                >
                   {cat}
                 </button>
               ))}
             </div>
             <div className="px-6 py-4">
-              <p className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant mb-3">Marcas</p>
+              <p className="text-[9px] uppercase tracking-widest text-on-surface-variant/50 mb-4">Marcas</p>
               {ALL_BRANDS.map((brand) => (
-                <button key={brand} onClick={() => { setActiveBrand(brand as Brand | "Todas"); setMobileMenuOpen(false); scrollToCatalog(); }}
-                  className={`w-full text-left font-body-md text-sm py-2.5 border-b border-outline-variant/10 last:border-0 min-h-[44px] ${activeBrand === brand ? "text-primary font-semibold" : "text-on-surface-variant"}`}>
+                <button
+                  key={brand}
+                  onClick={() => { setActiveBrand(brand as Brand | "Todas"); setMobileMenuOpen(false); scrollToCatalog(); }}
+                  className={`w-full text-left text-sm py-2.5 border-b border-outline-variant/10 last:border-0 min-h-[44px] transition-colors ${
+                    activeBrand === brand ? "text-on-surface font-semibold" : "text-on-surface-variant hover:text-on-surface"
+                  }`}
+                >
                   {brand}
                 </button>
               ))}
@@ -458,142 +641,211 @@ export default function Home() {
         </>
       )}
 
-      <main className="pt-[68px] md:pt-[96px] pb-section-gap">
-        <section className="relative w-full bg-surface-container-low overflow-hidden border-b border-outline-variant/30">
-          {/* Decorative Background Elements */}
-          <div className="absolute top-[-10%] right-[-5%] w-[50%] h-[120%] bg-rose-gold/40 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-          <div className="absolute bottom-0 left-[-10%] w-[40%] h-[50%] bg-surface-container-highest/50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-          
-          <div className="px-4 md:px-margin-desktop w-full max-w-[1200px] mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center py-12 md:py-20 lg:py-28">
-            
-            {/* Left Column: Typography */}
-            <div className="flex flex-col items-start text-left">
-              <div className="flex items-center gap-4 mb-6 animate-fade-up stagger-1">
-                <div className="w-12 h-[1px] bg-on-surface/30"></div>
-                <p className="font-label-sm text-[10px] md:text-xs uppercase tracking-[0.25em] text-on-surface/70">Tu tienda de makeup en Venezuela</p>
+      <main className="pt-[60px] md:pt-[72px]">
+
+        {/* ── Hero ──────────────────────────────────────────────────────────── */}
+        <section className="hero-section px-5 md:px-16 lg:px-24 pt-16 md:pt-24 pb-16 md:pb-20 border-b border-outline-variant/15">
+          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-end">
+
+            {/* Main text block */}
+            <div>
+              {/* Eyebrow — small, tasteful, not the "subtitle above title" cliché */}
+              <div className="flex items-center gap-3 mb-8 animate-fade-up stagger-1">
+                <span className="ornament-line"></span>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-on-surface/40">Venezuela · Makeup Curado</p>
               </div>
-              
-              <h1 className="font-display-lg text-5xl sm:text-6xl md:text-[5.5rem] lg:text-[7rem] text-on-surface leading-none tracking-tight mb-6 animate-fade-up stagger-2">
-                <span className="block italic font-light text-secondary mb-2">The Art of</span>
-                <span className="block font-medium">Makeup.</span>
+
+              {/* Hero title — massive, editorial, just the name */}
+              <h1 className="font-['Libre_Caslon_Text'] leading-[0.9] tracking-tight mb-8 animate-fade-up stagger-2">
+                <span className="block text-[clamp(4rem,12vw,9rem)] italic font-normal text-on-surface/15 select-none" aria-hidden="true">Selene</span>
+                <span className="block text-[clamp(2.5rem,8vw,6.5rem)] font-normal text-on-surface -mt-3 md:-mt-5">
+                  The&nbsp;<em className="text-shimmer not-italic">Art</em>&nbsp;of&nbsp;Makeup.
+                </span>
               </h1>
-              
-              <p className="font-body-md text-base md:text-lg text-on-surface-variant max-w-md mb-10 leading-relaxed animate-fade-up stagger-3">
-                Descubre Glow Tint, Hydratint Concealer, Lip Oils y mucho más. Selección premium curada para resaltar tu belleza natural.
+
+              {/* One-liner — short and confident */}
+              <p className="text-sm md:text-base text-on-surface/50 max-w-sm leading-relaxed mb-10 animate-fade-up stagger-3">
+                Cosméticos de calidad premium, seleccionados para ti. Disponibles en Venezuela.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mt-4 animate-fade-up stagger-4">
-                <button onClick={scrollToCatalog} className="bg-on-surface text-white font-label-md text-[13px] tracking-widest uppercase px-10 py-4 hover:bg-secondary transition-colors min-h-[52px] flex items-center justify-center gap-2 group">
-                  Explorar Catálogo
-                  <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-3 animate-fade-up stagger-4">
+                <button onClick={scrollToCatalog} className="btn-primary">
+                  Ver colección
+                  <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
                 </button>
-                <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="border border-on-surface/20 text-on-surface font-label-md text-[13px] tracking-widest uppercase px-10 py-4 hover:border-on-surface transition-colors inline-flex items-center justify-center gap-2 min-h-[52px]">
-                  Consultar Asesoría
+                <a
+                  href="https://wa.me/584244162454"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                >
+                  Consultar
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Editorial Element (since we lack images, use a typography art piece or badge) */}
-            <div className="hidden md:flex flex-col items-center justify-center relative animate-fade-in stagger-5">
-              <div className="relative w-64 h-64 md:w-80 md:h-80 border-[1px] border-on-surface/10 rounded-full flex items-center justify-center p-4">
-                <div className="absolute inset-0 border-[1px] border-rose-gold/30 rounded-full rotate-45 scale-95"></div>
-                <div className="text-center">
-                  <span className="material-symbols-outlined text-4xl text-rose-gold mb-2 icon-pulse">star</span>
-                  <p className="font-headline-md text-2xl text-on-surface italic">Premium<br/>Quality</p>
-                  <p className="font-label-sm text-[9px] uppercase tracking-widest text-on-surface/50 mt-4">100% Original</p>
-                </div>
-                {/* Decorative circular text (simulated with standard text for simplicity, or just a badge) */}
-                <div className="absolute -bottom-4 right-10 bg-paper-white shadow-xl px-6 py-3 rounded-none border border-outline-variant/20 rotate-[-5deg]">
-                  <p className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface">Nuevos Ingresos</p>
-                </div>
+            {/* Right: stats / editorial info block */}
+            <div className="hidden md:flex flex-col gap-6 items-end text-right animate-fade-up stagger-4 pb-2">
+              <div>
+                <p className="font-['Libre_Caslon_Text'] text-5xl text-on-surface/10 leading-none">{ALL_PRODUCTS.length}</p>
+                <p className="text-[9px] uppercase tracking-widest text-on-surface/35 mt-1">Productos</p>
+              </div>
+              <div className="w-px h-12 bg-outline-variant/30 self-end mr-2"></div>
+              <div>
+                <p className="font-['Libre_Caslon_Text'] text-5xl text-on-surface/10 leading-none">{ALL_BRANDS.length - 1}</p>
+                <p className="text-[9px] uppercase tracking-widest text-on-surface/35 mt-1">Marcas</p>
               </div>
             </div>
-            
           </div>
         </section>
 
-        <section id="catalog" className="px-3 sm:px-4 md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap pb-24 md:pb-12">
-          <div className="flex flex-col items-center mb-10 md:mb-16">
-            <h2 className="font-display-lg text-3xl sm:text-4xl md:text-5xl text-on-surface mb-3 text-center animate-fade-up">La Colección</h2>
-            <div className="w-16 h-[1px] bg-rose-gold mb-6 animate-fade-up stagger-1"></div>
-            <p className="font-body-md text-sm sm:text-base text-on-surface-variant text-center mb-8 animate-fade-up stagger-2">{filteredProducts.length} {filteredProducts.length !== 1 ? "productos disponibles" : "producto disponible"}</p>
-            
-            {/* Category tabs — minimalist editorial */}
-            <div className="w-full overflow-x-auto pb-4 mb-2 hide-scrollbar border-b border-outline-variant/20 animate-fade-up stagger-3">
-              <div className="flex gap-6 md:gap-10 min-w-max md:justify-center px-4">
+        {/* ── Catalog ───────────────────────────────────────────────────────── */}
+        <section id="catalog" className="px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1280px] mx-auto pt-14 pb-28 md:pb-16">
+
+          {/* Catalog header */}
+          <div className="mb-10 md:mb-12">
+            <div className="flex items-baseline justify-between mb-6">
+              <h2 className="font-['Libre_Caslon_Text'] text-2xl md:text-3xl text-on-surface">La Colección</h2>
+              <span className="text-[10px] uppercase tracking-widest text-on-surface/35">
+                {filteredProducts.length} {filteredProducts.length !== 1 ? "productos" : "producto"}
+              </span>
+            </div>
+
+            {/* Category tabs */}
+            <div className="w-full overflow-x-auto hide-scrollbar border-b border-outline-variant/20 mb-5">
+              <div className="flex gap-6 md:gap-8 min-w-max px-0 pb-0">
                 {ALL_CATEGORIES.map((cat) => (
-                  <button key={cat} onClick={() => setActiveCategory(cat as Category | "Todas")}
-                    className={`relative pb-2 font-label-md text-xs sm:text-sm uppercase tracking-widest transition-colors ${activeCategory === cat ? "text-on-surface font-semibold" : "text-on-surface-variant hover:text-on-surface"}`}>
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat as Category | "Todas")}
+                    className={`filter-tab whitespace-nowrap ${activeCategory === cat ? "active text-on-surface" : "text-on-surface/40 hover:text-on-surface"}`}
+                  >
                     {cat}
-                    {activeCategory === cat && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-on-surface animate-scale-pop origin-center"></span>}
                   </button>
                 ))}
               </div>
             </div>
-            
-            {/* Brand filters — subtle outlined tags */}
-            <div className="w-full overflow-x-auto pb-2 mt-4 hide-scrollbar animate-fade-up stagger-4">
-              <div className="flex gap-3 min-w-max md:justify-center px-4">
+
+            {/* Brand filters */}
+            <div className="w-full overflow-x-auto hide-scrollbar">
+              <div className="flex gap-2 min-w-max">
                 {ALL_BRANDS.map((brand) => (
-                  <button key={brand} onClick={() => setActiveBrand(brand as Brand | "Todas")}
-                    className={`px-4 py-1.5 rounded-none font-label-sm text-[10px] sm:text-xs uppercase tracking-wider border transition-all ${activeBrand === brand ? "bg-on-surface text-white border-on-surface" : "bg-transparent text-on-surface/60 border-on-surface/20 hover:border-on-surface hover:text-on-surface"}`}>{brand}</button>
+                  <button
+                    key={brand}
+                    onClick={() => setActiveBrand(brand as Brand | "Todas")}
+                    className={`brand-pill ${activeBrand === brand ? "active" : "text-on-surface/50"}`}
+                  >
+                    {brand}
+                  </button>
                 ))}
               </div>
             </div>
           </div>
+
+          {/* Grid */}
           {filteredProducts.length > 0 ? (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
-                {filteredProducts.slice(0, visibleCount).map((product, i) => <ProductCard key={product.id} product={product} onAddToCart={addToCart} onQuickView={setQuickViewProduct} index={i} />)}
+                {filteredProducts.slice(0, visibleCount).map((product, i) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    onAddToCart={addToCart}
+                    onQuickView={setQuickViewProduct}
+                    index={i}
+                  />
+                ))}
               </div>
               {visibleCount < filteredProducts.length && (
-                <div className="flex justify-center mt-10">
-                  <button onClick={() => setVisibleCount(v => v + 15)} className="bg-surface-container-low text-on-surface border border-outline-variant font-label-md px-8 py-3 rounded-full hover:bg-surface-container transition-colors shadow-sm">
-                    Cargar más productos
+                <div className="flex justify-center mt-12">
+                  <button
+                    onClick={() => setVisibleCount((v) => v + 16)}
+                    className="btn-ghost"
+                  >
+                    Cargar más
+                    <span className="material-symbols-outlined text-[15px]">expand_more</span>
                   </button>
                 </div>
               )}
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center py-16 gap-4 text-center">
-              <span className="material-symbols-outlined text-6xl text-outline-variant">search_off</span>
-              <p className="font-headline-sm text-lg text-on-surface-variant">No encontramos productos</p>
-              <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); }}
-                className="mt-2 border border-outline-variant text-secondary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-surface-container active:bg-surface-container min-h-[48px]">Ver todo</button>
+            <div className="flex flex-col items-center justify-center py-24 gap-5 text-center">
+              <span className="material-symbols-outlined text-5xl text-outline-variant/40">search_off</span>
+              <p className="text-sm text-on-surface-variant">No encontramos lo que buscas.</p>
+              <button
+                onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); }}
+                className="btn-ghost py-2 px-6 text-[10px]"
+              >
+                Ver todo
+              </button>
             </div>
           )}
         </section>
       </main>
 
-      <footer className="w-full py-section-gap px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter bg-surface-container text-on-surface">
-        <div>
-          <h3 className="font-headline-sm text-headline-sm text-on-surface mb-stack-md">Selene Makeup</h3>
-          <p className="font-body-md text-body-md mb-4 text-on-surface-variant max-w-sm">Elevando tu belleza natural con cosméticos curados y de calidad premium.</p>
-        </div>
-        <div className="md:col-span-2 flex flex-col md:flex-row justify-between gap-stack-lg">
-          <div className="flex flex-col gap-stack-sm">
-            <h4 className="font-label-md text-label-md uppercase tracking-wider mb-2">Atención al Cliente</h4>
-            <span className="font-body-md text-body-md text-secondary italic">Envíos a toda Venezuela</span>
+      {/* ── Footer ────────────────────────────────────────────────────────────── */}
+      <footer className="border-t border-outline-variant/20 bg-surface-container-low/60">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-12 py-12 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div>
+            <Image src="/logo.png" alt="Selene" width={80} height={32} className="h-8 w-auto mb-4 opacity-70" />
+            <p className="text-sm text-on-surface-variant leading-relaxed max-w-xs">
+              Cosméticos curados con criterio. Belleza premium accesible en Venezuela.
+            </p>
           </div>
-          <div className="flex flex-col gap-stack-sm">
-            <h4 className="font-label-md text-label-md uppercase tracking-wider mb-2">Síguenos</h4>
-            <a className="font-body-md text-body-md text-on-surface-variant hover:text-primary flex items-center gap-2" href="https://instagram.com/selenemakeup1" target="_blank" rel="noopener noreferrer">
-              <span className="material-symbols-outlined text-sm">photo_camera</span>@selenemakeup1
+          <div className="flex flex-col gap-3">
+            <p className="text-[9px] uppercase tracking-widest text-on-surface/30 mb-1">Atención</p>
+            <span className="text-sm text-on-surface-variant">Envíos a toda Venezuela</span>
+            <a href="https://wa.me/584244162454" className="text-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-[15px]">chat</span>
+              Consultar por WhatsApp
+            </a>
+          </div>
+          <div className="flex flex-col gap-3">
+            <p className="text-[9px] uppercase tracking-widest text-on-surface/30 mb-1">Redes</p>
+            <a
+              href="https://instagram.com/selenemakeup1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5"
+            >
+              <span className="material-symbols-outlined text-[15px]">photo_camera</span>
+              @selenemakeup1
             </a>
           </div>
         </div>
-        <div className="md:col-span-3 border-t border-outline-variant/30 mt-stack-lg pt-stack-md">
-          <p className="font-body-md text-body-md text-on-surface-variant">&copy; 2024 Selene Makeup. Todos los derechos reservados.</p>
+        <div className="border-t border-outline-variant/15 px-5 md:px-12 py-4">
+          <p className="text-[10px] text-on-surface/25">© 2025 Selene Makeup Store</p>
         </div>
       </footer>
 
-      <a className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center wa-float"
-        href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer">
-        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d={WaPath} /></svg>
+      {/* WhatsApp FAB */}
+      <a
+        className="wa-float fixed bottom-6 right-5 bg-[#25D366] text-white p-3.5 rounded-full shadow-lg z-50 flex items-center justify-center"
+        href="https://wa.me/584244162454"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Escribir por WhatsApp"
+      >
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d={WaPath} /></svg>
       </a>
 
-      {cartOpen && <CartDrawer items={cartItems} onClose={() => setCartOpen(false)} onRemove={removeFromCart} onQtyChange={changeQty} />}
-      {quickViewProduct && <QuickViewModal product={quickViewProduct} onClose={() => setQuickViewProduct(null)} onAddToCart={addToCart} />}
+      {/* Overlays */}
+      {cartOpen && (
+        <CartDrawer
+          items={cartItems}
+          onClose={() => setCartOpen(false)}
+          onRemove={removeFromCart}
+          onQtyChange={changeQty}
+        />
+      )}
+      {quickViewProduct && (
+        <QuickViewModal
+          product={quickViewProduct}
+          onClose={() => setQuickViewProduct(null)}
+          onAddToCart={addToCart}
+        />
+      )}
     </div>
   );
 }
