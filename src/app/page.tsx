@@ -396,8 +396,8 @@ export default function Home() {
           </button>
         </div>
         {/* Logo */}
-        <div className="flex flex-col items-center justify-center flex-1">
-          <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); scrollToCatalog(); }} className="flex flex-col items-center gap-0.5">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center pointer-events-none">
+          <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); scrollToCatalog(); }} className="flex flex-col items-center gap-0.5 pointer-events-auto">
             <Image alt="Selene Logo" className="header-logo h-10 md:h-16 w-auto object-contain" src="/logo.png" width={150} height={64} priority />
           </button>
         </div>
