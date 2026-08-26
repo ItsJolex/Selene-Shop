@@ -14,7 +14,7 @@ export default function Home() {
 </nav>
 <div className="flex flex-col items-center justify-center flex-1">
 <a className="flex flex-col items-center gap-2" href="#">
-<Image alt="Selene Logo" className="h-16 md:h-24 w-auto object-contain" src="/Selene-Shop/logo.png" width={96} height={96} priority />
+<Image alt="Selene Logo" className="h-16 md:h-24 w-auto object-contain" src="/logo.png" width={96} height={96} priority />
 <span className="font-label-sm text-[10px] md:text-label-sm tracking-[0.2em] uppercase text-deep-charcoal text-center">Selene MAKE UP STORE</span>
 </a>
 </div>
