@@ -18,6 +18,11 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  /* Hide real logo while splash screen is active */
+  body.splash-active .header-logo {
+    opacity: 0 !important;
+  }
 }
 
 /* ── Keyframe Animations ─────────────────────────────────────────────────── */

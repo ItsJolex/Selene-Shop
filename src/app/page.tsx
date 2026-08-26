@@ -396,8 +396,7 @@ export default function Home() {
         {/* Logo */}
         <div className="flex flex-col items-center justify-center flex-1">
           <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); scrollToCatalog(); }} className="flex flex-col items-center gap-0.5">
-            <Image alt="Selene Logo" className="h-10 md:h-16 w-auto object-contain" src="/logo.png" width={64} height={64} priority />
-            <span className="font-label-sm text-[8px] md:text-[10px] tracking-[0.2em] uppercase text-deep-charcoal text-center">Selene MAKE UP STORE</span>
+            <Image alt="Selene Logo" className="header-logo h-10 md:h-16 w-auto object-contain" src="/logo.png" width={150} height={64} priority />
           </button>
         </div>
         {/* Right actions */}
