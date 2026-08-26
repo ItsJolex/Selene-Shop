@@ -556,15 +556,15 @@ export default function Home() {
 
         {/* Right: search, whatsapp, cart */}
         <div className="flex-1 flex items-center justify-end gap-1 md:gap-2">
-          <div className="hidden md:flex relative items-center">
+          <div className="hidden md:flex relative items-center group">
             <input
-              className="bg-transparent border-0 border-b border-on-surface/20 px-0 pr-6 py-1 text-[12px] w-40 outline-none focus:border-rose-gold transition-colors placeholder:text-on-surface/30"
+              className="bg-transparent border-0 border-b border-on-surface/20 px-0 pr-6 py-1 text-[12px] w-28 group-hover:w-48 focus:w-48 outline-none group-hover:border-rose-gold focus:border-rose-gold transition-all duration-300 ease-out placeholder:text-on-surface/30"
               placeholder="Buscar..."
               type="text"
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); scrollToCatalog(); }}
             />
-            <span className="material-symbols-outlined absolute right-0 text-[16px] text-on-surface/30">search</span>
+            <span className="material-symbols-outlined absolute right-0 text-[16px] text-on-surface/30 group-hover:text-rose-gold transition-colors duration-300">search</span>
           </div>
           <a
             href="https://wa.me/584244162454"
