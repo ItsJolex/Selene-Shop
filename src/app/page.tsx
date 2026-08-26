@@ -116,7 +116,7 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: {
             onClick={(e) => { e.stopPropagation(); onAddToCart(product, selectedShade); }}
             className="absolute bottom-2.5 right-2.5 w-9 h-9 bg-white/95 rounded-full flex items-center justify-center text-on-surface shadow-sm z-10
                        md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0
-                       hover:bg-deep-charcoal hover:text-white
+                       hover:bg-white hover:shadow-[0_0_14px_rgba(197,151,137,0.45),0_0_5px_rgba(212,163,115,0.25)] hover:border hover:border-rose-gold/30
                        transition-all duration-250 ease-out"
             aria-label={`Agregar ${product.name}`}
           >
