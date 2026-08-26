@@ -154,10 +154,10 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: {
               <button
                 key={shade}
                 onClick={(e) => { e.stopPropagation(); setSelectedShade(shade); }}
-                className={`px-1.5 py-0.5 border text-[8px] uppercase tracking-wide transition-all duration-150 rounded-sm ${
+                className={`px-2 py-0.5 border text-[8px] uppercase tracking-wide transition-all duration-150 rounded-full ${
                   selectedShade === shade
                     ? "bg-deep-charcoal text-white border-deep-charcoal"
-                    : "bg-transparent text-secondary/70 border-outline-variant/50 hover:border-secondary/60"
+                    : "bg-transparent text-secondary/70 border-outline-variant/50 hover:border-secondary/60 hover:bg-surface-container-low"
                 }`}
               >
                 {shade}
@@ -207,19 +207,19 @@ function QuickViewModal({ product, onClose, onAddToCart }: {
   return (
     <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6">
       <div className="absolute inset-0 bg-deep-charcoal/50 backdrop-blur-sm animate-fade-in" onClick={onClose} />
-      <div className="relative w-full max-w-2xl bg-paper-white shadow-2xl overflow-hidden flex flex-col md:flex-row animate-scale-pop max-h-[88vh] rounded-sm">
+      <div className="relative w-full max-w-2xl bg-paper-white shadow-2xl overflow-hidden flex flex-col md:flex-row animate-scale-pop max-h-[88vh] rounded-lg border border-outline-variant/20">
 
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-10 w-9 h-9 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-deep-charcoal hover:text-white transition-all duration-200 shadow-sm"
+          className="absolute top-4 right-4 z-10 w-9 h-9 bg-white/95 backdrop-blur-md rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface hover:border-rose-gold/50 hover:text-rose-gold transition-all duration-200"
           aria-label="Cerrar"
         >
           <span className="material-symbols-outlined text-[18px]">close</span>
         </button>
 
         {/* Image */}
-        <div className="md:w-[45%] relative aspect-square md:aspect-auto bg-surface-container-low shrink-0">
+        <div className="md:w-[45%] relative aspect-square md:aspect-auto bg-surface-container-low shrink-0 md:border-r md:border-outline-variant/20">
           {product.image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -270,10 +270,10 @@ function QuickViewModal({ product, onClose, onAddToCart }: {
                   <button
                     key={shade}
                     onClick={() => setSelectedShade(shade)}
-                    className={`px-3 py-1.5 border text-xs transition-all duration-200 rounded-sm ${
+                    className={`px-4 py-1.5 border text-[11px] font-medium transition-all duration-200 rounded-full ${
                       selectedShade === shade
                         ? "bg-deep-charcoal text-white border-deep-charcoal"
-                        : "bg-transparent text-secondary border-outline-variant hover:border-secondary"
+                        : "bg-transparent text-secondary border-outline-variant hover:border-rose-gold/60 hover:bg-surface-container-low"
                     }`}
                   >
                     {shade}
