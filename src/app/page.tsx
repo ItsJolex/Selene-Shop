@@ -87,7 +87,7 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
           </>
         ) : (
           <>
-            <div className="absolute inset-0 bg-gradient-to-br from-linen-base/70 to-warm-nude/50 group-hover:from-linen-base/90 group-hover:to-warm-nude/70 transition-all duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-surface-container-low/70 to-rose-gold/50 group-hover:from-surface-container-low/90 group-hover:to-rose-gold/70 transition-all duration-500" />
             {/* Category icon */}
             <div className="relative z-10 flex flex-col items-center gap-2 px-3 text-center">
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:bg-white/80 transition-all duration-300">
@@ -107,7 +107,7 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
         <button
           onClick={(e) => { e.stopPropagation(); if (product.stock > 0) onAddToCart(product, selectedShade); }}
           disabled={product.stock === 0}
-          className="absolute bottom-2.5 right-2.5 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white active:bg-rose-gold active:text-white transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 shadow-sm z-10 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute bottom-2.5 right-2.5 bg-white/90 backdrop-blur-sm rounded-full p-2 text-on-surface hover:bg-rose-gold hover:text-white active:bg-rose-gold active:text-white transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 shadow-sm z-10 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label={`Agregar ${product.name}`}>
           <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
         </button>
@@ -119,7 +119,7 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
         <p className="font-label-sm text-[9px] text-rose-gold/80 mb-0.5 uppercase tracking-[0.15em] truncate">{product.brand}</p>
         {/* Product name & Price */}
         <div className="flex justify-between items-start gap-2 mb-1.5">
-          <h3 className="font-headline-sm text-[11px] sm:text-xs text-deep-charcoal leading-snug line-clamp-2">{product.name}</h3>
+          <h3 className="font-headline-sm text-[11px] sm:text-xs text-on-surface leading-snug line-clamp-2">{product.name}</h3>
           <span className="font-label-md text-[11px] sm:text-xs text-primary shrink-0">${product.price.toFixed(2)}</span>
         </div>
         {/* Note */}
@@ -135,7 +135,7 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
                 onClick={(e) => { e.stopPropagation(); setSelectedShade(shade); }}
                 className={`px-1.5 py-0.5 rounded-md border font-label-sm text-[8px] sm:text-[9px] transition-all duration-200 min-h-[20px] ${
                   selectedShade === shade
-                    ? "bg-deep-charcoal text-white border-deep-charcoal"
+                    ? "bg-on-surface text-white border-on-surface"
                     : "bg-surface-container/60 text-secondary border-outline-variant/50 hover:border-secondary"
                 }`}>
                 {shade}
@@ -166,7 +166,7 @@ function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; o
     <div className="fixed inset-0 z-[120] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
       <div className="relative w-full max-w-3xl bg-paper-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row animate-scale-pop max-h-[90vh]">
-        <button onClick={onClose} className="absolute top-3 right-3 z-10 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors shadow-sm">
+        <button onClick={onClose} className="absolute top-3 right-3 z-10 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-rose-gold hover:text-white transition-colors shadow-sm">
           <span className="material-symbols-outlined">close</span>
         </button>
         
@@ -185,7 +185,7 @@ function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; o
         
         <div className="md:w-1/2 p-6 md:p-8 flex flex-col overflow-y-auto">
           <p className="font-label-sm text-xs text-secondary uppercase tracking-widest mb-1">{product.brand}</p>
-          <h2 className="font-headline-md text-2xl sm:text-3xl text-deep-charcoal leading-tight mb-2">{product.name}</h2>
+          <h2 className="font-headline-md text-2xl sm:text-3xl text-on-surface leading-tight mb-2">{product.name}</h2>
           {product.note && <p className="text-sm italic text-error/80 mb-4">{product.note}</p>}
           
           <div className="flex items-center gap-2 mb-4">
@@ -203,7 +203,7 @@ function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; o
               <div className="flex flex-wrap gap-2">
                 {product.shades.map((shade) => (
                   <button key={shade} onClick={() => setSelectedShade(shade)}
-                    className={`px-3 py-1.5 rounded-full border text-xs sm:text-sm transition-all duration-200 ${selectedShade === shade ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>
+                    className={`px-3 py-1.5 rounded-full border text-xs sm:text-sm transition-all duration-200 ${selectedShade === shade ? "bg-on-surface text-white border-on-surface" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>
                     {shade}
                   </button>
                 ))}
@@ -214,7 +214,7 @@ function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; o
           <div className="mt-auto pt-6 border-t border-outline-variant/30">
             <button onClick={() => { if (product.stock > 0) { onAddToCart(product, selectedShade); onClose(); } }} 
               disabled={product.stock === 0}
-              className="w-full bg-deep-charcoal text-white font-label-md text-sm sm:text-base py-4 rounded-xl hover:bg-surface-tint active:bg-surface-tint transition-colors flex items-center justify-center gap-2 shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
+              className="w-full bg-on-surface text-white font-label-md text-sm sm:text-base py-4 rounded-xl hover:bg-surface-tint active:bg-surface-tint transition-colors flex items-center justify-center gap-2 shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
               <span className="material-symbols-outlined">add_shopping_cart</span>
               Agregar al carrito
             </button>
@@ -237,8 +237,8 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem
       {/* Cart panel — full width on mobile, max-sm on desktop */}
       <div className="relative w-full sm:max-w-sm bg-paper-white shadow-2xl flex flex-col h-full animate-slide-in-right">
         <div className="flex items-center justify-between px-5 py-4 border-b border-outline-variant/30">
-          <h2 className="font-headline-sm text-lg sm:text-xl text-deep-charcoal">Mi Carrito</h2>
-          <button onClick={onClose} className="text-on-surface-variant hover:text-deep-charcoal min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Cerrar carrito">
+          <h2 className="font-headline-sm text-lg sm:text-xl text-on-surface">Mi Carrito</h2>
+          <button onClick={onClose} className="text-on-surface-variant hover:text-on-surface min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Cerrar carrito">
             <span className="material-symbols-outlined">close</span>
           </button>
         </div>
@@ -255,7 +255,7 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest mb-0.5 truncate">{item.product.brand}</p>
-                <p className="font-headline-sm text-sm text-deep-charcoal leading-tight line-clamp-2">{item.product.name}</p>
+                <p className="font-headline-sm text-sm text-on-surface leading-tight line-clamp-2">{item.product.name}</p>
                 {item.shade && <p className="font-label-sm text-[10px] text-secondary mt-0.5">{item.shade}</p>}
                 <p className="font-label-md text-xs text-primary mt-1">${(item.product.price * item.qty).toFixed(2)}</p>
               </div>
@@ -277,7 +277,7 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem
         {items.length > 0 && (
           <div className="px-5 py-5 pb-6 border-t border-outline-variant/30 space-y-3">
             <div className="flex justify-between font-label-md text-sm text-on-surface-variant"><span>Total productos:</span><span>{total}</span></div>
-            <div className="flex justify-between font-headline-sm text-lg text-deep-charcoal mb-2"><span>Total a pagar:</span><span>${totalPrice.toFixed(2)}</span></div>
+            <div className="flex justify-between font-headline-sm text-lg text-on-surface mb-2"><span>Total a pagar:</span><span>${totalPrice.toFixed(2)}</span></div>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-label-md text-label-md py-4 rounded-lg hover:opacity-90 active:opacity-90 min-h-[52px]">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d={WaPath} /></svg>
               Pedir por WhatsApp
@@ -378,10 +378,10 @@ export default function Home() {
   return (
     <div className="bg-surface text-on-surface min-h-screen">
       {toast && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] bg-deep-charcoal text-white font-label-md text-[11px] sm:text-label-md px-4 py-3 rounded-full shadow-lg max-w-[90vw] text-center animate-scale-pop">{toast}</div>
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] bg-on-surface text-white font-label-md text-[11px] sm:text-label-md px-4 py-3 rounded-full shadow-lg max-w-[90vw] text-center animate-scale-pop">{toast}</div>
       )}
 
-      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop py-3 md:py-4 backdrop-blur-xl bg-paper-white/90 border-b border-outline-variant/30 text-deep-charcoal">
+      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop py-3 md:py-4 backdrop-blur-xl bg-paper-white/90 border-b border-outline-variant/30 text-on-surface">
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-stack-lg flex-1">
           {ALL_CATEGORIES.filter((c) => c !== "Todas").map((cat) => (
@@ -391,7 +391,7 @@ export default function Home() {
         </nav>
         {/* Mobile left: menu button */}
         <div className="flex-1 flex justify-start md:hidden">
-          <button className="min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Menú">
+          <button className="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Menú">
             <span className="material-symbols-outlined">{mobileMenuOpen ? "close" : "menu"}</span>
           </button>
         </div>
@@ -404,17 +404,17 @@ export default function Home() {
         {/* Right actions */}
         <div className="flex items-center justify-end gap-1 md:gap-stack-md flex-1">
           <div className="hidden md:flex relative">
-            <input className="bg-transparent border-0 border-b border-deep-charcoal px-0 py-1 text-sm w-48 outline-none focus:border-rose-gold transition-colors"
+            <input className="bg-transparent border-0 border-b border-on-surface px-0 py-1 text-sm w-48 outline-none focus:border-rose-gold transition-colors"
               placeholder="Buscar..." type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); scrollToCatalog(); }} />
             <span className="material-symbols-outlined absolute right-0 top-1 text-[18px]">search</span>
           </div>
-          <button className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal hover:text-primary" onClick={() => setSearchOpen((v) => !v)} aria-label="Buscar">
+          <button className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" onClick={() => setSearchOpen((v) => !v)} aria-label="Buscar">
             <span className="material-symbols-outlined">search</span>
           </button>
-          <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal hover:text-primary" aria-label="WhatsApp">
+          <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" aria-label="WhatsApp">
             <span className="material-symbols-outlined">chat</span>
           </a>
-          <button onClick={() => setCartOpen(true)} className="relative min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal hover:text-primary" aria-label="Carrito">
+          <button onClick={() => setCartOpen(true)} className="relative min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" aria-label="Carrito">
             <span className="material-symbols-outlined">shopping_cart</span>
             {cartCount > 0 && <span className="absolute top-1 right-1 bg-rose-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold animate-scale-pop">{cartCount}</span>}
           </button>
@@ -456,41 +456,84 @@ export default function Home() {
       )}
 
       <main className="pt-[64px] md:pt-[88px] pb-section-gap">
-        <section className="px-4 md:px-margin-desktop mb-section-gap flex flex-col items-center text-center justify-center min-h-[50vh] hero-gradient py-12 md:py-16">
-          <div className="max-w-3xl mx-auto w-full">
-            <p className="font-label-sm text-[11px] sm:text-label-sm uppercase tracking-[0.2em] text-rose-gold mb-3 animate-fade-up stagger-1">Tu tienda de makeup en Venezuela</p>
-            <h1 className="font-headline-md md:font-display-lg text-2xl sm:text-headline-md md:text-display-lg text-deep-charcoal mb-4 leading-tight tracking-tight animate-fade-up stagger-2">
-              Selene.<br /><span className="text-shimmer">The Art of Makeup.</span>
-            </h1>
-            <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant mb-6 max-w-xl mx-auto animate-fade-up stagger-3">Descubre Glow Tint, Hydratint Concealer, Lip Oils y mucho más. Calidad premium, directo a ti.</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up stagger-4">
-              <button onClick={scrollToCatalog} className="bg-deep-charcoal text-white font-label-md text-label-md px-8 py-4 rounded-full hover:bg-surface-tint active:bg-surface-tint transition-colors min-h-[52px]">Ver Catálogo</button>
-              <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="border border-outline-variant text-on-surface-variant font-label-md text-label-md px-8 py-4 rounded-full hover:border-primary hover:text-primary active:border-primary active:text-primary transition-colors inline-flex items-center justify-center gap-2 min-h-[52px]">
-                <span className="material-symbols-outlined text-sm">chat</span>Consultar
-              </a>
+        <section className="relative w-full min-h-[60vh] md:min-h-[75vh] flex items-center bg-surface-container-low overflow-hidden border-b border-outline-variant/30">
+          {/* Decorative Background Elements */}
+          <div className="absolute top-[-10%] right-[-5%] w-[50%] h-[120%] bg-rose-gold/40 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-[-10%] w-[40%] h-[50%] bg-surface-container-highest/50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+          
+          <div className="px-4 md:px-margin-desktop w-full max-w-[1280px] mx-auto relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-16 md:py-24">
+            
+            {/* Left Column: Typography */}
+            <div className="md:col-span-7 flex flex-col items-start text-left">
+              <div className="flex items-center gap-4 mb-6 animate-fade-up stagger-1">
+                <div className="w-12 h-[1px] bg-on-surface/30"></div>
+                <p className="font-label-sm text-[10px] md:text-xs uppercase tracking-[0.25em] text-on-surface/70">Tu tienda de makeup en Venezuela</p>
+              </div>
+              
+              <h1 className="font-display-lg text-5xl sm:text-6xl md:text-[5.5rem] lg:text-[7rem] text-on-surface leading-[0.9] tracking-tight mb-6 animate-fade-up stagger-2">
+                <span className="block italic font-light text-secondary mb-2">The Art of</span>
+                <span className="block font-medium">Makeup.</span>
+              </h1>
+              
+              <p className="font-body-md text-base md:text-lg text-on-surface-variant max-w-md mb-10 leading-relaxed animate-fade-up stagger-3">
+                Descubre Glow Tint, Hydratint Concealer, Lip Oils y mucho más. Selección premium curada para resaltar tu belleza natural.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-up stagger-4">
+                <button onClick={scrollToCatalog} className="bg-on-surface text-white font-label-md text-[13px] tracking-widest uppercase px-10 py-4 hover:bg-secondary transition-colors min-h-[52px] flex items-center justify-center gap-2 group">
+                  Explorar Catálogo
+                  <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                </button>
+                <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="border border-on-surface/20 text-on-surface font-label-md text-[13px] tracking-widest uppercase px-10 py-4 hover:border-on-surface transition-colors inline-flex items-center justify-center gap-2 min-h-[52px]">
+                  Consultar Asesoría
+                </a>
+              </div>
             </div>
+
+            {/* Right Column: Editorial Element (since we lack images, use a typography art piece or badge) */}
+            <div className="md:col-span-5 hidden md:flex flex-col items-end justify-center relative animate-fade-in stagger-5">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 border-[1px] border-on-surface/10 rounded-full flex items-center justify-center p-4">
+                <div className="absolute inset-0 border-[1px] border-rose-gold/30 rounded-full rotate-45 scale-95"></div>
+                <div className="text-center">
+                  <span className="material-symbols-outlined text-4xl text-rose-gold mb-2 icon-pulse">star</span>
+                  <p className="font-headline-md text-2xl text-on-surface italic">Premium<br/>Quality</p>
+                  <p className="font-label-sm text-[9px] uppercase tracking-widest text-on-surface/50 mt-4">100% Original</p>
+                </div>
+                {/* Decorative circular text (simulated with standard text for simplicity, or just a badge) */}
+                <div className="absolute -bottom-4 right-10 bg-paper-white shadow-xl px-6 py-3 rounded-none border border-outline-variant/20 rotate-[-5deg]">
+                  <p className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface">Nuevos Ingresos</p>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </section>
 
         <section id="catalog" className="px-3 sm:px-4 md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap pb-24 md:pb-12">
-          <div className="flex flex-col items-center mb-6">
-            <h2 className="font-headline-md text-xl sm:text-headline-md text-deep-charcoal mb-2 text-center animate-fade-up">Catálogo Completo</h2>
-            <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant text-center mb-5">{filteredProducts.length} {filteredProducts.length !== 1 ? "productos disponibles" : "producto disponible"}</p>
-            {/* Category pills — scrollable horizontally on mobile */}
-            <div className="w-full overflow-x-auto pb-2 mb-3 hide-scrollbar">
-              <div className="flex gap-2 w-max mx-auto px-1">
+          <div className="flex flex-col items-center mb-10 md:mb-16">
+            <h2 className="font-display-lg text-3xl sm:text-4xl md:text-5xl text-on-surface mb-3 text-center animate-fade-up">La Colección</h2>
+            <div className="w-16 h-[1px] bg-rose-gold mb-6 animate-fade-up stagger-1"></div>
+            <p className="font-body-md text-sm sm:text-base text-on-surface-variant text-center mb-8 animate-fade-up stagger-2">{filteredProducts.length} {filteredProducts.length !== 1 ? "productos disponibles" : "producto disponible"}</p>
+            
+            {/* Category tabs — minimalist editorial */}
+            <div className="w-full overflow-x-auto pb-4 mb-2 hide-scrollbar border-b border-outline-variant/20 animate-fade-up stagger-3">
+              <div className="flex gap-6 md:gap-10 w-max mx-auto px-4">
                 {ALL_CATEGORIES.map((cat) => (
                   <button key={cat} onClick={() => setActiveCategory(cat as Category | "Todas")}
-                    className={`filter-chip px-4 py-2 rounded-full font-label-sm text-[11px] sm:text-label-sm border whitespace-nowrap min-h-[36px] ${activeCategory === cat ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>{cat}</button>
+                    className={`relative pb-2 font-label-md text-xs sm:text-sm uppercase tracking-widest transition-colors ${activeCategory === cat ? "text-on-surface font-semibold" : "text-on-surface-variant hover:text-on-surface"}`}>
+                    {cat}
+                    {activeCategory === cat && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-on-surface animate-scale-pop origin-center"></span>}
+                  </button>
                 ))}
               </div>
             </div>
-            {/* Brand pills — scrollable horizontally on mobile */}
-            <div className="w-full overflow-x-auto pb-1 hide-scrollbar">
-              <div className="flex gap-2 w-max mx-auto px-1">
+            
+            {/* Brand filters — subtle outlined tags */}
+            <div className="w-full overflow-x-auto pb-2 mt-4 hide-scrollbar animate-fade-up stagger-4">
+              <div className="flex gap-3 w-max mx-auto px-4">
                 {ALL_BRANDS.map((brand) => (
                   <button key={brand} onClick={() => setActiveBrand(brand as Brand | "Todas")}
-                    className={`filter-chip px-3 py-1.5 rounded-full font-label-sm text-[10px] sm:text-[11px] border whitespace-nowrap min-h-[32px] ${activeBrand === brand ? "bg-rose-gold text-white border-rose-gold" : "bg-transparent text-on-surface-variant border-outline-variant/60 hover:border-rose-gold/60 hover:text-rose-gold"}`}>{brand}</button>
+                    className={`px-4 py-1.5 rounded-none font-label-sm text-[10px] sm:text-xs uppercase tracking-wider border transition-all ${activeBrand === brand ? "bg-on-surface text-white border-on-surface" : "bg-transparent text-on-surface/60 border-on-surface/20 hover:border-on-surface hover:text-on-surface"}`}>{brand}</button>
                 ))}
               </div>
             </div>
@@ -502,7 +545,7 @@ export default function Home() {
               </div>
               {visibleCount < filteredProducts.length && (
                 <div className="flex justify-center mt-10">
-                  <button onClick={() => setVisibleCount(v => v + 15)} className="bg-surface-container-low text-deep-charcoal border border-outline-variant font-label-md px-8 py-3 rounded-full hover:bg-surface-container transition-colors shadow-sm">
+                  <button onClick={() => setVisibleCount(v => v + 15)} className="bg-surface-container-low text-on-surface border border-outline-variant font-label-md px-8 py-3 rounded-full hover:bg-surface-container transition-colors shadow-sm">
                     Cargar más productos
                   </button>
                 </div>
@@ -521,7 +564,7 @@ export default function Home() {
 
       <footer className="w-full py-section-gap px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter bg-surface-container text-on-surface">
         <div>
-          <h3 className="font-headline-sm text-headline-sm text-deep-charcoal mb-stack-md">Selene Makeup</h3>
+          <h3 className="font-headline-sm text-headline-sm text-on-surface mb-stack-md">Selene Makeup</h3>
           <p className="font-body-md text-body-md mb-4 text-on-surface-variant max-w-sm">Elevando tu belleza natural con cosméticos curados y de calidad premium.</p>
         </div>
         <div className="md:col-span-2 flex flex-col md:flex-row justify-between gap-stack-lg">
