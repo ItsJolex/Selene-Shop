@@ -335,3 +335,120 @@
     display: inline-block;
   }
 }
+
+/* ── Hero background rising animations ──────────────────────────────────────
+   Three independent "orbs" (soft blurred circles) drift upward at different
+   speeds and offsets, giving depth without distracting from the typography.
+   Colors stay strictly within the brand palette.
+────────────────────────────────────────────────────────────────────────────── */
+
+@keyframes riseOrb {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(var(--orb-drift-x, 0px), calc(var(--orb-travel) * -0.55)) scale(var(--orb-scale-mid, 1.05)); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes riseLine {
+  0%   { transform: translateY(110%); opacity: 0; }
+  12%  { opacity: 0.6; }
+  88%  { opacity: 0.6; }
+  100% { transform: translateY(-110%); opacity: 0; }
+}
+
+@keyframes risePetal {
+  0%   { transform: translateY(80px) rotate(-6deg) scale(0.9); opacity: 0; }
+  18%  { opacity: 0.55; }
+  78%  { opacity: 0.55; }
+  100% { transform: translateY(-60px) rotate(6deg) scale(1.06); opacity: 0; }
+}
+
+/* ── Orb base styles ── */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  will-change: transform;
+}
+
+/* Orb 1 — large, rose gold, slow */
+.hero-orb-1 {
+  --orb-travel: -120px;
+  --orb-drift-x: 30px;
+  --orb-scale-mid: 1.08;
+  width: 420px;
+  height: 420px;
+  bottom: -100px;
+  right: 5%;
+  background: radial-gradient(circle at 40% 40%, rgba(197, 151, 137, 0.28), rgba(212, 163, 115, 0.12) 60%, transparent 85%);
+  animation: riseOrb 14s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* Orb 2 — medium, warm nude, medium speed */
+.hero-orb-2 {
+  --orb-travel: -90px;
+  --orb-drift-x: -20px;
+  --orb-scale-mid: 1.06;
+  width: 280px;
+  height: 280px;
+  bottom: 20px;
+  left: 12%;
+  background: radial-gradient(circle at 55% 55%, rgba(242, 213, 196, 0.38), rgba(249, 234, 216, 0.16) 65%, transparent 85%);
+  animation: riseOrb 10s ease-in-out infinite;
+  animation-delay: -3.5s;
+}
+
+/* Orb 3 — small, linen/cream, faster */
+.hero-orb-3 {
+  --orb-travel: -70px;
+  --orb-drift-x: 15px;
+  --orb-scale-mid: 1.1;
+  width: 160px;
+  height: 160px;
+  top: 30%;
+  left: 55%;
+  filter: blur(40px);
+  background: radial-gradient(circle at 50% 50%, rgba(249, 234, 216, 0.5), rgba(255, 248, 245, 0.2) 70%, transparent 90%);
+  animation: riseOrb 8s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+/* ── Thin rising lines ── */
+.hero-line {
+  position: absolute;
+  width: 1px;
+  will-change: transform;
+  background: linear-gradient(to top, transparent, rgba(197, 151, 137, 0.35), transparent);
+}
+
+.hero-line-1 {
+  height: 60%;
+  right: 28%;
+  bottom: 0;
+  animation: riseLine 9s ease-in-out infinite;
+  animation-delay: -1s;
+}
+
+.hero-line-2 {
+  height: 40%;
+  right: 18%;
+  bottom: 0;
+  animation: riseLine 12s ease-in-out infinite;
+  animation-delay: -5s;
+  opacity: 0.6;
+}
+
+/* ── Rising petal / ellipse ── */
+.hero-petal {
+  position: absolute;
+  width: 180px;
+  height: 80px;
+  border-radius: 50%;
+  left: 60%;
+  bottom: 10%;
+  background: radial-gradient(ellipse at center, rgba(197, 151, 137, 0.2) 0%, transparent 75%);
+  filter: blur(20px);
+  will-change: transform;
+  animation: risePetal 11s ease-in-out infinite;
+  animation-delay: -2s;
+}

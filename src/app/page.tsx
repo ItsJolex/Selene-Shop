@@ -644,8 +644,25 @@ export default function Home() {
       <main className="pt-[60px] md:pt-[72px]">
 
         {/* ── Hero ──────────────────────────────────────────────────────────── */}
-        <section className="hero-section px-5 md:px-16 lg:px-24 pt-16 md:pt-24 pb-16 md:pb-20 border-b border-outline-variant/15">
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-end">
+        <section className="hero-section relative px-5 md:px-16 lg:px-24 pt-16 md:pt-24 pb-16 md:pb-20 border-b border-outline-variant/15 overflow-hidden">
+
+          {/* ── Animated rising background shapes ── */}
+          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+            {/* Large soft orb — rose gold, drifts up-right */}
+            <div className="hero-orb hero-orb-1" />
+            {/* Medium orb — warm nude, drifts up-left */}
+            <div className="hero-orb hero-orb-2" />
+            {/* Small crisp circle — linen, rises fast */}
+            <div className="hero-orb hero-orb-3" />
+            {/* Thin vertical shimmer line */}
+            <div className="hero-line hero-line-1" />
+            {/* Second thin line */}
+            <div className="hero-line hero-line-2" />
+            {/* Floating petal/ellipse — bottom center */}
+            <div className="hero-petal" />
+          </div>
+
+          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-end relative z-10">
 
             {/* Main text block */}
             <div>
