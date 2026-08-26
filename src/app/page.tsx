@@ -1,76 +1,164 @@
-import Image from 'next/image';
-
 export default function Home() {
-  const products = [
-    { name: 'Glow Tint', brand: 'Dolce Bella', price: '$5.99' },
-    { name: 'Hydratint Concealer', brand: 'Salomé', price: '$5.99' },
-    { name: 'Lip Oil Fruity Gloss', brand: 'Max Glow', price: '$5.99' },
-    { name: 'Sweet Lip Balm', brand: 'Ushas', price: '$5.99' },
-  ];
-
   return (
-    <div className="min-h-screen bg-selene-nude text-selene-dark font-sans flex flex-col">
-      {/* Header */}
-      <header className="py-6 px-4 border-b border-selene-dark/10 flex flex-col items-center">
-        <Image src="/logo.png" alt="Selene Make Up Store" width={250} height={80} priority className="mb-4" />
-        <nav className="flex space-x-6 text-sm uppercase tracking-widest font-semibold">
-          <a href="#" className="hover:text-selene-rosegold transition-colors">Maquillaje</a>
-          <a href="#" className="hover:text-selene-rosegold transition-colors">Skincare</a>
-          <a href="#" className="hover:text-selene-rosegold transition-colors">Accesorios</a>
-        </nav>
-      </header>
+    <div className="bg-surface text-on-surface">
+      {/* Navbar / Header */}
+      
+{/* TopNavBar */}
+<header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 backdrop-blur-xl bg-paper-white/90 border-b border-outline-variant/30 text-deep-charcoal dark:bg-surface-dim/90 dark:text-inverse-on-surface">
+<nav className="hidden md:flex items-center gap-stack-lg flex-1">
+<a className="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Makeup</a>
+<a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Skincare</a>
+<a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Accessories</a>
+</nav>
+<div className="flex flex-col items-center justify-center flex-1">
+<a className="flex flex-col items-center gap-2" href="#">
+<img alt="Selene Logo" className="h-16 md:h-24 w-auto object-contain" src="/logo.png"/>
+<span className="font-label-sm text-[10px] md:text-label-sm tracking-[0.2em] uppercase text-deep-charcoal text-center">Selene MAKE UP STORE</span>
+</a>
+</div>
+<div className="flex items-center justify-end gap-stack-md flex-1">
+<div className="hidden md:flex relative">
+<input className="bg-transparent border-0 border-b border-deep-charcoal focus:ring-0 focus:border-rose-gold px-0 py-1 text-sm font-label-md w-48 transition-colors" placeholder="Search..." type="text"/>
+<span className="material-symbols-outlined absolute right-0 top-1 text-deep-charcoal" data-icon="search">search</span>
+</div>
+<button className="text-deep-charcoal hover:text-primary transition-colors">
+<span className="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<button className="text-deep-charcoal hover:text-primary transition-colors relative">
+<span className="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span className="absolute -top-1 -right-1 bg-rose-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</button>
+<button className="md:hidden text-deep-charcoal">
+<span className="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<main className="pt-[140px] md:pt-[180px] pb-section-gap">
+{/* Hero Section */}
+<section className="px-margin-mobile md:px-margin-desktop mb-section-gap flex flex-col items-center text-center justify-center min-h-[40vh] md:min-h-[50vh] bg-surface">
+<div className="max-w-3xl mx-auto px-4">
+<h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-6xl lg:text-7xl text-deep-charcoal mb-stack-lg leading-tight tracking-tight">
+Selene.<br/>The Art of Makeup.
+</h1>
+<p className="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-xl mx-auto">
+Discover the new Glow Tint and Hydratint Concealer for a flawless, natural finish.
+</p>
+<button className="bg-deep-charcoal text-white font-label-md text-label-md px-10 py-4 rounded-full hover:bg-surface-tint transition-colors w-full md:w-auto">
+Shop Now
+</button>
+</div>
+</section>
+{/* Catalog Section */}
+<section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-section-gap">
+<div className="flex flex-col items-center mb-stack-lg">
+<h2 className="font-headline-md text-headline-md text-deep-charcoal mb-stack-md text-center">Curated Collection</h2>
+{/* Brand Filters */}
+<div className="flex flex-wrap justify-center gap-stack-sm md:gap-stack-md mt-stack-md">
+<button className="px-6 py-2 rounded-xl bg-deep-charcoal text-white font-label-sm text-label-sm border border-deep-charcoal transition-colors">All</button>
+<button className="px-6 py-2 rounded-xl bg-transparent text-secondary border border-outline-variant hover:border-secondary font-label-sm text-label-sm transition-colors">Dolce Bella</button>
+<button className="px-6 py-2 rounded-xl bg-transparent text-secondary border border-outline-variant hover:border-secondary font-label-sm text-label-sm transition-colors">Salomé</button>
+<button className="px-6 py-2 rounded-xl bg-transparent text-secondary border border-outline-variant hover:border-secondary font-label-sm text-label-sm transition-colors">Ushas</button>
+<button className="px-6 py-2 rounded-xl bg-transparent text-secondary border border-outline-variant hover:border-secondary font-label-sm text-label-sm transition-colors">Max Glow</button>
+<button className="px-6 py-2 rounded-xl bg-transparent text-secondary border border-outline-variant hover:border-secondary font-label-sm text-label-sm transition-colors">Beauty Creations</button>
+</div>
+</div>
+{/* Product Grid */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+{/* Product 1 */}
+<div className="group cursor-pointer">
+<div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container-low editorial-border">
+<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A minimalist flat lay product shot of 'Dolce Bella Glow Tint' makeup bottle. The product is placed on a smooth, warm nude marble surface. Soft, natural light casts gentle shadows. The aesthetic is clean, premium, and sophisticated, aligning with a luxury cosmetics brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0ptnNDvaR21EtbqLELbf-4pcJFYbUcuE0U7MUpJk6ZG2uLhcOecoBmVBkfspmdh3tVf7M3bcPqJtF5Ep7sz3KdU362p17PTTLPOYKFkfn1K5rvYZTVUozZSlJFT7OspZ_C5uGA4aWVtqBq8PN6usGktUHuSTqD5bYT9rhmm_9kqkXF52OLJ0WGzBhPOrtGi1Xg-hKmmJApOP3E_NQcJJRHThGE5rztKXKIp9GWNB7qeXTHf8PZngetLtDubM25lSYLN0_bjpwXAQ"/>
+<div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+<button className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
+<span className="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<div>
+<p className="font-label-sm text-label-sm text-on-surface-variant mb-1">Dolce Bella</p>
+<h3 className="font-headline-sm text-headline-sm text-deep-charcoal leading-tight mb-2">Glow Tint</h3>
+<p className="font-label-sm text-label-sm text-secondary mb-2">Tonos: Sand, Vainilla, Brown</p>
+<p className="font-body-lg text-body-lg text-deep-charcoal font-semibold">$5.99</p>
+</div>
+</div>
+{/* Product 2 */}
+<div className="group cursor-pointer">
+<div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container-low editorial-border">
+<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A sleek, minimalist close-up shot of 'Salomé Hydratint Concealer' tube standing upright against a soft rose gold background. The lighting is crisp and even, highlighting the elegant packaging. The overall mood is luxurious and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfpLvbe5nro7KlMh8uS7XsNXWwOGnbmwYa3Wyi8evH8ylUFB8qPH1kmcmfH_TtvZgaxFg23ow2vYJKtlhNs6wPo1l6tVY7Bhq-myjvJaTOPnuiDkOkjM8yX6j4Ay90AQBxdQLTXIgP4ucO1LR8HvvHlTba5KTB25aCEHUfVGeZWjwH-hBTNYCflNiPW2F5ylarTZcIfD7mA2zfu5tsQy3AKTU_VLpPEfUa9WNX9OOYKtpQ4y0vdfdu3qQbxYYvJOW5bnZbSz-rC00"/>
+<div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+<button className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
+<span className="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<div>
+<p className="font-label-sm text-label-sm text-on-surface-variant mb-1">Salomé</p>
+<h3 className="font-headline-sm text-headline-sm text-deep-charcoal leading-tight mb-2">Hydratint Concealer</h3>
+<p className="font-body-lg text-body-lg text-deep-charcoal font-semibold mt-auto">$5.99</p>
+</div>
+</div>
+{/* Product 3 */}
+<div className="group cursor-pointer">
+<div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container-low editorial-border">
+<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="An artistic, soft-focus image of 'Max Glow Lip Oil Fruity Gloss'. The product is resting on a textured linen surface in a warm nude color. A single drop of water or subtle botanical prop is nearby to imply hydration. Light mode, premium editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAB3c9oWt_3fYZWse6shO3u7xyJ8tpNRevHZueh1s86HTdFRWX-sloU2OnirXhJ8h-sbTo0AA2YDYE6dUwWp7Atsm-TsmUgEkmadGEen45aPGrjhmjYBA5OiDxngvwelvnVILVPN9b8tLu2zDOSCfB8uQP_7oyjzlJPHd_Qh22TuTQvC3pOU_uO5Kt3DzcUheK1Zih8FiUb6QRmK-fEIPFOnHLE8LRTNBINPaxLpRT3PNkY160Q6Sk61Wjb2WlP8IWrcocsaj9Nao"/>
+<div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+<button className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
+<span className="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<div>
+<p className="font-label-sm text-label-sm text-on-surface-variant mb-1">Max Glow</p>
+<h3 className="font-headline-sm text-headline-sm text-deep-charcoal leading-tight mb-2">Lip Oil Fruity Gloss</h3>
+<p className="font-body-lg text-body-lg text-deep-charcoal font-semibold mt-auto">$5.99</p>
+</div>
+</div>
+{/* Product 4 */}
+<div className="group cursor-pointer">
+<div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container-low editorial-border">
+<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A clean, minimalist product shot of 'Ushas Sweet Lip Balm' pot open, showing the product texture. Placed on a pristine white pedestal against a warm nude gradient background. High-key lighting, luxurious and inviting aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_M1Pv5nlUoOc7yKOyhW_v4ON-i3eeExFw0SXOHb6Ixdjjtu3nsJK4M5b9ZVOb7vH5J-qOMtdsBLH6T7LoezL_kfJPPw6nyGiUBNK2j8aYaCFw8OIp1OUTONKnODmFJHZmZrtFcfsUVPVx8Xo5NwHzkOJhl61Q8XvQWDujmG9ED1vRxlbLvDO0HpwOTJKrEdfSRPmJEmr2ECtJlrUigmnKFx3Lofj2aHhuLntKy7WLFIe0ZMqjYpTMOeErSVFARjbvFgCvEMKMetA"/>
+<div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+<button className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
+<span className="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<div>
+<p className="font-label-sm text-label-sm text-on-surface-variant mb-1">Ushas</p>
+<h3 className="font-headline-sm text-headline-sm text-deep-charcoal leading-tight mb-2">Sweet Lip Balm</h3>
+<p className="font-body-lg text-body-lg text-deep-charcoal font-semibold mt-auto">$5.99</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+{/* Footer */}
+<footer className="w-full py-section-gap px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter bg-surface-container dark:bg-inverse-surface text-on-surface dark:text-inverse-on-surface">
+<div>
+<h3 className="font-headline-sm text-headline-sm text-deep-charcoal dark:text-inverse-on-surface mb-stack-md">Selene Makeup</h3>
+<p className="font-body-md text-body-md mb-4 text-on-surface-variant dark:text-outline-variant max-w-sm">Elevating your natural beauty with curated, premium cosmetics. Quiet luxury for your daily routine.</p>
+</div>
+<div className="md:col-span-2 flex flex-col md:flex-row justify-between gap-stack-lg">
+<div className="flex flex-col gap-stack-sm">
+<h4 className="font-label-md text-label-md uppercase tracking-wider mb-2">Customer Care</h4>
+<a className="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Shipping Info</a>
+<span className="font-body-md text-body-md text-secondary text-sm italic">Envíos a toda Venezuela</span>
+<a className="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">FAQs</a>
+</div>
+<div className="flex flex-col gap-stack-sm">
+<h4 className="font-label-md text-label-md uppercase tracking-wider mb-2">Connect</h4>
+<a className="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors flex items-center gap-2" href="#">
+                    Instagram @selenemakeup1
+                </a>
+</div>
+</div>
+<div className="md:col-span-3 border-t border-outline-variant/30 mt-stack-lg pt-stack-md flex justify-between items-center text-sm">
+<p className="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">© 2024 Selene Makeup. All rights reserved.</p>
+</div>
+</footer>
+{/* Floating WhatsApp Button */}
+<a className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 z-50 flex items-center justify-center" href="#">
+<svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+</svg>
+</a>
 
-      {/* Hero Section (Minimalist) */}
-      <main className="flex-grow">
-        <section className="py-24 px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-serif mb-6 text-selene-dark">Effortless Glow</h1>
-          <p className="max-w-xl mx-auto text-lg text-selene-dark/80 mb-10">
-            The Art of Makeup. Curated luxury for your everyday beauty routine.
-          </p>
-          <button className="bg-selene-dark text-selene-nude px-8 py-3 rounded-full hover:bg-selene-rosegold hover:text-white transition-all text-sm uppercase tracking-wider font-semibold">
-            Ver Catálogo
-          </button>
-        </section>
-
-        {/* Brand Filters */}
-        <section className="py-8 border-t border-b border-selene-dark/10 flex justify-center space-x-4 overflow-x-auto px-4">
-          {['Todas', 'Dolce Bella', 'Salomé', 'Ushas', 'Max Glow'].map((brand) => (
-            <button key={brand} className="px-4 py-2 border border-selene-dark/20 rounded-full hover:border-selene-rosegold hover:text-selene-rosegold transition-colors whitespace-nowrap">
-              {brand}
-            </button>
-          ))}
-        </section>
-
-        {/* Product Grid */}
-        <section className="py-16 px-4 md:px-12 max-w-7xl mx-auto">
-          <h2 className="text-2xl font-serif text-center mb-12">Nuestros Favoritos</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {products.map((product, i) => (
-              <div key={i} className="group cursor-pointer">
-                <div className="aspect-[3/4] bg-white rounded-lg mb-4 flex items-center justify-center text-selene-dark/20 group-hover:shadow-xl transition-all border border-transparent group-hover:border-selene-rosegold">
-                  <span className="text-sm">Imagen de {product.name}</span>
-                </div>
-                <div className="text-center">
-                  <p className="text-xs text-selene-dark/60 uppercase tracking-wider mb-1">{product.brand}</p>
-                  <h3 className="font-medium text-lg mb-2">{product.name}</h3>
-                  <p className="text-selene-rosegold font-semibold">{product.price}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-white py-12 px-4 text-center border-t border-selene-dark/10">
-        <p className="mb-4">Envíos a toda Venezuela 🇻🇪</p>
-        <a href="https://instagram.com/selenemakeup1" target="_blank" className="font-bold hover:text-selene-rosegold transition-colors">@selenemakeup1</a>
-      </footer>
-
-      {/* WhatsApp Floating Button */}
-      <a href="https://wa.me/1234567890" className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-      </a>
     </div>
   );
 }

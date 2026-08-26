@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-selene-nude text-selene-dark selection:bg-selene-rosegold selection:text-white;
+    @apply bg-surface text-on-surface;
   }
 }
