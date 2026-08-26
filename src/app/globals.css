@@ -6,5 +6,183 @@
 @layer base {
   body {
     @apply bg-surface text-on-surface;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hide scrollbar on filter rows but keep scrollable */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ── Keyframe Animations ─────────────────────────────────────────────────── */
+
+/* Fade up — product cards, hero text */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade in — toasts, overlays */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Slide in from right — cart drawer */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide in from left — mobile side menu */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide in from top — search bar, mobile bars */
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scale pop — cart badge, toast, shade chips */
+@keyframes scalePop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  70%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Floating — WhatsApp button */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* Shimmer — hero heading accent */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Gradient shift — hero section background */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+/* Pulse ring — category icon on cards */
+@keyframes pulseRing {
+  0%   { box-shadow: 0 0 0 0 rgba(197,151,137,0.35); }
+  70%  { box-shadow: 0 0 0 10px rgba(197,151,137,0); }
+  100% { box-shadow: 0 0 0 0 rgba(197,151,137,0); }
+}
+
+/* Spin slow — decorative elements */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Animation Utility Classes ───────────────────────────────────────────── */
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease both;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease both;
+  }
+  .animate-slide-in-right {
+    animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-slide-in-left {
+    animation: slideInLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-slide-in-down {
+    animation: slideInDown 0.25s ease both;
+  }
+  .animate-scale-pop {
+    animation: scalePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .animate-float {
+    animation: floatY 3s ease-in-out infinite;
+  }
+
+  /* Staggered fade-up delays for product cards */
+  .stagger-1  { animation-delay: 0.05s; }
+  .stagger-2  { animation-delay: 0.1s; }
+  .stagger-3  { animation-delay: 0.15s; }
+  .stagger-4  { animation-delay: 0.2s; }
+  .stagger-5  { animation-delay: 0.25s; }
+  .stagger-6  { animation-delay: 0.3s; }
+  .stagger-7  { animation-delay: 0.35s; }
+  .stagger-8  { animation-delay: 0.4s; }
+
+  /* Shimmer text effect */
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      #7d562d 0%,
+      #d4a373 30%,
+      #C59789 50%,
+      #d4a373 70%,
+      #7d562d 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* Product card hover lift */
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(125, 86, 45, 0.12);
+  }
+
+  /* Animated gradient hero background */
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      #fff8f5 0%,
+      #F9EAD8 25%,
+      #fff8f5 50%,
+      #F2D5C4 75%,
+      #fff8f5 100%
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 10s ease infinite;
+  }
+
+  /* Floating WhatsApp button */
+  .wa-float {
+    animation: floatY 3s ease-in-out infinite;
+  }
+
+  /* Icon pulse ring effect */
+  .icon-pulse {
+    animation: pulseRing 2.5s ease-out infinite;
+  }
+
+  /* Smooth filter chip selection */
+  .filter-chip {
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.15s ease;
+  }
+  .filter-chip:active {
+    transform: scale(0.95);
   }
 }

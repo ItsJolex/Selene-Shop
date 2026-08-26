@@ -68,14 +68,15 @@ const categoryIcon: Record<Category, string> = {
   Skincare: "spa",
 };
 
-function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: (p: Product, shade?: string) => void }) {
+function ProductCard({ product, onAddToCart, index }: { product: Product; onAddToCart: (p: Product, shade?: string) => void; index?: number }) {
   const [selectedShade, setSelectedShade] = useState<string | undefined>(product.shades?.[0]);
+  const stagger = index !== undefined ? `stagger-${Math.min((index % 8) + 1, 8)}` : "";
   return (
-    <div className="group cursor-pointer flex flex-col">
+    <div className={`group cursor-pointer flex flex-col card-hover animate-fade-up ${stagger}`}>
       <div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container flex flex-col items-center justify-center gap-3 border border-outline-variant/30">
-        <div className="absolute inset-0 bg-gradient-to-br from-linen-base/60 to-warm-nude/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-linen-base/60 to-warm-nude/40 group-hover:from-linen-base/80 group-hover:to-warm-nude/60 transition-all duration-500" />
         <div className="relative z-10 flex flex-col items-center gap-2 px-4 text-center">
-          <span className="material-symbols-outlined text-5xl text-rose-gold/60">{categoryIcon[product.category]}</span>
+          <span className="material-symbols-outlined text-4xl text-rose-gold/70 transition-transform duration-300 group-hover:scale-110">{categoryIcon[product.category]}</span>
           <p className="font-label-sm text-[10px] text-on-surface-variant/70 uppercase tracking-wider leading-tight">{product.name}</p>
         </div>
         <span className="absolute top-3 left-3 bg-surface-container-low/90 backdrop-blur-sm text-on-surface-variant font-label-sm text-[10px] px-2 py-0.5 rounded-full border border-outline-variant/40 z-10">
@@ -124,7 +125,7 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem
     <div className="fixed inset-0 z-[100] flex justify-end">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
       {/* Cart panel — full width on mobile, max-sm on desktop */}
-      <div className="relative w-full sm:max-w-sm bg-paper-white shadow-2xl flex flex-col h-full">
+      <div className="relative w-full sm:max-w-sm bg-paper-white shadow-2xl flex flex-col h-full animate-slide-in-right">
         <div className="flex items-center justify-between px-5 py-4 border-b border-outline-variant/30">
           <h2 className="font-headline-sm text-lg sm:text-xl text-deep-charcoal">Mi Carrito</h2>
           <button onClick={onClose} className="text-on-surface-variant hover:text-deep-charcoal min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Cerrar carrito">
@@ -217,7 +218,7 @@ export default function Home() {
   return (
     <div className="bg-surface text-on-surface min-h-screen">
       {toast && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] bg-deep-charcoal text-white font-label-md text-[11px] sm:text-label-md px-4 py-3 rounded-full shadow-lg max-w-[90vw] text-center">{toast}</div>
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] bg-deep-charcoal text-white font-label-md text-[11px] sm:text-label-md px-4 py-3 rounded-full shadow-lg max-w-[90vw] text-center animate-scale-pop">{toast}</div>
       )}
 
       <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop py-3 md:py-4 backdrop-blur-xl bg-paper-white/90 border-b border-outline-variant/30 text-deep-charcoal">
@@ -254,13 +255,13 @@ export default function Home() {
           </a>
           <button onClick={() => setCartOpen(true)} className="relative min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal hover:text-primary" aria-label="Carrito">
             <span className="material-symbols-outlined">shopping_cart</span>
-            {cartCount > 0 && <span className="absolute top-1 right-1 bg-rose-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">{cartCount}</span>}
+            {cartCount > 0 && <span className="absolute top-1 right-1 bg-rose-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold animate-scale-pop">{cartCount}</span>}
           </button>
         </div>
       </header>
 
       {searchOpen && (
-        <div className="fixed top-[64px] left-0 w-full z-40 px-4 py-3 bg-paper-white/95 backdrop-blur-xl border-b border-outline-variant/30">
+        <div className="fixed top-[64px] left-0 w-full z-40 px-4 py-3 bg-paper-white/95 backdrop-blur-xl border-b border-outline-variant/30 animate-slide-in-down">
           <input autoFocus className="w-full bg-surface-container rounded-lg px-4 py-3 text-sm outline-none border border-outline-variant/40 focus:border-primary"
             placeholder="Buscar productos..." type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
         </div>
@@ -269,7 +270,7 @@ export default function Home() {
         <>
           {/* Backdrop closes menu on tap outside */}
           <div className="fixed inset-0 z-[39] bg-black/20" onClick={() => setMobileMenuOpen(false)} />
-          <div className="fixed top-[64px] left-0 w-4/5 max-w-xs z-40 bg-paper-white shadow-xl flex flex-col h-[calc(100vh-64px)]">
+          <div className="fixed top-[64px] left-0 w-4/5 max-w-xs z-40 bg-paper-white shadow-xl flex flex-col h-[calc(100vh-64px)] animate-slide-in-left">
             <div className="px-6 py-5 border-b border-outline-variant/20">
               <p className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant mb-3">Categorías</p>
               {ALL_CATEGORIES.map((cat) => (
@@ -294,14 +295,14 @@ export default function Home() {
       )}
 
       <main className="pt-[64px] md:pt-[88px] pb-section-gap">
-        <section className="px-4 md:px-margin-desktop mb-section-gap flex flex-col items-center text-center justify-center min-h-[45vh] bg-gradient-to-b from-surface to-linen-base/40 py-12">
+        <section className="px-4 md:px-margin-desktop mb-section-gap flex flex-col items-center text-center justify-center min-h-[50vh] hero-gradient py-12 md:py-16">
           <div className="max-w-3xl mx-auto w-full">
-            <p className="font-label-sm text-[11px] sm:text-label-sm uppercase tracking-[0.2em] text-rose-gold mb-3">Tu tienda de makeup en Venezuela</p>
-            <h1 className="font-headline-md md:font-display-lg text-2xl sm:text-headline-md md:text-display-lg text-deep-charcoal mb-4 leading-tight tracking-tight">
-              Selene.<br /><span className="text-surface-tint">The Art of Makeup.</span>
+            <p className="font-label-sm text-[11px] sm:text-label-sm uppercase tracking-[0.2em] text-rose-gold mb-3 animate-fade-up stagger-1">Tu tienda de makeup en Venezuela</p>
+            <h1 className="font-headline-md md:font-display-lg text-2xl sm:text-headline-md md:text-display-lg text-deep-charcoal mb-4 leading-tight tracking-tight animate-fade-up stagger-2">
+              Selene.<br /><span className="text-shimmer">The Art of Makeup.</span>
             </h1>
-            <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant mb-6 max-w-xl mx-auto">Descubre Glow Tint, Hydratint Concealer, Lip Oils y mucho más. Calidad premium, directo a ti.</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant mb-6 max-w-xl mx-auto animate-fade-up stagger-3">Descubre Glow Tint, Hydratint Concealer, Lip Oils y mucho más. Calidad premium, directo a ti.</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up stagger-4">
               <button onClick={scrollToCatalog} className="bg-deep-charcoal text-white font-label-md text-label-md px-8 py-4 rounded-full hover:bg-surface-tint active:bg-surface-tint transition-colors min-h-[52px]">Ver Catálogo</button>
               <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="border border-outline-variant text-on-surface-variant font-label-md text-label-md px-8 py-4 rounded-full hover:border-primary hover:text-primary active:border-primary active:text-primary transition-colors inline-flex items-center justify-center gap-2 min-h-[52px]">
                 <span className="material-symbols-outlined text-sm">chat</span>Consultar
@@ -312,30 +313,30 @@ export default function Home() {
 
         <section id="catalog" className="px-4 md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap">
           <div className="flex flex-col items-center mb-6">
-            <h2 className="font-headline-md text-xl sm:text-headline-md text-deep-charcoal mb-2 text-center">Catálogo Completo</h2>
+            <h2 className="font-headline-md text-xl sm:text-headline-md text-deep-charcoal mb-2 text-center animate-fade-up">Catálogo Completo</h2>
             <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant text-center mb-5">{filteredProducts.length} producto{filteredProducts.length !== 1 ? "s" : ""} disponible{filteredProducts.length !== 1 ? "s" : ""}</p>
             {/* Category pills — scrollable horizontally on mobile */}
-            <div className="w-full overflow-x-auto pb-2 mb-3">
+            <div className="w-full overflow-x-auto pb-2 mb-3 hide-scrollbar">
               <div className="flex gap-2 w-max mx-auto px-1">
                 {ALL_CATEGORIES.map((cat) => (
                   <button key={cat} onClick={() => setActiveCategory(cat as Category | "Todas")}
-                    className={`px-4 py-2 rounded-full font-label-sm text-[11px] sm:text-label-sm border transition-all duration-200 whitespace-nowrap min-h-[36px] ${activeCategory === cat ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>{cat}</button>
+                    className={`filter-chip px-4 py-2 rounded-full font-label-sm text-[11px] sm:text-label-sm border whitespace-nowrap min-h-[36px] ${activeCategory === cat ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>{cat}</button>
                 ))}
               </div>
             </div>
             {/* Brand pills — scrollable horizontally on mobile */}
-            <div className="w-full overflow-x-auto pb-1">
+            <div className="w-full overflow-x-auto pb-1 hide-scrollbar">
               <div className="flex gap-2 w-max mx-auto px-1">
                 {ALL_BRANDS.map((brand) => (
                   <button key={brand} onClick={() => setActiveBrand(brand as Brand | "Todas")}
-                    className={`px-3 py-1.5 rounded-full font-label-sm text-[10px] sm:text-[11px] border transition-all duration-200 whitespace-nowrap min-h-[32px] ${activeBrand === brand ? "bg-rose-gold text-white border-rose-gold" : "bg-transparent text-on-surface-variant border-outline-variant/60 hover:border-rose-gold/60 hover:text-rose-gold"}`}>{brand}</button>
+                    className={`filter-chip px-3 py-1.5 rounded-full font-label-sm text-[10px] sm:text-[11px] border whitespace-nowrap min-h-[32px] ${activeBrand === brand ? "bg-rose-gold text-white border-rose-gold" : "bg-transparent text-on-surface-variant border-outline-variant/60 hover:border-rose-gold/60 hover:text-rose-gold"}`}>{brand}</button>
                 ))}
               </div>
             </div>
           </div>
           {filteredProducts.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-gutter">
-              {filteredProducts.map((product) => <ProductCard key={product.id} product={product} onAddToCart={addToCart} />)}
+              {filteredProducts.map((product, i) => <ProductCard key={product.id} product={product} onAddToCart={addToCart} index={i} />)}
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-16 gap-4 text-center">
@@ -370,7 +371,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <a className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center"
+      <a className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center wa-float"
         href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer">
         <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d={WaPath} /></svg>
       </a>
