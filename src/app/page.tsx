@@ -14,6 +14,7 @@ interface Product {
   shades?: string[];
   stock: number;
   note?: string;
+  image?: string;
 }
 
 interface CartItem {
@@ -23,38 +24,38 @@ interface CartItem {
 }
 
 const ALL_PRODUCTS: Product[] = [
-  { id: "db-glotint", brand: "Dolce Bella", name: "Glow Tint", category: "Rostro", shades: ["Sand", "Vainilla", "Brown"], stock: 3 },
-  { id: "db-corrector", brand: "Dolce Bella", name: "Corrector Líquido", category: "Rostro", shades: ["Carmel", "Honey", "Tan"], stock: 6, note: "Tan sin caja" },
-  { id: "db-blush", brand: "Dolce Bella", name: "Blush en Polvo / Rubor Individual", category: "Rostro", shades: ["05", "11"], stock: 3 },
-  { id: "db-mascara", brand: "Dolce Bella", name: "Máscara Volumen & Definition", category: "Ojos", stock: 1 },
-  { id: "db-pencil", brand: "Dolce Bella", name: "Makeup Pencil", category: "Ojos", shades: ["Dark Brown 803", "Medium Brown 808"], stock: 4 },
-  { id: "db-lipgloss-tubo", brand: "Dolce Bella", name: "Lip Gloss (Tubo)", category: "Labios", shades: ["D6", "07", "D5", "04"], stock: 7 },
-  { id: "db-lipgloss-aplicador", brand: "Dolce Bella", name: "Lip Gloss (Con Aplicador)", category: "Labios", shades: ["03", "01", "05"], stock: 5 },
-  { id: "db-grace-marble", brand: "Dolce Bella", name: "Grace Marble", category: "Labios", shades: ["Dusty Rose"], stock: 3 },
-  { id: "db-glossy-lipbalm", brand: "Dolce Bella", name: "Glossy Lip Balm", category: "Labios", shades: ["Grace", "Smile"], stock: 2 },
-  { id: "db-vinyl-lip", brand: "Dolce Bella", name: "Vinyl Lasting Lip Stain", category: "Labios", shades: ["Sweet Tart"], stock: 1 },
-  { id: "sa-concealer", brand: "Salomé", name: "Hydratint Concealer", category: "Rostro", shades: ["01", "03"], stock: 5 },
-  { id: "sa-lipstick", brand: "Salomé", name: "Vegan Smooth Creamy Lipstick", category: "Labios", shades: ["01", "04"], stock: 2 },
-  { id: "sa-sacapuntas", brand: "Salomé", name: "Sacapuntas 2 en 1", category: "Accesorios", stock: 4 },
-  { id: "papel-absorbente", brand: "Sin Marca", name: "Papel Absorbente de Grasa – Presentación Animalitos", category: "Skincare", stock: 9 },
-  { id: "us-lipbalm", brand: "Ushas", name: "Sweet Lip Balm", category: "Labios", shades: ["05", "06"], stock: 2 },
-  { id: "us-lipink", brand: "Ushas", name: "Lip Ink", category: "Labios", shades: ["Watermelon 02"], stock: 1 },
-  { id: "mg-matelips", brand: "Max Glow", name: "Mate Lips Lip Color Liquid", category: "Labios", shades: ["Raspberry Rose", "Deep Rose"], stock: 2 },
-  { id: "mg-lipoil", brand: "Max Glow", name: "Lip Oil Fruity Gloss Plumping Lips", category: "Labios", shades: ["02", "04"], stock: 3 },
-  { id: "bc-lipoil", brand: "Beauty Creations", name: "Sweet Dose Lip Oil", category: "Labios", shades: ["Water Melon"], stock: 1 },
-  { id: "bc-pencil", brand: "Beauty Creations", name: "Wooden Lip Pencil", category: "Labios", shades: ["Ur Cherry Sweet", "U Had Me At Expresso", "Wine About It"], stock: 3 },
-  { id: "kc-blusher", brand: "Kevin & Coco", name: "Blusher Lotion", category: "Rostro", shades: ["Thus", "Be Mine"], stock: 2 },
-  { id: "dici-paso1", brand: "Dici", name: "Paso 1", category: "Skincare", stock: 1 },
-  { id: "trendy-espejo", brand: "Trendy", name: "Espejo Plegable", category: "Accesorios", stock: 1 },
-  { id: "sm-sacapuntas", brand: "Sin Marca", name: "Sacapuntas 2 en 1 Sin Depósito (Morado)", category: "Accesorios", stock: 1 },
-  { id: "sm-borlas-grandes", brand: "Sin Marca", name: "Borlas Grandes", category: "Accesorios", stock: 2 },
-  { id: "sm-borlas-pequenas", brand: "Sin Marca", name: "Borlas Pequeñas", category: "Accesorios", stock: 4 },
-  { id: "sm-esponja", brand: "Sin Marca", name: "Esponja Beauty Blender Amarilla", category: "Accesorios", stock: 1 },
-  { id: "sm-sadoer-lip", brand: "Sin Marca", name: "Sadoer Repair Lip Mask", category: "Skincare", stock: 1 },
-  { id: "sm-kaberline-lip", brand: "Sin Marca", name: "Kaberline Lip Mask", category: "Skincare", stock: 1 },
-  { id: "sm-sadoer-face", brand: "Sin Marca", name: "Sadoer Real Rose Moisturizing Facial Mask", category: "Skincare", stock: 2 },
-  { id: "sm-grippies", brand: "Sin Marca", name: "Grippies", category: "Accesorios", stock: 2 },
-  { id: "sm-chokers", brand: "Sin Marca", name: "Chokers Negros", category: "Accesorios", stock: 2 },
+  { id: "db-glotint", brand: "Dolce Bella", name: "Glow Tint", category: "Rostro", shades: ["Sand", "Vainilla", "Brown"], stock: 3, image: "https://www.farmadon.com.ve/wp-content/uploads/2026/02/Dolce-Bella-Base-Luminosa-Glow-Tint-Sand-X-30Ml-pt1.png" },
+  { id: "db-corrector", brand: "Dolce Bella", name: "Corrector Líquido", category: "Rostro", shades: ["Carmel", "Honey", "Tan"], stock: 6, note: "Tan sin caja", image: "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCL/112923342_01/w=800,h=800,fit=pad" },
+  { id: "db-blush", brand: "Dolce Bella", name: "Blush en Polvo / Rubor Individual", category: "Rostro", shades: ["05", "11"], stock: 3, image: "https://kromaspace.com/wp-content/uploads/2024/08/rubor-individual-dolce-bella-blush-2-768x768.jpg" },
+  { id: "db-mascara", brand: "Dolce Bella", name: "Máscara Volumen & Definition", category: "Ojos", stock: 1, image: "https://claritasmakeupve.com/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-10-at-2.48.25-PM.jpeg" },
+  { id: "db-pencil", brand: "Dolce Bella", name: "Makeup Pencil", category: "Ojos", shades: ["Dark Brown 803", "Medium Brown 808"], stock: 4, image: "https://farmatica.cl/wp-content/uploads/2025/07/1079-3.webp" },
+  { id: "db-lipgloss-tubo", brand: "Dolce Bella", name: "Lip Gloss (Tubo)", category: "Labios", shades: ["D6", "07", "D5", "04"], stock: 7, image: "https://assets.dolcebella.com/lg6.webp__preview.webp" },
+  { id: "db-lipgloss-aplicador", brand: "Dolce Bella", name: "Lip Gloss (Con Aplicador)", category: "Labios", shades: ["03", "01", "05"], stock: 5, image: "https://i.pinimg.com/originals/25/29/75/252975e6824d1ed99ed82d8d26d3f54c.jpg" },
+  { id: "db-grace-marble", brand: "Dolce Bella", name: "Grace Marble", category: "Labios", shades: ["Dusty Rose"], stock: 3, image: "https://assets.dolcebella.com.ve/btmt-2.webp.webp" },
+  { id: "db-glossy-lipbalm", brand: "Dolce Bella", name: "Glossy Lip Balm", category: "Labios", shades: ["Grace", "Smile"], stock: 2, image: "https://farmatina.com/web/image/product.product/5813/image_1024/DOLCE%20BELLA%20GLOSSY%20LIP%20BALM%20GRACE%201.8GR" },
+  { id: "db-vinyl-lip", brand: "Dolce Bella", name: "Vinyl Lasting Lip Stain", category: "Labios", shades: ["Sweet Tart"], stock: 1, image: "https://www.labodegahyc.store/cdn/shop/files/Capturadepantalla2025-12-26133049_7bdf3392-afbd-46a1-b29a-05e41958c76a.png?v=1766773883&width=1445" },
+  { id: "sa-concealer", brand: "Salomé", name: "Hydratint Concealer", category: "Rostro", shades: ["01", "03"], stock: 5, image: "https://lh3.googleusercontent.com/vihXp1rYRF0KfthljLtGudk1THTocCrWQ44FUIEypgrHVWcEZHSPFNF7NXg1JPOd054URjC0d4E7HLpsqW6mEQeXe8hdl7pusp5RNL5nQmdVungCGg" },
+  { id: "sa-lipstick", brand: "Salomé", name: "Vegan Smooth Creamy Lipstick", category: "Labios", shades: ["01", "04"], stock: 2, image: "https://static.wixstatic.com/media/2c6cad_5ed4a9e94c9e46b0b3bff2382d4b0ea5~mv2.jpg/v1/fill/w_940,h_726,al_c,q_85,enc_avif,quality_auto/2c6cad_5ed4a9e94c9e46b0b3bff2382d4b0ea5~mv2.jpg" },
+  { id: "sa-sacapuntas", brand: "Salomé", name: "Sacapuntas 2 en 1", category: "Accesorios", stock: 4, image: "https://www.norimakeup.com/cdn/shop/files/Diseno-sin-titulo-55-2.png?v=1758996219&width=823" },
+  { id: "papel-absorbente", brand: "Sin Marca", name: "Papel Absorbente de Grasa – Presentación Animalitos", category: "Skincare", stock: 9, image: "https://abctiendas.com/wp-content/uploads/2024/05/A-001396-1-1024x1024.png" },
+  { id: "us-lipbalm", brand: "Ushas", name: "Sweet Lip Balm", category: "Labios", shades: ["05", "06"], stock: 2, image: "https://ledorashop.com/wp-content/uploads/2025/04/USHAS-heart-Lip-Balm-5-768x768.jpg" },
+  { id: "us-lipink", brand: "Ushas", name: "Lip Ink", category: "Labios", shades: ["Watermelon 02"], stock: 1, image: "https://d.cdnmp.net/150529817/p/m/2/lip-ink-ushas-watermelon~8416292.jpg" },
+  { id: "mg-matelips", brand: "Max Glow", name: "Mate Lips Lip Color Liquid", category: "Labios", shades: ["Raspberry Rose", "Deep Rose"], stock: 2, image: "https://www.farmadon.com.ve/wp-content/uploads/2026/03/Max-Glow-Labial-Liquido-Matte-Lips-Raspberry-Rose-4.6-Gr.png" },
+  { id: "mg-lipoil", brand: "Max Glow", name: "Lip Oil Fruity Gloss Plumping Lips", category: "Labios", shades: ["02", "04"], stock: 3, image: "https://claritasmakeupve.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-25-at-3.13.55-PM-18.jpeg" },
+  { id: "bc-lipoil", brand: "Beauty Creations", name: "Sweet Dose Lip Oil", category: "Labios", shades: ["Water Melon"], stock: 1, image: "https://cdn.shopify.com/s/files/1/0205/2714/products/watermelonoil_1080x_3660224a-527c-4279-935b-089ed3e023b6_1024x1024.webp?v=1655503416" },
+  { id: "bc-pencil", brand: "Beauty Creations", name: "Wooden Lip Pencil", category: "Labios", shades: ["Ur Cherry Sweet", "U Had Me At Expresso", "Wine About It"], stock: 3, image: "https://distribuidoraoxhanita.com/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-17-at-13.13.12.jpeg" },
+  { id: "kc-blusher", brand: "Kevin & Coco", name: "Blusher Lotion", category: "Rostro", shades: ["Thus", "Be Mine"], stock: 2, image: "https://kevincococolombia.com/wp-content/uploads/2024/09/KC240258-3.jpg" },
+  { id: "dici-paso1", brand: "Dici", name: "Paso 1", category: "Skincare", stock: 1, image: "https://images.hive.blog/DQmdY6npaD944iRvx2AGEe1i74Pwvwk1fNthN2xzfMQ9Qy9/IMG-20210116-WA0001.jpg" },
+  { id: "trendy-espejo", brand: "Trendy", name: "Espejo Plegable", category: "Accesorios", stock: 1, image: "https://f.fcdn.app/imgs/1c6317/electroventas.com.uy/elecuy/bd78/original/catalogo/BOM9633_BOM9633_1/1920-1200/espejo-de-maquillaje-multiple-y-plegable-tactil-con-luz-led-espejo-de-maquillaje-multiple-y-plegable-tactil-con-luz-led.jpg" },
+  { id: "sm-sacapuntas", brand: "Sin Marca", name: "Sacapuntas 2 en 1 Sin Depósito (Morado)", category: "Accesorios", stock: 1, image: "https://ofilider.co/wp-content/uploads/2024/01/SDG-2T-Sacapuntas-2-en-1.jpg" },
+  { id: "sm-borlas-grandes", brand: "Sin Marca", name: "Borlas Grandes", category: "Accesorios", stock: 2, image: "https://img.ltwebstatic.com/images3_spmp/2024/07/16/77/172111270622999feb01d5fd89526a8dfea9710703_thumbnail_900x.jpg" },
+  { id: "sm-borlas-pequenas", brand: "Sin Marca", name: "Borlas Pequeñas", category: "Accesorios", stock: 4, image: "https://i5.walmartimages.com/asr/13eccfab-325f-4bd1-938c-38c299eab58a.2a7b870084b53763c94beeb529cbba1c.jpeg" },
+  { id: "sm-esponja", brand: "Sin Marca", name: "Esponja Beauty Blender Amarilla", category: "Accesorios", stock: 1, image: "https://http2.mlstatic.com/D_NQ_NP_835405-MLU71621700727_092023-O.webp" },
+  { id: "sm-sadoer-lip", brand: "Sin Marca", name: "Sadoer Repair Lip Mask", category: "Skincare", stock: 1, image: "https://media.s-bol.com/NJ7PxNj3LnX2/lOlD21V/550x646.jpg" },
+  { id: "sm-kaberline-lip", brand: "Sin Marca", name: "Kaberline Lip Mask", category: "Skincare", stock: 1, image: "https://down-ph.img.susercontent.com/file/f05929b9f9ec0a0cfb38fb9b3f36a5a9" },
+  { id: "sm-sadoer-face", brand: "Sin Marca", name: "Sadoer Real Rose Moisturizing Facial Mask", category: "Skincare", stock: 2, image: "https://bioaqua.com.pk/cdn/shop/files/SADOER_Real_Rose_Deep_Hydration_Brighetning_Facial_Sheet_Mask_1024x1024.webp?v=1724713919" },
+  { id: "sm-grippies", brand: "Sin Marca", name: "Grippies", category: "Accesorios", stock: 2, image: "https://bomique.nl/cdn/shop/files/159_Grippies_v004_Color1_Tri.png?v=1748894585&width=940" },
+  { id: "sm-chokers", brand: "Sin Marca", name: "Chokers Negros", category: "Accesorios", stock: 2, image: "https://i.pinimg.com/originals/96/23/8c/96238ccb526940f84d8790133a95cce0.jpg" },
 ];
 
 const ALL_BRANDS: (Brand | "Todas")[] = ["Todas", "Dolce Bella", "Salomé", "Ushas", "Max Glow", "Beauty Creations", "Kevin & Coco", "Dici", "Trendy", "Sin Marca"];
@@ -72,42 +73,67 @@ function ProductCard({ product, onAddToCart, index }: { product: Product; onAddT
   const [selectedShade, setSelectedShade] = useState<string | undefined>(product.shades?.[0]);
   const stagger = index !== undefined ? `stagger-${Math.min((index % 8) + 1, 8)}` : "";
   return (
-    <div className={`group cursor-pointer flex flex-col card-hover animate-fade-up ${stagger}`}>
-      <div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container flex flex-col items-center justify-center gap-3 border border-outline-variant/30">
-        <div className="absolute inset-0 bg-gradient-to-br from-linen-base/60 to-warm-nude/40 group-hover:from-linen-base/80 group-hover:to-warm-nude/60 transition-all duration-500" />
-        <div className="relative z-10 flex flex-col items-center gap-2 px-4 text-center">
-          <span className="material-symbols-outlined text-4xl text-rose-gold/70 transition-transform duration-300 group-hover:scale-110">{categoryIcon[product.category]}</span>
-          <p className="font-label-sm text-[10px] text-on-surface-variant/70 uppercase tracking-wider leading-tight">{product.name}</p>
+    <div className={`product-card group cursor-pointer flex flex-col animate-fade-up ${stagger}`}>
+      {/* ── Image area ─────────────────────────────────────────────── */}
+      <div className="relative aspect-[3/4] mb-3 overflow-hidden rounded-xl bg-surface-container flex flex-col items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-linen-base/70 to-warm-nude/50 group-hover:from-linen-base/90 group-hover:to-warm-nude/70 transition-all duration-500" />
+        {/* Category icon */}
+        <div className="relative z-10 flex flex-col items-center gap-2 px-3 text-center">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:bg-white/80 transition-all duration-300">
+            <span className="material-symbols-outlined text-2xl sm:text-3xl text-rose-gold/80 transition-transform duration-300 group-hover:scale-110">
+              {categoryIcon[product.category]}
+            </span>
+          </div>
+          <p className="font-label-sm text-[9px] text-on-surface-variant/60 uppercase tracking-widest leading-tight px-1 line-clamp-2">{product.name}</p>
         </div>
-        <span className="absolute top-3 left-3 bg-surface-container-low/90 backdrop-blur-sm text-on-surface-variant font-label-sm text-[10px] px-2 py-0.5 rounded-full border border-outline-variant/40 z-10">
-          Stock: {product.stock}
+        {/* Stock badge */}
+        <span className="absolute top-2.5 left-2.5 bg-white/80 backdrop-blur-sm text-on-surface-variant font-label-sm text-[9px] px-2 py-0.5 rounded-full border border-outline-variant/30 z-10">
+          {product.stock} disp.
         </span>
-        {/* On mobile show always; on desktop show on hover */}
-        <button onClick={() => onAddToCart(product, selectedShade)}
-          className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white active:bg-rose-gold active:text-white transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 shadow-md z-10 min-w-[36px] min-h-[36px] flex items-center justify-center"
+        {/* Add to cart quick button */}
+        <button
+          onClick={() => onAddToCart(product, selectedShade)}
+          className="absolute bottom-2.5 right-2.5 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white active:bg-rose-gold active:text-white transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 shadow-sm z-10 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center"
           aria-label={`Agregar ${product.name}`}>
-          <span className="material-symbols-outlined text-base">add_shopping_cart</span>
+          <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
         </button>
       </div>
-      <div className="flex flex-col flex-1">
-        <p className="font-label-sm text-[10px] text-on-surface-variant mb-1 uppercase tracking-widest truncate">{product.brand}</p>
-        <h3 className="font-headline-sm text-xs sm:text-sm text-deep-charcoal leading-tight mb-2 line-clamp-2">{product.name}</h3>
-        {product.note && <p className="font-label-sm text-[9px] text-secondary italic mb-1 truncate">{product.note}</p>}
+
+      {/* ── Info area ──────────────────────────────────────────────── */}
+      <div className="flex flex-col flex-1 px-1">
+        {/* Brand label */}
+        <p className="font-label-sm text-[9px] text-rose-gold/80 mb-0.5 uppercase tracking-[0.15em] truncate">{product.brand}</p>
+        {/* Product name */}
+        <h3 className="font-headline-sm text-[11px] sm:text-xs text-deep-charcoal leading-snug mb-1.5 line-clamp-2">{product.name}</h3>
+        {/* Note */}
+        {product.note && (
+          <p className="font-label-sm text-[9px] text-secondary/70 italic mb-1 truncate">{product.note}</p>
+        )}
+        {/* Shade selector */}
         {product.shades && product.shades.length > 0 && (
           <div className="flex flex-wrap gap-1 mb-2">
             {product.shades.map((shade) => (
-              <button key={shade} onClick={() => setSelectedShade(shade)}
-                className={`px-2 py-0.5 rounded-full border font-label-sm text-[9px] sm:text-[10px] transition-all duration-200 min-h-[24px] ${selectedShade === shade ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>
+              <button
+                key={shade}
+                onClick={() => setSelectedShade(shade)}
+                className={`px-1.5 py-0.5 rounded-md border font-label-sm text-[8px] sm:text-[9px] transition-all duration-200 min-h-[20px] ${
+                  selectedShade === shade
+                    ? "bg-deep-charcoal text-white border-deep-charcoal"
+                    : "bg-surface-container/60 text-secondary border-outline-variant/50 hover:border-secondary"
+                }`}>
                 {shade}
               </button>
             ))}
           </div>
         )}
-        <div className="flex items-center justify-between mt-auto pt-1 gap-1">
-          <span className="font-label-sm text-[9px] sm:text-[10px] text-on-surface-variant/60 truncate">{product.category}</span>
-          <button onClick={() => onAddToCart(product, selectedShade)} className="flex items-center gap-1 font-label-sm text-[10px] text-primary hover:text-surface-tint active:text-surface-tint transition-colors shrink-0 min-h-[36px] px-1">
-            <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
-            <span className="hidden sm:inline">Agregar</span>
+        {/* Footer row */}
+        <div className="flex items-center justify-between mt-auto pt-1.5 border-t border-outline-variant/20 gap-1">
+          <span className="font-label-sm text-[9px] text-on-surface-variant/50 truncate">{product.category}</span>
+          <button
+            onClick={() => onAddToCart(product, selectedShade)}
+            className="flex items-center gap-0.5 font-label-sm text-[9px] sm:text-[10px] text-rose-gold/80 hover:text-rose-gold active:text-rose-gold transition-colors shrink-0 min-h-[32px] px-1">
+            <span className="material-symbols-outlined text-xs sm:text-sm">add_shopping_cart</span>
+            <span className="hidden xs:inline sm:inline">Agregar</span>
           </button>
         </div>
       </div>
@@ -311,7 +337,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="catalog" className="px-4 md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap">
+        <section id="catalog" className="px-3 sm:px-4 md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap">
           <div className="flex flex-col items-center mb-6">
             <h2 className="font-headline-md text-xl sm:text-headline-md text-deep-charcoal mb-2 text-center animate-fade-up">Catálogo Completo</h2>
             <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant text-center mb-5">{filteredProducts.length} producto{filteredProducts.length !== 1 ? "s" : ""} disponible{filteredProducts.length !== 1 ? "s" : ""}</p>
@@ -335,7 +361,7 @@ export default function Home() {
             </div>
           </div>
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-gutter">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
               {filteredProducts.map((product, i) => <ProductCard key={product.id} product={product} onAddToCart={addToCart} index={i} />)}
             </div>
           ) : (
