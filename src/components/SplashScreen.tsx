@@ -19,19 +19,17 @@ export default function SplashScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-surface-container transition-opacity duration-700 ease-in-out ${
-        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-transparent transition-opacity duration-700 ease-in-out ${
+        isVisible ? "opacity-100 backdrop-blur-sm" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="animate-pulse flex flex-col items-center">
+      <div className="flex flex-col items-center">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/selene-store/logo.png"
           alt="Cargando Selene Makeup"
-          className="h-24 md:h-32 w-auto object-contain mb-4"
+          className="h-28 md:h-40 w-auto object-contain animate-logo-pulse drop-shadow-md"
         />
-        <div className="w-12 h-1 bg-rose-gold/20 rounded overflow-hidden">
-          <div className="w-full h-full bg-rose-gold animate-progress"></div>
-        </div>
       </div>
     </div>
   );
