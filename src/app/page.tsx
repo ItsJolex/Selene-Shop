@@ -390,9 +390,11 @@ export default function Home() {
           ))}
         </nav>
         {/* Mobile left: menu button */}
-        <button className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Menú">
-          <span className="material-symbols-outlined">{mobileMenuOpen ? "close" : "menu"}</span>
-        </button>
+        <div className="flex-1 flex justify-start md:hidden">
+          <button className="min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Menú">
+            <span className="material-symbols-outlined">{mobileMenuOpen ? "close" : "menu"}</span>
+          </button>
+        </div>
         {/* Logo */}
         <div className="flex flex-col items-center justify-center flex-1">
           <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); scrollToCatalog(); }} className="flex flex-col items-center gap-0.5">
