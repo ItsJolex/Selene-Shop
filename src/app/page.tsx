@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 type Brand = "Dolce Bella" | "Salomé" | "Ushas" | "Max Glow" | "Beauty Creations" | "Kevin & Coco" | "Dici" | "Trendy" | "Sin Marca";
 type Category = "Labios" | "Ojos" | "Rostro" | "Accesorios" | "Skincare";
@@ -69,11 +69,11 @@ const categoryIcon: Record<Category, string> = {
   Skincare: "spa",
 };
 
-function ProductCard({ product, onAddToCart, index }: { product: Product; onAddToCart: (p: Product, shade?: string) => void; index?: number }) {
+function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Product; onAddToCart: (p: Product, shade?: string) => void; onQuickView: (p: Product) => void; index?: number }) {
   const [selectedShade, setSelectedShade] = useState<string | undefined>(product.shades?.[0]);
   const stagger = index !== undefined ? `stagger-${Math.min((index % 8) + 1, 8)}` : "";
   return (
-    <div className={`product-card group cursor-pointer flex flex-col animate-fade-up ${stagger}`}>
+    <div onClick={() => onQuickView(product)} className={`product-card group cursor-pointer flex flex-col animate-fade-up ${stagger}`}>
       {/* ── Image area ─────────────────────────────────────────────── */}
       <div className="relative aspect-[3/4] mb-3 overflow-hidden rounded-xl bg-surface-container flex flex-col items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-linen-base/70 to-warm-nude/50 group-hover:from-linen-base/90 group-hover:to-warm-nude/70 transition-all duration-500" />
@@ -92,7 +92,7 @@ function ProductCard({ product, onAddToCart, index }: { product: Product; onAddT
         </span>
         {/* Add to cart quick button */}
         <button
-          onClick={() => onAddToCart(product, selectedShade)}
+          onClick={(e) => { e.stopPropagation(); onAddToCart(product, selectedShade); }}
           className="absolute bottom-2.5 right-2.5 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white active:bg-rose-gold active:text-white transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 shadow-sm z-10 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center"
           aria-label={`Agregar ${product.name}`}>
           <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
@@ -130,11 +130,69 @@ function ProductCard({ product, onAddToCart, index }: { product: Product; onAddT
         <div className="flex items-center justify-between mt-auto pt-1.5 border-t border-outline-variant/20 gap-1">
           <span className="font-label-sm text-[9px] text-on-surface-variant/50 truncate">{product.category}</span>
           <button
-            onClick={() => onAddToCart(product, selectedShade)}
+            onClick={(e) => { e.stopPropagation(); onAddToCart(product, selectedShade); }}
             className="flex items-center gap-0.5 font-label-sm text-[9px] sm:text-[10px] text-rose-gold/80 hover:text-rose-gold active:text-rose-gold transition-colors shrink-0 min-h-[32px] px-1">
             <span className="material-symbols-outlined text-xs sm:text-sm">add_shopping_cart</span>
             <span className="hidden xs:inline sm:inline">Agregar</span>
           </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; onClose: () => void; onAddToCart: (p: Product, shade?: string) => void }) {
+  const [selectedShade, setSelectedShade] = useState<string | undefined>(product.shades?.[0]);
+  return (
+    <div className="fixed inset-0 z-[120] flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative w-full max-w-3xl bg-paper-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row animate-scale-pop max-h-[90vh]">
+        <button onClick={onClose} className="absolute top-3 right-3 z-10 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors shadow-sm">
+          <span className="material-symbols-outlined">close</span>
+        </button>
+        
+        <div className="md:w-1/2 bg-surface-container relative aspect-square md:aspect-auto">
+          {product.image ? (
+            <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          ) : (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <span className="material-symbols-outlined text-6xl text-rose-gold/70">{categoryIcon[product.category]}</span>
+            </div>
+          )}
+        </div>
+        
+        <div className="md:w-1/2 p-6 md:p-8 flex flex-col overflow-y-auto">
+          <p className="font-label-sm text-xs text-secondary uppercase tracking-widest mb-1">{product.brand}</p>
+          <h2 className="font-headline-md text-2xl sm:text-3xl text-deep-charcoal leading-tight mb-2">{product.name}</h2>
+          {product.note && <p className="text-sm italic text-error/80 mb-4">{product.note}</p>}
+          
+          <div className="flex items-center gap-2 mb-6">
+             <span className="bg-surface-container-low px-3 py-1 rounded-full text-xs font-label-md flex items-center gap-1"><span className="material-symbols-outlined text-sm">{categoryIcon[product.category]}</span> {product.category}</span>
+             <span className="bg-surface-container-low px-3 py-1 rounded-full text-xs font-label-md flex items-center gap-1"><span className="material-symbols-outlined text-sm">inventory_2</span> Stock: {product.stock}</span>
+          </div>
+          
+          {product.shades && product.shades.length > 0 && (
+            <div className="mb-6">
+              <p className="font-label-md text-sm mb-2">Selecciona un tono:</p>
+              <div className="flex flex-wrap gap-2">
+                {product.shades.map((shade) => (
+                  <button key={shade} onClick={() => setSelectedShade(shade)}
+                    className={`px-3 py-1.5 rounded-full border text-xs sm:text-sm transition-all duration-200 ${selectedShade === shade ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>
+                    {shade}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          <div className="mt-auto pt-6 border-t border-outline-variant/30">
+            <button onClick={() => { onAddToCart(product, selectedShade); onClose(); }} 
+              className="w-full bg-deep-charcoal text-white font-label-md text-sm sm:text-base py-4 rounded-xl hover:bg-surface-tint active:bg-surface-tint transition-colors flex items-center justify-center gap-2 shadow-md">
+              <span className="material-symbols-outlined">add_shopping_cart</span>
+              Agregar al carrito
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -213,6 +271,12 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+  const [visibleCount, setVisibleCount] = useState(15);
+  
+  useEffect(() => {
+    setVisibleCount(15);
+  }, [activeBrand, activeCategory, searchQuery]);
 
   const filteredProducts = useMemo(() => ALL_PRODUCTS.filter((p) => {
     const matchBrand = activeBrand === "Todas" || p.brand === activeBrand;
@@ -337,10 +401,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="catalog" className="px-3 sm:px-4 md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap">
+        <section id="catalog" className="px-3 sm:px-4 md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap pb-24 md:pb-12">
           <div className="flex flex-col items-center mb-6">
             <h2 className="font-headline-md text-xl sm:text-headline-md text-deep-charcoal mb-2 text-center animate-fade-up">Catálogo Completo</h2>
-            <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant text-center mb-5">{filteredProducts.length} producto{filteredProducts.length !== 1 ? "s" : ""} disponible{filteredProducts.length !== 1 ? "s" : ""}</p>
+            <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant text-center mb-5">{filteredProducts.length} {filteredProducts.length !== 1 ? "productos disponibles" : "producto disponible"}</p>
             {/* Category pills — scrollable horizontally on mobile */}
             <div className="w-full overflow-x-auto pb-2 mb-3 hide-scrollbar">
               <div className="flex gap-2 w-max mx-auto px-1">
@@ -361,9 +425,18 @@ export default function Home() {
             </div>
           </div>
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
-              {filteredProducts.map((product, i) => <ProductCard key={product.id} product={product} onAddToCart={addToCart} index={i} />)}
-            </div>
+            <>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
+                {filteredProducts.slice(0, visibleCount).map((product, i) => <ProductCard key={product.id} product={product} onAddToCart={addToCart} onQuickView={setQuickViewProduct} index={i} />)}
+              </div>
+              {visibleCount < filteredProducts.length && (
+                <div className="flex justify-center mt-10">
+                  <button onClick={() => setVisibleCount(v => v + 15)} className="bg-surface-container-low text-deep-charcoal border border-outline-variant font-label-md px-8 py-3 rounded-full hover:bg-surface-container transition-colors shadow-sm">
+                    Cargar más productos
+                  </button>
+                </div>
+              )}
+            </>
           ) : (
             <div className="flex flex-col items-center justify-center py-16 gap-4 text-center">
               <span className="material-symbols-outlined text-6xl text-outline-variant">search_off</span>
@@ -403,6 +476,7 @@ export default function Home() {
       </a>
 
       {cartOpen && <CartDrawer items={cartItems} onClose={() => setCartOpen(false)} onRemove={removeFromCart} onQtyChange={changeQty} />}
+      {quickViewProduct && <QuickViewModal product={quickViewProduct} onClose={() => setQuickViewProduct(null)} onAddToCart={addToCart} />}
     </div>
   );
 }
