@@ -81,30 +81,32 @@ function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: 
         <span className="absolute top-3 left-3 bg-surface-container-low/90 backdrop-blur-sm text-on-surface-variant font-label-sm text-[10px] px-2 py-0.5 rounded-full border border-outline-variant/40 z-10">
           Stock: {product.stock}
         </span>
+        {/* On mobile show always; on desktop show on hover */}
         <button onClick={() => onAddToCart(product, selectedShade)}
-          className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 shadow-md z-10"
+          className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white active:bg-rose-gold active:text-white transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 shadow-md z-10 min-w-[36px] min-h-[36px] flex items-center justify-center"
           aria-label={`Agregar ${product.name}`}>
-          <span className="material-symbols-outlined text-xl">add_shopping_cart</span>
+          <span className="material-symbols-outlined text-base">add_shopping_cart</span>
         </button>
       </div>
       <div className="flex flex-col flex-1">
-        <p className="font-label-sm text-[10px] text-on-surface-variant mb-1 uppercase tracking-widest">{product.brand}</p>
-        <h3 className="font-headline-sm text-sm text-deep-charcoal leading-tight mb-2">{product.name}</h3>
-        {product.note && <p className="font-label-sm text-[10px] text-secondary italic mb-1">{product.note}</p>}
+        <p className="font-label-sm text-[10px] text-on-surface-variant mb-1 uppercase tracking-widest truncate">{product.brand}</p>
+        <h3 className="font-headline-sm text-xs sm:text-sm text-deep-charcoal leading-tight mb-2 line-clamp-2">{product.name}</h3>
+        {product.note && <p className="font-label-sm text-[9px] text-secondary italic mb-1 truncate">{product.note}</p>}
         {product.shades && product.shades.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-3">
+          <div className="flex flex-wrap gap-1 mb-2">
             {product.shades.map((shade) => (
               <button key={shade} onClick={() => setSelectedShade(shade)}
-                className={`px-2 py-0.5 rounded-full border font-label-sm text-[10px] transition-all duration-200 ${selectedShade === shade ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>
+                className={`px-2 py-0.5 rounded-full border font-label-sm text-[9px] sm:text-[10px] transition-all duration-200 min-h-[24px] ${selectedShade === shade ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>
                 {shade}
               </button>
             ))}
           </div>
         )}
-        <div className="flex items-center justify-between mt-auto pt-1">
-          <span className="font-label-sm text-[10px] text-on-surface-variant/60">{product.category}</span>
-          <button onClick={() => onAddToCart(product, selectedShade)} className="flex items-center gap-1 text-xs font-label-sm text-primary hover:text-surface-tint transition-colors">
-            <span className="material-symbols-outlined text-sm">add_shopping_cart</span>Agregar
+        <div className="flex items-center justify-between mt-auto pt-1 gap-1">
+          <span className="font-label-sm text-[9px] sm:text-[10px] text-on-surface-variant/60 truncate">{product.category}</span>
+          <button onClick={() => onAddToCart(product, selectedShade)} className="flex items-center gap-1 font-label-sm text-[10px] text-primary hover:text-surface-tint active:text-surface-tint transition-colors shrink-0 min-h-[36px] px-1">
+            <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
+            <span className="hidden sm:inline">Agregar</span>
           </button>
         </div>
       </div>
@@ -121,44 +123,53 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem
   return (
     <div className="fixed inset-0 z-[100] flex justify-end">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full max-w-sm bg-paper-white shadow-2xl flex flex-col h-full">
-        <div className="flex items-center justify-between px-6 py-5 border-b border-outline-variant/30">
-          <h2 className="font-headline-sm text-xl text-deep-charcoal">Mi Carrito</h2>
-          <button onClick={onClose} className="text-on-surface-variant hover:text-deep-charcoal"><span className="material-symbols-outlined">close</span></button>
+      {/* Cart panel — full width on mobile, max-sm on desktop */}
+      <div className="relative w-full sm:max-w-sm bg-paper-white shadow-2xl flex flex-col h-full">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-outline-variant/30">
+          <h2 className="font-headline-sm text-lg sm:text-xl text-deep-charcoal">Mi Carrito</h2>
+          <button onClick={onClose} className="text-on-surface-variant hover:text-deep-charcoal min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Cerrar carrito">
+            <span className="material-symbols-outlined">close</span>
+          </button>
         </div>
-        <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+        <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
               <span className="material-symbols-outlined text-6xl text-outline-variant">shopping_bag</span>
               <p className="font-body-md text-body-md text-on-surface-variant">Tu carrito está vacío.</p>
             </div>
           ) : items.map((item) => (
-            <div key={`${item.product.id}-${item.shade}`} className="flex items-center gap-4 pb-4 border-b border-outline-variant/20 last:border-0">
-              <div className="w-14 h-14 rounded-lg bg-surface-container-low flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-2xl text-rose-gold/70">{categoryIcon[item.product.category]}</span>
+            <div key={`${item.product.id}-${item.shade}`} className="flex items-center gap-3 pb-4 border-b border-outline-variant/20 last:border-0">
+              <div className="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-xl text-rose-gold/70">{categoryIcon[item.product.category]}</span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest mb-0.5">{item.product.brand}</p>
-                <p className="font-headline-sm text-sm text-deep-charcoal leading-tight truncate">{item.product.name}</p>
+                <p className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest mb-0.5 truncate">{item.product.brand}</p>
+                <p className="font-headline-sm text-sm text-deep-charcoal leading-tight line-clamp-2">{item.product.name}</p>
                 {item.shade && <p className="font-label-sm text-[10px] text-secondary mt-0.5">{item.shade}</p>}
               </div>
               <div className="flex items-center gap-1 shrink-0">
-                <button onClick={() => onQtyChange(item.product.id, item.shade, -1)} className="w-6 h-6 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container"><span className="material-symbols-outlined text-xs">remove</span></button>
+                <button onClick={() => onQtyChange(item.product.id, item.shade, -1)} className="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container active:bg-surface-container" aria-label="Reducir cantidad">
+                  <span className="material-symbols-outlined text-xs">remove</span>
+                </button>
                 <span className="font-label-md text-sm w-5 text-center">{item.qty}</span>
-                <button onClick={() => onQtyChange(item.product.id, item.shade, 1)} className="w-6 h-6 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container"><span className="material-symbols-outlined text-xs">add</span></button>
-                <button onClick={() => onRemove(item.product.id, item.shade)} className="ml-1 text-error/60 hover:text-error"><span className="material-symbols-outlined text-sm">delete</span></button>
+                <button onClick={() => onQtyChange(item.product.id, item.shade, 1)} className="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container active:bg-surface-container" aria-label="Aumentar cantidad">
+                  <span className="material-symbols-outlined text-xs">add</span>
+                </button>
+                <button onClick={() => onRemove(item.product.id, item.shade)} className="ml-1 text-error/60 hover:text-error active:text-error w-8 h-8 flex items-center justify-center" aria-label="Eliminar">
+                  <span className="material-symbols-outlined text-sm">delete</span>
+                </button>
               </div>
             </div>
           ))}
         </div>
         {items.length > 0 && (
-          <div className="px-6 py-5 border-t border-outline-variant/30 space-y-3">
+          <div className="px-5 py-5 pb-6 border-t border-outline-variant/30 space-y-3">
             <div className="flex justify-between font-label-md text-label-md text-deep-charcoal"><span>Total productos:</span><span>{total}</span></div>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-label-md text-label-md py-3 rounded-lg hover:opacity-90">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-label-md text-label-md py-4 rounded-lg hover:opacity-90 active:opacity-90 min-h-[52px]">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d={WaPath} /></svg>
               Pedir por WhatsApp
             </a>
-            <button onClick={onClose} className="w-full border border-outline-variant text-on-surface-variant font-label-md text-label-md py-3 rounded-lg hover:bg-surface-container">Seguir comprando</button>
+            <button onClick={onClose} className="w-full border border-outline-variant text-on-surface-variant font-label-md text-label-md py-3 rounded-lg hover:bg-surface-container active:bg-surface-container min-h-[48px]">Seguir comprando</button>
           </div>
         )}
       </div>
@@ -206,97 +217,132 @@ export default function Home() {
   return (
     <div className="bg-surface text-on-surface min-h-screen">
       {toast && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] bg-deep-charcoal text-white font-label-md text-label-md px-5 py-3 rounded-full shadow-lg whitespace-nowrap">{toast}</div>
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] bg-deep-charcoal text-white font-label-md text-[11px] sm:text-label-md px-4 py-3 rounded-full shadow-lg max-w-[90vw] text-center">{toast}</div>
       )}
 
-      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 backdrop-blur-xl bg-paper-white/90 border-b border-outline-variant/30 text-deep-charcoal">
+      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop py-3 md:py-4 backdrop-blur-xl bg-paper-white/90 border-b border-outline-variant/30 text-deep-charcoal">
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-stack-lg flex-1">
           {ALL_CATEGORIES.filter((c) => c !== "Todas").map((cat) => (
             <button key={cat} onClick={() => { setActiveCategory(cat as Category); scrollToCatalog(); }}
               className={`font-label-md text-label-md transition-colors border-b-2 pb-1 ${activeCategory === cat ? "text-primary border-primary" : "text-on-surface-variant border-transparent hover:text-primary"}`}>{cat}</button>
           ))}
         </nav>
+        {/* Mobile left: menu button */}
+        <button className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Menú">
+          <span className="material-symbols-outlined">{mobileMenuOpen ? "close" : "menu"}</span>
+        </button>
+        {/* Logo */}
         <div className="flex flex-col items-center justify-center flex-1">
-          <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); scrollToCatalog(); }} className="flex flex-col items-center gap-1">
-            <Image alt="Selene Logo" className="h-14 md:h-20 w-auto object-contain" src="/logo.png" width={80} height={80} priority />
-            <span className="font-label-sm text-[10px] tracking-[0.2em] uppercase text-deep-charcoal text-center">Selene MAKE UP STORE</span>
+          <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); scrollToCatalog(); }} className="flex flex-col items-center gap-0.5">
+            <Image alt="Selene Logo" className="h-10 md:h-16 w-auto object-contain" src="/logo.png" width={64} height={64} priority />
+            <span className="font-label-sm text-[8px] md:text-[10px] tracking-[0.2em] uppercase text-deep-charcoal text-center">Selene MAKE UP STORE</span>
           </button>
         </div>
-        <div className="flex items-center justify-end gap-stack-md flex-1">
+        {/* Right actions */}
+        <div className="flex items-center justify-end gap-1 md:gap-stack-md flex-1">
           <div className="hidden md:flex relative">
             <input className="bg-transparent border-0 border-b border-deep-charcoal px-0 py-1 text-sm w-48 outline-none focus:border-rose-gold transition-colors"
               placeholder="Buscar..." type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); scrollToCatalog(); }} />
             <span className="material-symbols-outlined absolute right-0 top-1 text-[18px]">search</span>
           </div>
-          <button className="md:hidden" onClick={() => setSearchOpen((v) => !v)}><span className="material-symbols-outlined">search</span></button>
-          <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined">chat</span></a>
-          <button onClick={() => setCartOpen(true)} className="relative">
-            <span className="material-symbols-outlined">shopping_cart</span>
-            {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-rose-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">{cartCount}</span>}
+          <button className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal hover:text-primary" onClick={() => setSearchOpen((v) => !v)} aria-label="Buscar">
+            <span className="material-symbols-outlined">search</span>
           </button>
-          <button className="md:hidden" onClick={() => setMobileMenuOpen((v) => !v)}><span className="material-symbols-outlined">{mobileMenuOpen ? "close" : "menu"}</span></button>
+          <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal hover:text-primary" aria-label="WhatsApp">
+            <span className="material-symbols-outlined">chat</span>
+          </a>
+          <button onClick={() => setCartOpen(true)} className="relative min-w-[44px] min-h-[44px] flex items-center justify-center text-deep-charcoal hover:text-primary" aria-label="Carrito">
+            <span className="material-symbols-outlined">shopping_cart</span>
+            {cartCount > 0 && <span className="absolute top-1 right-1 bg-rose-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">{cartCount}</span>}
+          </button>
         </div>
       </header>
 
       {searchOpen && (
-        <div className="fixed top-[72px] left-0 w-full z-40 px-margin-mobile py-3 bg-paper-white/95 backdrop-blur-xl border-b border-outline-variant/30">
-          <input autoFocus className="w-full bg-surface-container rounded-lg px-4 py-2 text-sm outline-none border border-outline-variant/40 focus:border-primary"
+        <div className="fixed top-[64px] left-0 w-full z-40 px-4 py-3 bg-paper-white/95 backdrop-blur-xl border-b border-outline-variant/30">
+          <input autoFocus className="w-full bg-surface-container rounded-lg px-4 py-3 text-sm outline-none border border-outline-variant/40 focus:border-primary"
             placeholder="Buscar productos..." type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
         </div>
       )}
       {mobileMenuOpen && (
-        <div className="fixed top-[72px] left-0 w-full z-40 bg-paper-white/97 backdrop-blur-xl border-b border-outline-variant/20 px-margin-mobile py-5 flex flex-col gap-3 shadow-md">
-          {ALL_CATEGORIES.filter((c) => c !== "Todas").map((cat) => (
-            <button key={cat} onClick={() => { setActiveCategory(cat as Category); setMobileMenuOpen(false); scrollToCatalog(); }}
-              className={`text-left font-label-md text-label-md py-2 border-b border-outline-variant/20 ${activeCategory === cat ? "text-primary" : "text-on-surface-variant"}`}>{cat}</button>
-          ))}
-        </div>
+        <>
+          {/* Backdrop closes menu on tap outside */}
+          <div className="fixed inset-0 z-[39] bg-black/20" onClick={() => setMobileMenuOpen(false)} />
+          <div className="fixed top-[64px] left-0 w-4/5 max-w-xs z-40 bg-paper-white shadow-xl flex flex-col h-[calc(100vh-64px)]">
+            <div className="px-6 py-5 border-b border-outline-variant/20">
+              <p className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant mb-3">Categorías</p>
+              {ALL_CATEGORIES.map((cat) => (
+                <button key={cat} onClick={() => { setActiveCategory(cat as Category | "Todas"); setMobileMenuOpen(false); scrollToCatalog(); }}
+                  className={`flex items-center w-full text-left font-label-md text-label-md py-3 border-b border-outline-variant/10 last:border-0 gap-3 min-h-[44px] ${activeCategory === cat ? "text-primary" : "text-on-surface-variant"}`}>
+                  {cat !== "Todas" && <span className="material-symbols-outlined text-base text-rose-gold/70">{categoryIcon[cat as Category]}</span>}
+                  {cat}
+                </button>
+              ))}
+            </div>
+            <div className="px-6 py-4">
+              <p className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant mb-3">Marcas</p>
+              {ALL_BRANDS.map((brand) => (
+                <button key={brand} onClick={() => { setActiveBrand(brand as Brand | "Todas"); setMobileMenuOpen(false); scrollToCatalog(); }}
+                  className={`w-full text-left font-body-md text-sm py-2.5 border-b border-outline-variant/10 last:border-0 min-h-[44px] ${activeBrand === brand ? "text-primary font-semibold" : "text-on-surface-variant"}`}>
+                  {brand}
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
       )}
 
-      <main className="pt-[120px] md:pt-[140px] pb-section-gap">
-        <section className="px-margin-mobile md:px-margin-desktop mb-section-gap flex flex-col items-center text-center justify-center min-h-[45vh] bg-gradient-to-b from-surface to-linen-base/40">
-          <div className="max-w-3xl mx-auto px-4">
-            <p className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-rose-gold mb-stack-md">Tu tienda de makeup en Venezuela</p>
-            <h1 className="font-headline-md md:font-display-lg text-headline-md md:text-display-lg text-deep-charcoal mb-stack-lg leading-tight tracking-tight">
+      <main className="pt-[64px] md:pt-[88px] pb-section-gap">
+        <section className="px-4 md:px-margin-desktop mb-section-gap flex flex-col items-center text-center justify-center min-h-[45vh] bg-gradient-to-b from-surface to-linen-base/40 py-12">
+          <div className="max-w-3xl mx-auto w-full">
+            <p className="font-label-sm text-[11px] sm:text-label-sm uppercase tracking-[0.2em] text-rose-gold mb-3">Tu tienda de makeup en Venezuela</p>
+            <h1 className="font-headline-md md:font-display-lg text-2xl sm:text-headline-md md:text-display-lg text-deep-charcoal mb-4 leading-tight tracking-tight">
               Selene.<br /><span className="text-surface-tint">The Art of Makeup.</span>
             </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl mx-auto">Descubre Glow Tint, Hydratint Concealer, Lip Oils y mucho más. Calidad premium, directo a ti.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={scrollToCatalog} className="bg-deep-charcoal text-white font-label-md text-label-md px-10 py-4 rounded-full hover:bg-surface-tint transition-colors">Ver Catálogo</button>
-              <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="border border-outline-variant text-on-surface-variant font-label-md text-label-md px-10 py-4 rounded-full hover:border-primary hover:text-primary transition-colors inline-flex items-center justify-center gap-2">
+            <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant mb-6 max-w-xl mx-auto">Descubre Glow Tint, Hydratint Concealer, Lip Oils y mucho más. Calidad premium, directo a ti.</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button onClick={scrollToCatalog} className="bg-deep-charcoal text-white font-label-md text-label-md px-8 py-4 rounded-full hover:bg-surface-tint active:bg-surface-tint transition-colors min-h-[52px]">Ver Catálogo</button>
+              <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="border border-outline-variant text-on-surface-variant font-label-md text-label-md px-8 py-4 rounded-full hover:border-primary hover:text-primary active:border-primary active:text-primary transition-colors inline-flex items-center justify-center gap-2 min-h-[52px]">
                 <span className="material-symbols-outlined text-sm">chat</span>Consultar
               </a>
             </div>
           </div>
         </section>
 
-        <section id="catalog" className="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap">
-          <div className="flex flex-col items-center mb-8">
-            <h2 className="font-headline-md text-headline-md text-deep-charcoal mb-2 text-center">Catálogo Completo</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant text-center mb-6">{filteredProducts.length} producto{filteredProducts.length !== 1 ? "s" : ""} disponible{filteredProducts.length !== 1 ? "s" : ""}</p>
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
-              {ALL_CATEGORIES.map((cat) => (
-                <button key={cat} onClick={() => setActiveCategory(cat as Category | "Todas")}
-                  className={`px-5 py-2 rounded-full font-label-sm text-label-sm border transition-all duration-200 ${activeCategory === cat ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>{cat}</button>
-              ))}
+        <section id="catalog" className="px-4 md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap">
+          <div className="flex flex-col items-center mb-6">
+            <h2 className="font-headline-md text-xl sm:text-headline-md text-deep-charcoal mb-2 text-center">Catálogo Completo</h2>
+            <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant text-center mb-5">{filteredProducts.length} producto{filteredProducts.length !== 1 ? "s" : ""} disponible{filteredProducts.length !== 1 ? "s" : ""}</p>
+            {/* Category pills — scrollable horizontally on mobile */}
+            <div className="w-full overflow-x-auto pb-2 mb-3">
+              <div className="flex gap-2 w-max mx-auto px-1">
+                {ALL_CATEGORIES.map((cat) => (
+                  <button key={cat} onClick={() => setActiveCategory(cat as Category | "Todas")}
+                    className={`px-4 py-2 rounded-full font-label-sm text-[11px] sm:text-label-sm border transition-all duration-200 whitespace-nowrap min-h-[36px] ${activeCategory === cat ? "bg-deep-charcoal text-white border-deep-charcoal" : "bg-transparent text-secondary border-outline-variant hover:border-secondary"}`}>{cat}</button>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap justify-center gap-2">
-              {ALL_BRANDS.map((brand) => (
-                <button key={brand} onClick={() => setActiveBrand(brand as Brand | "Todas")}
-                  className={`px-4 py-1.5 rounded-full font-label-sm text-[11px] border transition-all duration-200 ${activeBrand === brand ? "bg-rose-gold text-white border-rose-gold" : "bg-transparent text-on-surface-variant border-outline-variant/60 hover:border-rose-gold/60 hover:text-rose-gold"}`}>{brand}</button>
-              ))}
+            {/* Brand pills — scrollable horizontally on mobile */}
+            <div className="w-full overflow-x-auto pb-1">
+              <div className="flex gap-2 w-max mx-auto px-1">
+                {ALL_BRANDS.map((brand) => (
+                  <button key={brand} onClick={() => setActiveBrand(brand as Brand | "Todas")}
+                    className={`px-3 py-1.5 rounded-full font-label-sm text-[10px] sm:text-[11px] border transition-all duration-200 whitespace-nowrap min-h-[32px] ${activeBrand === brand ? "bg-rose-gold text-white border-rose-gold" : "bg-transparent text-on-surface-variant border-outline-variant/60 hover:border-rose-gold/60 hover:text-rose-gold"}`}>{brand}</button>
+                ))}
+              </div>
             </div>
           </div>
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-gutter">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-gutter">
               {filteredProducts.map((product) => <ProductCard key={product.id} product={product} onAddToCart={addToCart} />)}
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center py-20 gap-4 text-center">
+            <div className="flex flex-col items-center justify-center py-16 gap-4 text-center">
               <span className="material-symbols-outlined text-6xl text-outline-variant">search_off</span>
-              <p className="font-headline-sm text-headline-sm text-on-surface-variant">No encontramos productos</p>
+              <p className="font-headline-sm text-lg text-on-surface-variant">No encontramos productos</p>
               <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); }}
-                className="mt-2 border border-outline-variant text-secondary font-label-md text-label-md px-6 py-2 rounded-full hover:bg-surface-container">Ver todo</button>
+                className="mt-2 border border-outline-variant text-secondary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-surface-container active:bg-surface-container min-h-[48px]">Ver todo</button>
             </div>
           )}
         </section>
