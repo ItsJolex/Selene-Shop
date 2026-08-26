@@ -382,25 +382,31 @@ export default function Home() {
       )}
 
       <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop py-3 md:py-4 backdrop-blur-xl bg-paper-white/90 border-b border-outline-variant/30 text-on-surface">
-        {/* Desktop nav */}
+        {/* Mobile left: menu & search buttons */}
+        <div className="flex-1 flex justify-start md:hidden gap-1">
+          <button className="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Menú">
+            <span className="material-symbols-outlined">{mobileMenuOpen ? "close" : "menu"}</span>
+          </button>
+          <button className="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" onClick={() => setSearchOpen((v) => !v)} aria-label="Buscar">
+            <span className="material-symbols-outlined">search</span>
+          </button>
+        </div>
+        
+        {/* Desktop left: nav */}
         <nav className="hidden md:flex items-center gap-stack-lg flex-1">
           {ALL_CATEGORIES.filter((c) => c !== "Todas").map((cat) => (
             <button key={cat} onClick={() => { setActiveCategory(cat as Category); scrollToCatalog(); }}
               className={`font-label-md text-label-md transition-colors border-b-2 pb-1 ${activeCategory === cat ? "text-primary border-primary" : "text-on-surface-variant border-transparent hover:text-primary"}`}>{cat}</button>
           ))}
         </nav>
-        {/* Mobile left: menu button */}
-        <div className="flex-1 flex justify-start md:hidden">
-          <button className="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Menú">
-            <span className="material-symbols-outlined">{mobileMenuOpen ? "close" : "menu"}</span>
-          </button>
-        </div>
+
         {/* Logo */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center pointer-events-none">
+        <div className="flex flex-col items-center justify-center flex-1 shrink-0 z-10 pointer-events-none">
           <button onClick={() => { setActiveBrand("Todas"); setActiveCategory("Todas"); setSearchQuery(""); scrollToCatalog(); }} className="flex flex-col items-center gap-0.5 pointer-events-auto">
-            <Image alt="Selene Logo" className="header-logo h-10 md:h-16 w-auto object-contain" src="/logo.png" width={150} height={64} priority />
+            <Image alt="Selene Logo" className="header-logo h-10 md:h-16 w-auto object-contain max-w-[120px] sm:max-w-[150px]" src="/logo.png" width={150} height={64} priority />
           </button>
         </div>
+
         {/* Right actions */}
         <div className="flex items-center justify-end gap-1 md:gap-stack-md flex-1">
           <div className="hidden md:flex relative">
@@ -408,9 +414,6 @@ export default function Home() {
               placeholder="Buscar..." type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); scrollToCatalog(); }} />
             <span className="material-symbols-outlined absolute right-0 top-1 text-[18px]">search</span>
           </div>
-          <button className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" onClick={() => setSearchOpen((v) => !v)} aria-label="Buscar">
-            <span className="material-symbols-outlined">search</span>
-          </button>
           <a href="https://wa.me/584244162454" target="_blank" rel="noopener noreferrer" className="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" aria-label="WhatsApp">
             <span className="material-symbols-outlined">chat</span>
           </a>
@@ -470,7 +473,7 @@ export default function Home() {
                 <p className="font-label-sm text-[10px] md:text-xs uppercase tracking-[0.25em] text-on-surface/70">Tu tienda de makeup en Venezuela</p>
               </div>
               
-              <h1 className="font-display-lg text-5xl sm:text-6xl md:text-[5.5rem] lg:text-[7rem] text-on-surface leading-[0.9] tracking-tight mb-6 animate-fade-up stagger-2">
+              <h1 className="font-display-lg text-5xl sm:text-6xl md:text-[5.5rem] lg:text-[7rem] text-on-surface leading-none tracking-tight mb-6 animate-fade-up stagger-2">
                 <span className="block italic font-light text-secondary mb-2">The Art of</span>
                 <span className="block font-medium">Makeup.</span>
               </h1>
@@ -479,7 +482,7 @@ export default function Home() {
                 Descubre Glow Tint, Hydratint Concealer, Lip Oils y mucho más. Selección premium curada para resaltar tu belleza natural.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-up stagger-4">
+              <div className="flex flex-col sm:flex-row gap-4 mt-4 animate-fade-up stagger-4">
                 <button onClick={scrollToCatalog} className="bg-on-surface text-white font-label-md text-[13px] tracking-widest uppercase px-10 py-4 hover:bg-secondary transition-colors min-h-[52px] flex items-center justify-center gap-2 group">
                   Explorar Catálogo
                   <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
@@ -517,7 +520,7 @@ export default function Home() {
             
             {/* Category tabs — minimalist editorial */}
             <div className="w-full overflow-x-auto pb-4 mb-2 hide-scrollbar border-b border-outline-variant/20 animate-fade-up stagger-3">
-              <div className="flex gap-6 md:gap-10 w-max mx-auto px-4">
+              <div className="flex gap-6 md:gap-10 min-w-max md:justify-center px-4">
                 {ALL_CATEGORIES.map((cat) => (
                   <button key={cat} onClick={() => setActiveCategory(cat as Category | "Todas")}
                     className={`relative pb-2 font-label-md text-xs sm:text-sm uppercase tracking-widest transition-colors ${activeCategory === cat ? "text-on-surface font-semibold" : "text-on-surface-variant hover:text-on-surface"}`}>
@@ -530,7 +533,7 @@ export default function Home() {
             
             {/* Brand filters — subtle outlined tags */}
             <div className="w-full overflow-x-auto pb-2 mt-4 hide-scrollbar animate-fade-up stagger-4">
-              <div className="flex gap-3 w-max mx-auto px-4">
+              <div className="flex gap-3 min-w-max md:justify-center px-4">
                 {ALL_BRANDS.map((brand) => (
                   <button key={brand} onClick={() => setActiveBrand(brand as Brand | "Todas")}
                     className={`px-4 py-1.5 rounded-none font-label-sm text-[10px] sm:text-xs uppercase tracking-wider border transition-all ${activeBrand === brand ? "bg-on-surface text-white border-on-surface" : "bg-transparent text-on-surface/60 border-on-surface/20 hover:border-on-surface hover:text-on-surface"}`}>{brand}</button>
