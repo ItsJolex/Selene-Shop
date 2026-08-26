@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <div className="bg-surface text-on-surface">
@@ -12,7 +14,7 @@ export default function Home() {
 </nav>
 <div className="flex flex-col items-center justify-center flex-1">
 <a className="flex flex-col items-center gap-2" href="#">
-<img alt="Selene Logo" className="h-16 md:h-24 w-auto object-contain" src="/Selene-Shop/logo.png"/>
+<Image alt="Selene Logo" className="h-16 md:h-24 w-auto object-contain" src="/Selene-Shop/logo.png" width={96} height={96} priority />
 <span className="font-label-sm text-[10px] md:text-label-sm tracking-[0.2em] uppercase text-deep-charcoal text-center">Selene MAKE UP STORE</span>
 </a>
 </div>
@@ -67,7 +69,7 @@ Shop Now
 {/* Product 1 */}
 <div className="group cursor-pointer">
 <div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container-low editorial-border">
-<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" alt="A minimalist flat lay product shot of 'Dolce Bella Glow Tint' makeup bottle. The product is placed on a smooth, warm nude marble surface. Soft, natural light casts gentle shadows. The aesthetic is clean, premium, and sophisticated, aligning with a luxury cosmetics brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0ptnNDvaR21EtbqLELbf-4pcJFYbUcuE0U7MUpJk6ZG2uLhcOecoBmVBkfspmdh3tVf7M3bcPqJtF5Ep7sz3KdU362p17PTTLPOYKFkfn1K5rvYZTVUozZSlJFT7OspZ_C5uGA4aWVtqBq8PN6usGktUHuSTqD5bYT9rhmm_9kqkXF52OLJ0WGzBhPOrtGi1Xg-hKmmJApOP3E_NQcJJRHThGE5rztKXKIp9GWNB7qeXTHf8PZngetLtDubM25lSYLN0_bjpwXAQ"/>
+<Image className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="A minimalist flat lay product shot of 'Dolce Bella Glow Tint' makeup bottle. The product is placed on a smooth, warm nude marble surface. Soft, natural light casts gentle shadows. The aesthetic is clean, premium, and sophisticated, aligning with a luxury cosmetics brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0ptnNDvaR21EtbqLELbf-4pcJFYbUcuE0U7MUpJk6ZG2uLhcOecoBmVBkfspmdh3tVf7M3bcPqJtF5Ep7sz3KdU362p17PTTLPOYKFkfn1K5rvYZTVUozZSlJFT7OspZ_C5uGA4aWVtqBq8PN6usGktUHuSTqD5bYT9rhmm_9kqkXF52OLJ0WGzBhPOrtGi1Xg-hKmmJApOP3E_NQcJJRHThGE5rztKXKIp9GWNB7qeXTHf8PZngetLtDubM25lSYLN0_bjpwXAQ" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" />
 <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
 <button className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
 <span className="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
@@ -83,7 +85,7 @@ Shop Now
 {/* Product 2 */}
 <div className="group cursor-pointer">
 <div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container-low editorial-border">
-<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" alt="A sleek, minimalist close-up shot of 'Salomé Hydratint Concealer' tube standing upright against a soft rose gold background. The lighting is crisp and even, highlighting the elegant packaging. The overall mood is luxurious and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfpLvbe5nro7KlMh8uS7XsNXWwOGnbmwYa3Wyi8evH8ylUFB8qPH1kmcmfH_TtvZgaxFg23ow2vYJKtlhNs6wPo1l6tVY7Bhq-myjvJaTOPnuiDkOkjM8yX6j4Ay90AQBxdQLTXIgP4ucO1LR8HvvHlTba5KTB25aCEHUfVGeZWjwH-hBTNYCflNiPW2F5ylarTZcIfD7mA2zfu5tsQy3AKTU_VLpPEfUa9WNX9OOYKtpQ4y0vdfdu3qQbxYYvJOW5bnZbSz-rC00"/>
+<Image className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="A sleek, minimalist close-up shot of 'Salomé Hydratint Concealer' tube standing upright against a soft rose gold background. The lighting is crisp and even, highlighting the elegant packaging. The overall mood is luxurious and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfpLvbe5nro7KlMh8uS7XsNXWwOGnbmwYa3Wyi8evH8ylUFB8qPH1kmcmfH_TtvZgaxFg23ow2vYJKtlhNs6wPo1l6tVY7Bhq-myjvJaTOPnuiDkOkjM8yX6j4Ay90AQBxdQLTXIgP4ucO1LR8HvvHlTba5KTB25aCEHUfVGeZWjwH-hBTNYCflNiPW2F5ylarTZcIfD7mA2zfu5tsQy3AKTU_VLpPEfUa9WNX9OOYKtpQ4y0vdfdu3qQbxYYvJOW5bnZbSz-rC00" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" />
 <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
 <button className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
 <span className="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
@@ -98,7 +100,7 @@ Shop Now
 {/* Product 3 */}
 <div className="group cursor-pointer">
 <div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container-low editorial-border">
-<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" alt="An artistic, soft-focus image of 'Max Glow Lip Oil Fruity Gloss'. The product is resting on a textured linen surface in a warm nude color. A single drop of water or subtle botanical prop is nearby to imply hydration. Light mode, premium editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAB3c9oWt_3fYZWse6shO3u7xyJ8tpNRevHZueh1s86HTdFRWX-sloU2OnirXhJ8h-sbTo0AA2YDYE6dUwWp7Atsm-TsmUgEkmadGEen45aPGrjhmjYBA5OiDxngvwelvnVILVPN9b8tLu2zDOSCfB8uQP_7oyjzlJPHd_Qh22TuTQvC3pOU_uO5Kt3DzcUheK1Zih8FiUb6QRmK-fEIPFOnHLE8LRTNBINPaxLpRT3PNkY160Q6Sk61Wjb2WlP8IWrcocsaj9Nao"/>
+<Image className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="An artistic, soft-focus image of 'Max Glow Lip Oil Fruity Gloss'. The product is resting on a textured linen surface in a warm nude color. A single drop of water or subtle botanical prop is nearby to imply hydration. Light mode, premium editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAB3c9oWt_3fYZWse6shO3u7xyJ8tpNRevHZueh1s86HTdFRWX-sloU2OnirXhJ8h-sbTo0AA2YDYE6dUwWp7Atsm-TsmUgEkmadGEen45aPGrjhmjYBA5OiDxngvwelvnVILVPN9b8tLu2zDOSCfB8uQP_7oyjzlJPHd_Qh22TuTQvC3pOU_uO5Kt3DzcUheK1Zih8FiUb6QRmK-fEIPFOnHLE8LRTNBINPaxLpRT3PNkY160Q6Sk61Wjb2WlP8IWrcocsaj9Nao" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" />
 <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
 <button className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
 <span className="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
@@ -113,7 +115,7 @@ Shop Now
 {/* Product 4 */}
 <div className="group cursor-pointer">
 <div className="relative aspect-[3/4] mb-stack-md overflow-hidden rounded-lg bg-surface-container-low editorial-border">
-<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" alt="A clean, minimalist product shot of 'Ushas Sweet Lip Balm' pot open, showing the product texture. Placed on a pristine white pedestal against a warm nude gradient background. High-key lighting, luxurious and inviting aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_M1Pv5nlUoOc7yKOyhW_v4ON-i3eeExFw0SXOHb6Ixdjjtu3nsJK4M5b9ZVOb7vH5J-qOMtdsBLH6T7LoezL_kfJPPw6nyGiUBNK2j8aYaCFw8OIp1OUTONKnODmFJHZmZrtFcfsUVPVx8Xo5NwHzkOJhl61Q8XvQWDujmG9ED1vRxlbLvDO0HpwOTJKrEdfSRPmJEmr2ECtJlrUigmnKFx3Lofj2aHhuLntKy7WLFIe0ZMqjYpTMOeErSVFARjbvFgCvEMKMetA"/>
+<Image className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="A clean, minimalist product shot of 'Ushas Sweet Lip Balm' pot open, showing the product texture. Placed on a pristine white pedestal against a warm nude gradient background. High-key lighting, luxurious and inviting aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_M1Pv5nlUoOc7yKOyhW_v4ON-i3eeExFw0SXOHb6Ixdjjtu3nsJK4M5b9ZVOb7vH5J-qOMtdsBLH6T7LoezL_kfJPPw6nyGiUBNK2j8aYaCFw8OIp1OUTONKnODmFJHZmZrtFcfsUVPVx8Xo5NwHzkOJhl61Q8XvQWDujmG9ED1vRxlbLvDO0HpwOTJKrEdfSRPmJEmr2ECtJlrUigmnKFx3Lofj2aHhuLntKy7WLFIe0ZMqjYpTMOeErSVFARjbvFgCvEMKMetA" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" />
 <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
 <button className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
 <span className="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
