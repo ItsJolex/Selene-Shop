@@ -82,7 +82,7 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: {
       style={{ animationDelay: delay }}
     >
       {/* Image */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-surface-container-low">
+      <div className="relative aspect-[3/4] overflow-hidden bg-surface-container-low rounded">
         {product.image ? (
           <>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -730,22 +730,24 @@ export default function Home() {
             </div>
 
             {/* Category tabs */}
-            <div className="w-full overflow-x-auto hide-scrollbar border-b border-outline-variant/20 mb-5">
-              <div className="flex gap-6 md:gap-8 min-w-max px-0 pb-0">
-                {ALL_CATEGORIES.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat as Category | "Todas")}
-                    className={`filter-tab whitespace-nowrap ${activeCategory === cat ? "active text-on-surface" : "text-on-surface/40 hover:text-on-surface"}`}
-                  >
-                    {cat}
-                  </button>
-                ))}
+            <div className="w-full border-b border-outline-variant/20 mb-5">
+              <div className="w-full overflow-x-auto hide-scrollbar -mx-1 px-1 -my-2 py-2">
+                <div className="flex gap-6 md:gap-8 min-w-max px-0 pb-0">
+                  {ALL_CATEGORIES.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveCategory(cat as Category | "Todas")}
+                      className={`filter-tab whitespace-nowrap ${activeCategory === cat ? "active text-on-surface" : "text-on-surface/40 hover:text-on-surface"}`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Brand filters */}
-            <div className="w-full overflow-x-auto hide-scrollbar">
+            <div className="w-full overflow-x-auto hide-scrollbar -mx-2 px-2 -my-4 py-4">
               <div className="flex gap-2 min-w-max">
                 {ALL_BRANDS.map((brand) => (
                   <button
