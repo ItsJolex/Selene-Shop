@@ -3,12 +3,13 @@ import "./globals.css";
 import SplashScreen from "@/components/SplashScreen";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://itsjolex.github.io/Selene-Shop"),
   title: "Selene Makeup Store",
   description: "The Art of Makeup - Tu tienda de makeup en Venezuela",
   openGraph: {
     title: "Selene Makeup Store",
     description: "Elevando tu belleza natural con cosméticos curados y de calidad premium.",
-    url: "https://selenemakeupstore.com",
+    url: "https://itsjolex.github.io/Selene-Shop",
     siteName: "Selene Makeup Store",
     images: [
       {
