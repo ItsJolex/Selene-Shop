@@ -94,6 +94,15 @@ const config: Config = {
         "on-secondary": "#ffffff",
         "primary": "#7d562d",
         "surface-container-lowest": "#ffffff"
+      },
+      keyframes: {
+        progress: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' }
+        }
+      },
+      animation: {
+        'progress': 'progress 1s ease-in-out infinite'
       }
     }
   },

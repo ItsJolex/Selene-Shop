@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Selene Makeup Store
 
-## Getting Started
+Un catálogo digital optimizado para Selene Makeup, construido con Next.js 14, React y Tailwind CSS. Exportado como sitio estático sin necesidad de base de datos activa.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🛒 Carrito de compras persistente (guardado en el navegador).
+- 🏷️ Control de stock: Validación para evitar pedidos de productos agotados o más de lo disponible.
+- 📱 Experiencia optimizada para móviles con menú inferior y modal de vista rápida.
+- 💬 Checkout directo hacia WhatsApp, incluyendo los detalles del pedido, precio total y cálculo automático.
+- ⚡ Imágenes optimizadas en formato WebP para tiempos de carga ultrarrápidos (ideal para conexiones lentas).
+- 🔍 SEO y Open Graph configurados para compartir enlaces bonitos en redes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Desarrollo Local
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para correr el proyecto en tu máquina y hacer cambios:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Instala las dependencias:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+2. Inicia el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Cómo modificar el catálogo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Actualmente, el catálogo se administra editando el arreglo `ALL_PRODUCTS` en el archivo `src/app/page.tsx`.
 
-## Deploy on Vercel
+Para agregar o modificar un producto:
+1. Abre `src/app/page.tsx` y busca la constante `ALL_PRODUCTS`.
+2. Añade un objeto respetando los campos: `id`, `image`, `brand`, `name`, `category`, `stock` y `price`.
+3. Para las imágenes nuevas, colócalas en la carpeta `public/products/`. Asegúrate de que sean de formato ligero (idealmente `.webp`). Puedes usar el script `scripts/optimize.py` para convertir fotos nuevas.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts de Utilidad
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Dentro de la carpeta `scripts/` encontrarás herramientas usadas previamente:
+- `optimize.py`: Transforma de JPG a WebP comprimido.
+- `convert.py`, `download_images.py`, `create_excel.js`: Utilidades antiguas de extracción.
+
+## Despliegue
+
+La aplicación está configurada para **Exportación Estática** (`output: "export"` en `next.config.mjs`).
+
+Puedes desplegarla en [Vercel](https://vercel.com) conectando este repositorio de GitHub. No requiere configuración adicional, ya que Vercel detecta Next.js automáticamente y manejará la generación de la carpeta `.next`.

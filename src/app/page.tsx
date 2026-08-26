@@ -15,7 +15,10 @@ interface Product {
   stock: number;
   note?: string;
   image?: string;
+  price: number;
 }
+
+const WaPath = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z";
 
 interface CartItem {
   product: Product;
@@ -24,38 +27,38 @@ interface CartItem {
 }
 
 const ALL_PRODUCTS: Product[] = [
-  { id: "db-glotint", image: "/products/db-glotint.jpg", brand: "Dolce Bella", name: "Glow Tint", category: "Rostro", shades: ["Sand", "Vainilla", "Brown"], stock: 3, },
-  { id: "db-corrector", image: "/products/db-corrector.jpg", brand: "Dolce Bella", name: "Corrector Líquido", category: "Rostro", shades: ["Carmel", "Honey", "Tan"], stock: 6, note: "Tan sin caja", },
-  { id: "db-blush", image: "/products/db-blush.jpg", brand: "Dolce Bella", name: "Blush en Polvo / Rubor Individual", category: "Rostro", shades: ["05", "11"], stock: 3, },
-  { id: "db-mascara", image: "/products/db-mascara.jpg", brand: "Dolce Bella", name: "Máscara Volumen & Definition", category: "Ojos", stock: 1, },
-  { id: "db-pencil", image: "/products/db-pencil.jpg", brand: "Dolce Bella", name: "Makeup Pencil", category: "Ojos", shades: ["Dark Brown 803", "Medium Brown 808"], stock: 4, },
-  { id: "db-lipgloss-tubo", image: "/products/db-lipgloss-tubo.jpg", brand: "Dolce Bella", name: "Lip Gloss (Tubo)", category: "Labios", shades: ["D6", "07", "D5", "04"], stock: 7, },
-  { id: "db-lipgloss-aplicador", image: "/products/db-lipgloss-aplicador.jpg", brand: "Dolce Bella", name: "Lip Gloss (Con Aplicador)", category: "Labios", shades: ["03", "01", "05"], stock: 5, },
-  { id: "db-grace-marble", image: "/products/db-grace-marble.jpg", brand: "Dolce Bella", name: "Grace Marble", category: "Labios", shades: ["Dusty Rose"], stock: 3, },
-  { id: "db-glossy-lipbalm", image: "/products/db-glossy-lipbalm.jpg", brand: "Dolce Bella", name: "Glossy Lip Balm", category: "Labios", shades: ["Grace", "Smile"], stock: 2, },
-  { id: "db-vinyl-lip", image: "/products/db-vinyl-lip.jpg", brand: "Dolce Bella", name: "Vinyl Lasting Lip Stain", category: "Labios", shades: ["Sweet Tart"], stock: 1, },
-  { id: "sa-concealer", image: "/products/sa-concealer.jpg", brand: "Salomé", name: "Hydratint Concealer", category: "Rostro", shades: ["01", "03"], stock: 5, },
-  { id: "sa-lipstick", image: "/products/sa-lipstick.jpg", brand: "Salomé", name: "Vegan Smooth Creamy Lipstick", category: "Labios", shades: ["01", "04"], stock: 2, },
-  { id: "sa-sacapuntas", image: "/products/sa-sacapuntas.jpg", brand: "Salomé", name: "Sacapuntas 2 en 1", category: "Accesorios", stock: 4, },
-  { id: "papel-absorbente", image: "/products/papel-absorbente.jpg", brand: "Sin Marca", name: "Papel Absorbente de Grasa – Presentación Animalitos", category: "Skincare", stock: 9, },
-  { id: "us-lipbalm", image: "/products/us-lipbalm.jpg", brand: "Ushas", name: "Sweet Lip Balm", category: "Labios", shades: ["05", "06"], stock: 2, },
-  { id: "us-lipink", image: "/products/us-lipink.jpg", brand: "Ushas", name: "Lip Ink", category: "Labios", shades: ["Watermelon 02"], stock: 1, },
-  { id: "mg-matelips", image: "/products/mg-matelips.jpg", brand: "Max Glow", name: "Mate Lips Lip Color Liquid", category: "Labios", shades: ["Raspberry Rose", "Deep Rose"], stock: 2, },
-  { id: "mg-lipoil", image: "/products/mg-lipoil.jpg", brand: "Max Glow", name: "Lip Oil Fruity Gloss Plumping Lips", category: "Labios", shades: ["02", "04"], stock: 3, },
-  { id: "bc-lipoil", image: "/products/bc-lipoil.jpg", brand: "Beauty Creations", name: "Sweet Dose Lip Oil", category: "Labios", shades: ["Water Melon"], stock: 1, },
-  { id: "bc-pencil", image: "/products/bc-pencil.jpg", brand: "Beauty Creations", name: "Wooden Lip Pencil", category: "Labios", shades: ["Ur Cherry Sweet", "U Had Me At Expresso", "Wine About It"], stock: 3, },
-  { id: "kc-blusher", image: "/products/kc-blusher.jpg", brand: "Kevin & Coco", name: "Blusher Lotion", category: "Rostro", shades: ["Thus", "Be Mine"], stock: 2, },
-  { id: "dici-paso1", image: "/products/dici-paso1.jpg", brand: "Dici", name: "Paso 1", category: "Skincare", stock: 1, },
-  { id: "trendy-espejo", image: "/products/trendy-espejo.jpg", brand: "Trendy", name: "Espejo Plegable", category: "Accesorios", stock: 1, },
-  { id: "sm-sacapuntas", image: "/products/sm-sacapuntas.jpg", brand: "Sin Marca", name: "Sacapuntas 2 en 1 Sin Depósito (Morado)", category: "Accesorios", stock: 1, },
-  { id: "sm-borlas-grandes", image: "/products/sm-borlas-grandes.jpg", brand: "Sin Marca", name: "Borlas Grandes", category: "Accesorios", stock: 2, },
-  { id: "sm-borlas-pequenas", image: "/products/sm-borlas-pequenas.jpg", brand: "Sin Marca", name: "Borlas Pequeñas", category: "Accesorios", stock: 4, },
-  { id: "sm-esponja", image: "/products/sm-esponja.jpg", brand: "Sin Marca", name: "Esponja Beauty Blender Amarilla", category: "Accesorios", stock: 1, },
-  { id: "sm-sadoer-lip", image: "/products/sm-sadoer-lip.jpg", brand: "Sin Marca", name: "Sadoer Repair Lip Mask", category: "Skincare", stock: 1, },
-  { id: "sm-kaberline-lip", image: "/products/sm-kaberline-lip.jpg", brand: "Sin Marca", name: "Kaberline Lip Mask", category: "Skincare", stock: 1, },
-  { id: "sm-sadoer-face", image: "/products/sm-sadoer-face.jpg", brand: "Sin Marca", name: "Sadoer Real Rose Moisturizing Facial Mask", category: "Skincare", stock: 2, },
-  { id: "sm-grippies", image: "/products/sm-grippies.jpg", brand: "Sin Marca", name: "Grippies", category: "Accesorios", stock: 2, },
-  { id: "sm-chokers", image: "/products/sm-chokers.jpg", brand: "Sin Marca", name: "Chokers Negros", category: "Accesorios", stock: 2, },
+  { id: "db-glotint", image: "/products/db-glotint.webp", brand: "Dolce Bella", name: "Glow Tint", category: "Rostro", shades: ["Sand", "Vainilla", "Brown"], stock: 3, price: 5, },
+  { id: "db-corrector", image: "/products/db-corrector.webp", brand: "Dolce Bella", name: "Corrector Líquido", category: "Rostro", shades: ["Carmel", "Honey", "Tan"], stock: 6, note: "Tan sin caja", price: 5, },
+  { id: "db-blush", image: "/products/db-blush.webp", brand: "Dolce Bella", name: "Blush en Polvo / Rubor Individual", category: "Rostro", shades: ["05", "11"], stock: 3, price: 5, },
+  { id: "db-mascara", image: "/products/db-mascara.webp", brand: "Dolce Bella", name: "Máscara Volumen & Definition", category: "Ojos", stock: 1, price: 5, },
+  { id: "db-pencil", image: "/products/db-pencil.webp", brand: "Dolce Bella", name: "Makeup Pencil", category: "Ojos", shades: ["Dark Brown 803", "Medium Brown 808"], stock: 4, price: 5, },
+  { id: "db-lipgloss-tubo", image: "/products/db-lipgloss-tubo.webp", brand: "Dolce Bella", name: "Lip Gloss (Tubo)", category: "Labios", shades: ["D6", "07", "D5", "04"], stock: 7, price: 5, },
+  { id: "db-lipgloss-aplicador", image: "/products/db-lipgloss-aplicador.webp", brand: "Dolce Bella", name: "Lip Gloss (Con Aplicador)", category: "Labios", shades: ["03", "01", "05"], stock: 5, price: 5, },
+  { id: "db-grace-marble", image: "/products/db-grace-marble.webp", brand: "Dolce Bella", name: "Grace Marble", category: "Labios", shades: ["Dusty Rose"], stock: 3, price: 5, },
+  { id: "db-glossy-lipbalm", image: "/products/db-glossy-lipbalm.webp", brand: "Dolce Bella", name: "Glossy Lip Balm", category: "Labios", shades: ["Grace", "Smile"], stock: 2, price: 5, },
+  { id: "db-vinyl-lip", image: "/products/db-vinyl-lip.webp", brand: "Dolce Bella", name: "Vinyl Lasting Lip Stain", category: "Labios", shades: ["Sweet Tart"], stock: 1, price: 5, },
+  { id: "sa-concealer", image: "/products/sa-concealer.webp", brand: "Salomé", name: "Hydratint Concealer", category: "Rostro", shades: ["01", "03"], stock: 5, price: 5, },
+  { id: "sa-lipstick", image: "/products/sa-lipstick.webp", brand: "Salomé", name: "Vegan Smooth Creamy Lipstick", category: "Labios", shades: ["01", "04"], stock: 2, price: 5, },
+  { id: "sa-sacapuntas", image: "/products/sa-sacapuntas.webp", brand: "Salomé", name: "Sacapuntas 2 en 1", category: "Accesorios", stock: 4, price: 5, },
+  { id: "papel-absorbente", image: "/products/papel-absorbente.webp", brand: "Sin Marca", name: "Papel Absorbente de Grasa – Presentación Animalitos", category: "Skincare", stock: 9, price: 5, },
+  { id: "us-lipbalm", image: "/products/us-lipbalm.webp", brand: "Ushas", name: "Sweet Lip Balm", category: "Labios", shades: ["05", "06"], stock: 2, price: 5, },
+  { id: "us-lipink", image: "/products/us-lipink.webp", brand: "Ushas", name: "Lip Ink", category: "Labios", shades: ["Watermelon 02"], stock: 1, price: 5, },
+  { id: "mg-matelips", image: "/products/mg-matelips.webp", brand: "Max Glow", name: "Mate Lips Lip Color Liquid", category: "Labios", shades: ["Raspberry Rose", "Deep Rose"], stock: 2, price: 5, },
+  { id: "mg-lipoil", image: "/products/mg-lipoil.webp", brand: "Max Glow", name: "Lip Oil Fruity Gloss Plumping Lips", category: "Labios", shades: ["02", "04"], stock: 3, price: 5, },
+  { id: "bc-lipoil", image: "/products/bc-lipoil.webp", brand: "Beauty Creations", name: "Sweet Dose Lip Oil", category: "Labios", shades: ["Water Melon"], stock: 1, price: 5, },
+  { id: "bc-pencil", image: "/products/bc-pencil.webp", brand: "Beauty Creations", name: "Wooden Lip Pencil", category: "Labios", shades: ["Ur Cherry Sweet", "U Had Me At Expresso", "Wine About It"], stock: 3, price: 5, },
+  { id: "kc-blusher", image: "/products/kc-blusher.webp", brand: "Kevin & Coco", name: "Blusher Lotion", category: "Rostro", shades: ["Thus", "Be Mine"], stock: 2, price: 5, },
+  { id: "dici-paso1", image: "/products/dici-paso1.webp", brand: "Dici", name: "Paso 1", category: "Skincare", stock: 1, price: 5, },
+  { id: "trendy-espejo", image: "/products/trendy-espejo.webp", brand: "Trendy", name: "Espejo Plegable", category: "Accesorios", stock: 1, price: 5, },
+  { id: "sm-sacapuntas", image: "/products/sm-sacapuntas.webp", brand: "Sin Marca", name: "Sacapuntas 2 en 1 Sin Depósito (Morado)", category: "Accesorios", stock: 1, price: 5, },
+  { id: "sm-borlas-grandes", image: "/products/sm-borlas-grandes.webp", brand: "Sin Marca", name: "Borlas Grandes", category: "Accesorios", stock: 2, price: 5, },
+  { id: "sm-borlas-pequenas", image: "/products/sm-borlas-pequenas.webp", brand: "Sin Marca", name: "Borlas Pequeñas", category: "Accesorios", stock: 4, price: 5, },
+  { id: "sm-esponja", image: "/products/sm-esponja.webp", brand: "Sin Marca", name: "Esponja Beauty Blender Amarilla", category: "Accesorios", stock: 1, price: 5, },
+  { id: "sm-sadoer-lip", image: "/products/sm-sadoer-lip.webp", brand: "Sin Marca", name: "Sadoer Repair Lip Mask", category: "Skincare", stock: 1, price: 5, },
+  { id: "sm-kaberline-lip", image: "/products/sm-kaberline-lip.webp", brand: "Sin Marca", name: "Kaberline Lip Mask", category: "Skincare", stock: 1, price: 5, },
+  { id: "sm-sadoer-face", image: "/products/sm-sadoer-face.webp", brand: "Sin Marca", name: "Sadoer Real Rose Moisturizing Facial Mask", category: "Skincare", stock: 2, price: 5, },
+  { id: "sm-grippies", image: "/products/sm-grippies.webp", brand: "Sin Marca", name: "Grippies", category: "Accesorios", stock: 2, price: 5, },
+  { id: "sm-chokers", image: "/products/sm-chokers.webp", brand: "Sin Marca", name: "Chokers Negros", category: "Accesorios", stock: 2, price: 5, },
 ];
 
 const ALL_BRANDS: (Brand | "Todas")[] = ["Todas", "Dolce Bella", "Salomé", "Ushas", "Max Glow", "Beauty Creations", "Kevin & Coco", "Dici", "Trendy", "Sin Marca"];
@@ -73,7 +76,7 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
   const [selectedShade, setSelectedShade] = useState<string | undefined>(product.shades?.[0]);
   const stagger = index !== undefined ? `stagger-${Math.min((index % 8) + 1, 8)}` : "";
   return (
-    <div onClick={() => onQuickView(product)} className={`product-card group cursor-pointer flex flex-col animate-fade-up ${stagger}`}>
+    <div onClick={() => onQuickView(product)} className={`product-card group cursor-pointer flex flex-col animate-fade-up ${stagger} ${product.stock === 0 ? "opacity-60 grayscale-[0.2]" : ""}`}>
       {/* ── Image area ─────────────────────────────────────────────── */}
       <div className="relative aspect-[3/4] mb-3 overflow-hidden rounded-xl bg-surface-container flex flex-col items-center justify-center border border-outline-variant/30">
         {product.image ? (
@@ -97,13 +100,14 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
           </>
         )}
         {/* Stock badge */}
-        <span className="absolute top-2.5 left-2.5 bg-white/80 backdrop-blur-sm text-on-surface-variant font-label-sm text-[11px] px-2 py-0.5 rounded-full border border-outline-variant/30 z-10 font-medium">
-          Stock: {product.stock}
+        <span className={`absolute top-2.5 left-2.5 backdrop-blur-sm font-label-sm text-[11px] px-2 py-0.5 rounded-full border z-10 font-medium ${product.stock > 0 ? "bg-white/80 text-on-surface-variant border-outline-variant/30" : "bg-error/90 text-white border-error"}`}>
+          {product.stock > 0 ? `Stock: ${product.stock}` : "Agotado"}
         </span>
         {/* Add to cart quick button */}
         <button
-          onClick={(e) => { e.stopPropagation(); onAddToCart(product, selectedShade); }}
-          className="absolute bottom-2.5 right-2.5 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white active:bg-rose-gold active:text-white transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 shadow-sm z-10 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center"
+          onClick={(e) => { e.stopPropagation(); if (product.stock > 0) onAddToCart(product, selectedShade); }}
+          disabled={product.stock === 0}
+          className="absolute bottom-2.5 right-2.5 bg-white/90 backdrop-blur-sm rounded-full p-2 text-deep-charcoal hover:bg-rose-gold hover:text-white active:bg-rose-gold active:text-white transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 shadow-sm z-10 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label={`Agregar ${product.name}`}>
           <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
         </button>
@@ -113,8 +117,11 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
       <div className="flex flex-col flex-1 px-1">
         {/* Brand label */}
         <p className="font-label-sm text-[9px] text-rose-gold/80 mb-0.5 uppercase tracking-[0.15em] truncate">{product.brand}</p>
-        {/* Product name */}
-        <h3 className="font-headline-sm text-[11px] sm:text-xs text-deep-charcoal leading-snug mb-1.5 line-clamp-2">{product.name}</h3>
+        {/* Product name & Price */}
+        <div className="flex justify-between items-start gap-2 mb-1.5">
+          <h3 className="font-headline-sm text-[11px] sm:text-xs text-deep-charcoal leading-snug line-clamp-2">{product.name}</h3>
+          <span className="font-label-md text-[11px] sm:text-xs text-primary shrink-0">${product.price.toFixed(2)}</span>
+        </div>
         {/* Note */}
         {product.note && (
           <p className="font-label-sm text-[9px] text-secondary/70 italic mb-1 truncate">{product.note}</p>
@@ -140,8 +147,9 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
         <div className="flex items-center justify-between mt-auto pt-1.5 border-t border-outline-variant/20 gap-1">
           <span className="font-label-sm text-[9px] text-on-surface-variant/50 truncate">{product.category}</span>
           <button
-            onClick={(e) => { e.stopPropagation(); onAddToCart(product, selectedShade); }}
-            className="flex items-center gap-0.5 font-label-sm text-[9px] sm:text-[10px] text-rose-gold/80 hover:text-rose-gold active:text-rose-gold transition-colors shrink-0 min-h-[32px] px-1">
+            onClick={(e) => { e.stopPropagation(); if (product.stock > 0) onAddToCart(product, selectedShade); }}
+            disabled={product.stock === 0}
+            className="flex items-center gap-0.5 font-label-sm text-[9px] sm:text-[10px] text-rose-gold/80 hover:text-rose-gold active:text-rose-gold transition-colors shrink-0 min-h-[32px] px-1 disabled:opacity-50 disabled:cursor-not-allowed">
             <span className="material-symbols-outlined text-xs sm:text-sm">add_shopping_cart</span>
             <span className="hidden xs:inline sm:inline">Agregar</span>
           </button>
@@ -180,10 +188,14 @@ function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; o
           <h2 className="font-headline-md text-2xl sm:text-3xl text-deep-charcoal leading-tight mb-2">{product.name}</h2>
           {product.note && <p className="text-sm italic text-error/80 mb-4">{product.note}</p>}
           
-          <div className="flex items-center gap-2 mb-6">
+          <div className="flex items-center gap-2 mb-4">
              <span className="bg-surface-container-low px-3 py-1 rounded-full text-xs font-label-md flex items-center gap-1"><span className="material-symbols-outlined text-sm">{categoryIcon[product.category]}</span> {product.category}</span>
-             <span className="bg-surface-container-low px-3 py-1 rounded-full text-xs font-label-md flex items-center gap-1"><span className="material-symbols-outlined text-sm">inventory_2</span> Stock: {product.stock}</span>
+             <span className={`px-3 py-1 rounded-full text-xs font-label-md flex items-center gap-1 ${product.stock > 0 ? "bg-surface-container-low" : "bg-error text-white"}`}>
+               <span className="material-symbols-outlined text-sm">{product.stock > 0 ? "inventory_2" : "block"}</span> 
+               {product.stock > 0 ? `Stock: ${product.stock}` : "Agotado"}
+             </span>
           </div>
+          <p className="font-headline-md text-2xl text-primary mb-6">${product.price.toFixed(2)}</p>
           
           {product.shades && product.shades.length > 0 && (
             <div className="mb-6">
@@ -200,8 +212,9 @@ function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; o
           )}
           
           <div className="mt-auto pt-6 border-t border-outline-variant/30">
-            <button onClick={() => { onAddToCart(product, selectedShade); onClose(); }} 
-              className="w-full bg-deep-charcoal text-white font-label-md text-sm sm:text-base py-4 rounded-xl hover:bg-surface-tint active:bg-surface-tint transition-colors flex items-center justify-center gap-2 shadow-md">
+            <button onClick={() => { if (product.stock > 0) { onAddToCart(product, selectedShade); onClose(); } }} 
+              disabled={product.stock === 0}
+              className="w-full bg-deep-charcoal text-white font-label-md text-sm sm:text-base py-4 rounded-xl hover:bg-surface-tint active:bg-surface-tint transition-colors flex items-center justify-center gap-2 shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
               <span className="material-symbols-outlined">add_shopping_cart</span>
               Agregar al carrito
             </button>
@@ -214,10 +227,10 @@ function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; o
 
 function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem[]; onClose: () => void; onRemove: (id: string, shade?: string) => void; onQtyChange: (id: string, shade: string | undefined, delta: number) => void }) {
   const total = items.reduce((acc, i) => acc + i.qty, 0);
-  const whatsappItems = items.map((i) => `• ${i.product.name}${i.shade ? ` (${i.shade})` : ""} x${i.qty}`).join("%0A");
-  const whatsappMsg = `Hola! Me interesa pedir:%0A${whatsappItems}%0A%0ATotal: ${total} producto(s)`;
+  const totalPrice = items.reduce((acc, i) => acc + (i.qty * i.product.price), 0);
+  const whatsappItems = items.map((i) => `• ${i.product.name}${i.shade ? ` (${i.shade})` : ""} x${i.qty} ($${(i.product.price * i.qty).toFixed(2)})`).join("%0A");
+  const whatsappMsg = `Hola! Me interesa pedir:%0A${whatsappItems}%0A%0ATotal: ${total} producto(s)%0ATotal a pagar: $${totalPrice.toFixed(2)}`;
   const whatsappUrl = `https://wa.me/584244162454?text=${whatsappMsg}`;
-  const WaPath = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z";
   return (
     <div className="fixed inset-0 z-[100] flex justify-end">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
@@ -244,6 +257,7 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem
                 <p className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest mb-0.5 truncate">{item.product.brand}</p>
                 <p className="font-headline-sm text-sm text-deep-charcoal leading-tight line-clamp-2">{item.product.name}</p>
                 {item.shade && <p className="font-label-sm text-[10px] text-secondary mt-0.5">{item.shade}</p>}
+                <p className="font-label-md text-xs text-primary mt-1">${(item.product.price * item.qty).toFixed(2)}</p>
               </div>
               <div className="flex items-center gap-1 shrink-0">
                 <button onClick={() => onQtyChange(item.product.id, item.shade, -1)} className="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container active:bg-surface-container" aria-label="Reducir cantidad">
@@ -262,7 +276,8 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: { items: CartItem
         </div>
         {items.length > 0 && (
           <div className="px-5 py-5 pb-6 border-t border-outline-variant/30 space-y-3">
-            <div className="flex justify-between font-label-md text-label-md text-deep-charcoal"><span>Total productos:</span><span>{total}</span></div>
+            <div className="flex justify-between font-label-md text-sm text-on-surface-variant"><span>Total productos:</span><span>{total}</span></div>
+            <div className="flex justify-between font-headline-sm text-lg text-deep-charcoal mb-2"><span>Total a pagar:</span><span>${totalPrice.toFixed(2)}</span></div>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-label-md text-label-md py-4 rounded-lg hover:opacity-90 active:opacity-90 min-h-[52px]">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d={WaPath} /></svg>
               Pedir por WhatsApp
@@ -280,6 +295,7 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category | "Todas">("Todas");
   const [searchQuery, setSearchQuery] = useState("");
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartLoaded, setCartLoaded] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -290,6 +306,20 @@ export default function Home() {
   useEffect(() => {
     setVisibleCount(15);
   }, [activeBrand, activeCategory, searchQuery]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("selene_cart");
+    if (saved) {
+      try { setCartItems(JSON.parse(saved)); } catch { }
+    }
+    setCartLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (cartLoaded) {
+      localStorage.setItem("selene_cart", JSON.stringify(cartItems));
+    }
+  }, [cartItems, cartLoaded]);
 
   const filteredProducts = useMemo(() => ALL_PRODUCTS.filter((p) => {
     const matchBrand = activeBrand === "Todas" || p.brand === activeBrand;
@@ -304,19 +334,46 @@ export default function Home() {
   function showToast(msg: string) { setToast(msg); setTimeout(() => setToast(null), 2500); }
 
   function addToCart(product: Product, shade?: string) {
+    if (product.stock <= 0) return;
     setCartItems((prev) => {
       const ex = prev.find((i) => i.product.id === product.id && i.shade === shade);
-      if (ex) return prev.map((i) => i.product.id === product.id && i.shade === shade ? { ...i, qty: i.qty + 1 } : i);
+      if (ex) {
+        if (ex.qty >= product.stock) {
+          showToast(`⚠️ Solo hay ${product.stock} disponibles`);
+          return prev;
+        }
+        return prev.map((i) => i.product.id === product.id && i.shade === shade ? { ...i, qty: i.qty + 1 } : i);
+      }
       return [...prev, { product, shade, qty: 1 }];
     });
-    showToast(`✓ ${product.name}${shade ? ` · ${shade}` : ""} agregado`);
+    
+    // Solo mostrar toast si realmente se va a agregar (no excedió límite)
+    setCartItems(prev => {
+      const ex = prev.find((i) => i.product.id === product.id && i.shade === shade);
+      if (!ex || ex.qty < product.stock || (ex && ex.qty === product.stock && prev !== cartItems)) {
+         showToast(`✓ ${product.name}${shade ? ` · ${shade}` : ""} agregado`);
+      }
+      return prev;
+    });
   }
 
   function removeFromCart(id: string, shade?: string) { setCartItems((prev) => prev.filter((i) => !(i.product.id === id && i.shade === shade))); }
-  function changeQty(id: string, shade: string | undefined, delta: number) { setCartItems((prev) => prev.map((i) => i.product.id === id && i.shade === shade ? { ...i, qty: i.qty + delta } : i).filter((i) => i.qty > 0)); }
+  
+  function changeQty(id: string, shade: string | undefined, delta: number) { 
+    setCartItems((prev) => prev.map((i) => {
+      if (i.product.id === id && i.shade === shade) {
+        const newQty = i.qty + delta;
+        if (newQty > i.product.stock) {
+          showToast(`⚠️ Solo hay ${i.product.stock} disponibles`);
+          return { ...i, qty: i.product.stock };
+        }
+        return { ...i, qty: newQty };
+      }
+      return i;
+    }).filter((i) => i.qty > 0)); 
+  }
+  
   const scrollToCatalog = () => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" });
-
-  const WaPath = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z";
 
   return (
     <div className="bg-surface text-on-surface min-h-screen">
