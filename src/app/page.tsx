@@ -75,20 +75,30 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
   return (
     <div onClick={() => onQuickView(product)} className={`product-card group cursor-pointer flex flex-col animate-fade-up ${stagger}`}>
       {/* ── Image area ─────────────────────────────────────────────── */}
-      <div className="relative aspect-[3/4] mb-3 overflow-hidden rounded-xl bg-surface-container flex flex-col items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-linen-base/70 to-warm-nude/50 group-hover:from-linen-base/90 group-hover:to-warm-nude/70 transition-all duration-500" />
-        {/* Category icon */}
-        <div className="relative z-10 flex flex-col items-center gap-2 px-3 text-center">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:bg-white/80 transition-all duration-300">
-            <span className="material-symbols-outlined text-2xl sm:text-3xl text-rose-gold/80 transition-transform duration-300 group-hover:scale-110">
-              {categoryIcon[product.category]}
-            </span>
-          </div>
-          <p className="font-label-sm text-[9px] text-on-surface-variant/60 uppercase tracking-widest leading-tight px-1 line-clamp-2">{product.name}</p>
-        </div>
+      <div className="relative aspect-[3/4] mb-3 overflow-hidden rounded-xl bg-surface-container flex flex-col items-center justify-center border border-outline-variant/30">
+        {product.image ? (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-br from-linen-base/70 to-warm-nude/50 group-hover:from-linen-base/90 group-hover:to-warm-nude/70 transition-all duration-500" />
+            {/* Category icon */}
+            <div className="relative z-10 flex flex-col items-center gap-2 px-3 text-center">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:bg-white/80 transition-all duration-300">
+                <span className="material-symbols-outlined text-2xl sm:text-3xl text-rose-gold/80 transition-transform duration-300 group-hover:scale-110">
+                  {categoryIcon[product.category]}
+                </span>
+              </div>
+              <p className="font-label-sm text-[9px] text-on-surface-variant/60 uppercase tracking-widest leading-tight px-1 line-clamp-2">{product.name}</p>
+            </div>
+          </>
+        )}
         {/* Stock badge */}
-        <span className="absolute top-2.5 left-2.5 bg-white/80 backdrop-blur-sm text-on-surface-variant font-label-sm text-[9px] px-2 py-0.5 rounded-full border border-outline-variant/30 z-10">
-          {product.stock} disp.
+        <span className="absolute top-2.5 left-2.5 bg-white/80 backdrop-blur-sm text-on-surface-variant font-label-sm text-[11px] px-2 py-0.5 rounded-full border border-outline-variant/30 z-10 font-medium">
+          Stock: {product.stock}
         </span>
         {/* Add to cart quick button */}
         <button
