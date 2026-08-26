@@ -115,7 +115,7 @@ function ProductCard({ product, onAddToCart, onQuickView, index }: { product: Pr
             {product.shades.map((shade) => (
               <button
                 key={shade}
-                onClick={() => setSelectedShade(shade)}
+                onClick={(e) => { e.stopPropagation(); setSelectedShade(shade); }}
                 className={`px-1.5 py-0.5 rounded-md border font-label-sm text-[8px] sm:text-[9px] transition-all duration-200 min-h-[20px] ${
                   selectedShade === shade
                     ? "bg-deep-charcoal text-white border-deep-charcoal"
@@ -154,7 +154,10 @@ function QuickViewModal({ product, onClose, onAddToCart }: { product: Product; o
         
         <div className="md:w-1/2 bg-surface-container relative aspect-square md:aspect-auto">
           {product.image ? (
-            <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+            </>
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
               <span className="material-symbols-outlined text-6xl text-rose-gold/70">{categoryIcon[product.category]}</span>
