@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import prisma from '@/lib/prisma';
+import DeleteButton from './DeleteButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -74,9 +75,7 @@ export default async function AdminDashboard() {
                       <Link href={`/admin/editar/${product.id}`} className="text-on-surface-variant hover:text-primary transition-colors p-2 inline-flex">
                         <span className="material-symbols-outlined text-[18px]">edit</span>
                       </Link>
-                      <button className="text-on-surface-variant hover:text-error transition-colors p-2 inline-flex">
-                        <span className="material-symbols-outlined text-[18px]">delete</span>
-                      </button>
+                      <DeleteButton id={product.id} productName={product.name} />
                     </td>
                   </tr>
                 ))
