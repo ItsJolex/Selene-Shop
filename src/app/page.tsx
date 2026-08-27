@@ -494,8 +494,20 @@ export default function Home() {
   const scrollToCatalog = () => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <div className="bg-surface text-on-surface min-h-screen">
+    <div className="bg-surface text-on-surface min-h-screen relative overflow-hidden">
 
+      {/* ── Ambient Global Background ───────────────────────────────────────── */}
+      <div className="fixed inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden opacity-40 mix-blend-multiply" aria-hidden="true">
+        {/* Soft blobs */}
+        <div className="absolute top-[-10%] right-[-5%] w-[50vw] h-[50vw] rounded-full bg-rose-gold/20 blur-[100px] animate-blob" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-warm-nude/30 blur-[120px] animate-blob animation-delay-4000" />
+        <div className="absolute top-[40%] left-[20%] w-[40vw] h-[40vw] rounded-full bg-surface-tint/10 blur-[90px] animate-blob animation-delay-2000" />
+      </div>
+      {/* Subtle noise overlay */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-noise opacity-[0.04] mix-blend-overlay" aria-hidden="true" />
+      
+      {/* ── Content Wrapper ─────────────────────────────────────────────────── */}
+      <div className="relative z-10 flex flex-col min-h-screen">
       {/* Toast */}
       {toast && (
         <div
@@ -865,6 +877,7 @@ export default function Home() {
           onAddToCart={addToCart}
         />
       )}
+      </div>
     </div>
   );
 }
