@@ -120,7 +120,7 @@ export default function EditProductForm({ product }: { product: Product }) {
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium text-on-surface">URL de Imagen</label>
-              <input type="url" name="imageUrl" value={formData.imageUrl} onChange={handleChange} className="w-full bg-surface-container-low border border-outline-variant/50 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="https://ejemplo.com/imagen.jpg" />
+              <input type="text" name="imageUrl" value={formData.imageUrl} onChange={handleChange} className="w-full bg-surface-container-low border border-outline-variant/50 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="https://ejemplo.com/imagen.jpg o /products/imagen.webp" />
             </div>
           </div>
 
