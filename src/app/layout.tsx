@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SplashScreen from "@/components/SplashScreen";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://itsjolex.github.io/Selene-Shop"),
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body className="antialiased min-h-screen bg-surface-container text-on-surface">
         <SplashScreen />
         {children}
+        <Footer />
       </body>
     </html>
   );

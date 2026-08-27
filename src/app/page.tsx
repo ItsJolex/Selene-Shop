@@ -395,10 +395,13 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: {
         {/* Footer */}
         {items.length > 0 && (
           <div className="px-6 py-5 border-t border-outline-variant/25 space-y-4 bg-surface-container-low/50">
-            <div className="flex justify-between items-baseline">
+            <div className="flex justify-between items-baseline mb-2">
               <span className="text-[10px] uppercase tracking-widest text-on-surface-variant">Total</span>
               <span className="font-['Libre_Caslon_Text'] text-2xl text-on-surface">${totalPrice.toFixed(2)}</span>
             </div>
+            <p className="text-[9px] text-center text-on-surface-variant/70 italic pb-1">
+              Al realizar tu pedido, aceptas nuestros <a href="/terminos" target="_blank" className="underline hover:text-rose-gold">Términos</a> y <a href="/envios" target="_blank" className="underline hover:text-rose-gold">Políticas de Envío</a>.
+            </p>
             <a
               href={waUrl}
               target="_blank"
