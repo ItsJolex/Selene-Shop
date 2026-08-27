@@ -25,7 +25,7 @@ export default function DevolucionesPage() {
 
           <h2 className="text-xl text-on-surface mt-8 mb-4">2. Productos Defectuosos de Fábrica</h2>
           <p>
-            Hacemos una revisión exhaustiva de todos nuestros productos antes de enviarlos. Sin embargo, en el raro caso de que recibas un producto con un defecto evidente de fábrica, debes notificarlo en un plazo máximo de <strong>24 horas</strong> a partir del momento en que la agencia de encomiendas marca el paquete como "Entregado".
+            Hacemos una revisión exhaustiva de todos nuestros productos antes de enviarlos. Sin embargo, en el raro caso de que recibas un producto con un defecto evidente de fábrica, debes notificarlo en un plazo máximo de <strong>24 horas</strong> a partir del momento en que la agencia de encomiendas marca el paquete como &quot;Entregado&quot;.
           </p>
           <p>
             Para proceder con un reclamo por defecto de fábrica, es <strong>obligatorio proporcionar un video continuo y sin cortes del desembalaje (unboxing)</strong> donde se observe claramente cómo se abre el empaque de envío y se descubre el defecto del producto. Sin esta prueba, no podremos procesar el reclamo.
