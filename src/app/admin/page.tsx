@@ -1,0 +1,88 @@
+import Link from 'next/link';
+import prisma from '@/lib/prisma';
+
+export default async function AdminDashboard() {
+  const products = await prisma.product.findMany({
+    orderBy: { createdAt: 'desc' }
+  });
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <h1 className="font-['Libre_Caslon_Text'] text-3xl text-on-surface">Inventario de Productos</h1>
+        <Link 
+          href="/admin/nuevo" 
+          className="bg-primary text-on-primary px-5 py-2.5 rounded-full text-sm font-medium tracking-wide hover:opacity-90 transition-opacity flex items-center gap-2 shadow-sm"
+        >
+          <span className="material-symbols-outlined text-[18px]">add</span>
+          Agregar Producto
+        </Link>
+      </div>
+
+      <div className="bg-surface rounded-2xl shadow-sm border border-outline-variant/30 overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="bg-surface-container-low text-on-surface-variant text-xs uppercase tracking-wider">
+                <th className="p-4 font-medium">Producto</th>
+                <th className="p-4 font-medium">Marca</th>
+                <th className="p-4 font-medium">Categoría</th>
+                <th className="p-4 font-medium">Precio</th>
+                <th className="p-4 font-medium">Stock</th>
+                <th className="p-4 font-medium text-right">Acciones</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-outline-variant/20 text-sm">
+              {products.length === 0 ? (
+                <tr>
+                  <td colSpan={6} className="p-8 text-center text-on-surface-variant">
+                    No hay productos registrados. ¡Agrega el primero!
+                  </td>
+                </tr>
+              ) : (
+                products.map((product) => (
+                  <tr key={product.id} className="hover:bg-surface-container-lowest transition-colors">
+                    <td className="p-4 font-medium text-on-surface">
+                      <div className="flex items-center gap-3">
+                        {product.imageUrl ? (
+                          /* eslint-disable-next-line @next/next/no-img-element */
+                          <img src={product.imageUrl} alt={product.name} className="w-10 h-10 object-cover rounded-md border border-outline-variant/30" />
+                        ) : (
+                          <div className="w-10 h-10 bg-surface-container rounded-md flex items-center justify-center text-on-surface-variant border border-outline-variant/30">
+                            <span className="material-symbols-outlined text-[18px]">image</span>
+                          </div>
+                        )}
+                        <span>{product.name}</span>
+                      </div>
+                    </td>
+                    <td className="p-4 text-on-surface-variant">{product.brand}</td>
+                    <td className="p-4 text-on-surface-variant capitalize">{product.category}</td>
+                    <td className="p-4 text-on-surface">
+                      ${product.price.toFixed(2)}
+                      {product.discountPrice && (
+                        <span className="text-error ml-2 text-xs line-through">${product.discountPrice.toFixed(2)}</span>
+                      )}
+                    </td>
+                    <td className="p-4">
+                      <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${product.stock > 0 ? 'bg-green-100 text-green-800' : 'bg-error/10 text-error'}`}>
+                        {product.stock > 0 ? `${product.stock} en stock` : 'Agotado'}
+                      </span>
+                    </td>
+                    <td className="p-4 text-right space-x-2">
+                      <Link href={`/admin/editar/${product.id}`} className="text-on-surface-variant hover:text-primary transition-colors p-2 inline-flex">
+                        <span className="material-symbols-outlined text-[18px]">edit</span>
+                      </Link>
+                      <button className="text-on-surface-variant hover:text-error transition-colors p-2 inline-flex">
+                        <span className="material-symbols-outlined text-[18px]">delete</span>
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
