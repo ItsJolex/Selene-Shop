@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import prisma from '@/lib/prisma';
 import DeleteButton from './DeleteButton';
+import { sortProductsByBrand } from '@/lib/utils';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {
-  const products = await prisma.product.findMany({
+  let products = await prisma.product.findMany({
     orderBy: { createdAt: 'desc' }
   });
+
+  products = sortProductsByBrand(products);
 
   return (
     <div className="space-y-6">

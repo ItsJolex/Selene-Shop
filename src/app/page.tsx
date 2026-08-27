@@ -1,12 +1,15 @@
 import prisma from '@/lib/prisma';
 import StoreFront, { Brand, Category } from '@/components/StoreFront';
+import { sortProductsByBrand } from '@/lib/utils';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const dbProducts = await prisma.product.findMany({
+  let dbProducts = await prisma.product.findMany({
     orderBy: { createdAt: 'desc' }
   });
+
+  dbProducts = sortProductsByBrand(dbProducts);
 
   // Map Prisma products to the interface StoreFront expects
   const mappedProducts = dbProducts.map((p) => ({
