@@ -403,9 +403,9 @@ function CartDrawer({ items, onClose, onRemove, onQtyChange }: {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2.5 w-full bg-[#25D366] text-white text-[11px] font-semibold uppercase tracking-widest py-4 rounded-sm hover:bg-[#20bb5a] transition-colors duration-200 min-h-[52px]"
+              className="flex items-center justify-center gap-2 w-full border border-[#25D366]/40 bg-[#25D366]/5 hover:bg-[#25D366]/15 text-on-surface text-[10px] font-medium uppercase tracking-[0.15em] py-2.5 rounded-sm transition-all duration-300"
             >
-              <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d={WaPath} /></svg>
+              <svg className="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24"><path d={WaPath} /></svg>
               Pedir por WhatsApp
             </a>
             <button
