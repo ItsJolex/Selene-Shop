@@ -6,11 +6,15 @@ import { sortProductsByBrand } from '@/lib/utils';
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {
-  let products = await prisma.product.findMany({
-    orderBy: { createdAt: 'desc' }
-  });
-
-  products = sortProductsByBrand(products);
+  let products: any[] = [];
+  try {
+    let dbProducts = await prisma.product.findMany({
+      orderBy: { createdAt: 'desc' }
+    });
+    products = sortProductsByBrand(dbProducts);
+  } catch (error) {
+    console.error('Error fetching admin products from database:', error);
+  }
 
   return (
     <div className="space-y-6">

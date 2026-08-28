@@ -10,6 +10,10 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "vars": {
+    "DATABASE_URL": "postgresql://postgres.vkbxffnosmdxpkicxmph:S3l3n3Store_Database%211029384756%2A%26%25%5E@aws-0-us-east-1.pooler.supabase.com:5432/postgres",
+    "DIRECT_URL": "postgresql://postgres.vkbxffnosmdxpkicxmph:S3l3n3Store_Database%211029384756%2A%26%25%5E@aws-0-us-east-1.pooler.supabase.com:5432/postgres"
+  },
   "observability": {
     "enabled": true
   }
