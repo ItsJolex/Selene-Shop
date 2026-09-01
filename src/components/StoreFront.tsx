@@ -6,7 +6,7 @@ import { useState, useMemo, useEffect } from "react";
 export type Brand = "Dolce Bella" | "Salomé" | "Ushas" | "Max Glow" | "Beauty Creations" | "Kevin & Coco" | "Dici" | "Trendy" | "Sin Marca";
 export type Category = "Labios" | "Ojos" | "Rostro" | "Accesorios" | "Skincare";
 
-interface Product {
+export interface Product {
   id: string;
   brand: Brand;
   name: string;

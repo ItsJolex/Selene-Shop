@@ -1,11 +1,11 @@
 import prisma from '@/lib/prisma';
-import StoreFront, { Brand, Category } from '@/components/StoreFront';
+import StoreFront, { Brand, Category, Product } from '@/components/StoreFront';
 import { sortProductsByBrand } from '@/lib/utils';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  let mappedProducts: any[] = [];
+  let mappedProducts: Product[] = [];
 
   try {
     let dbProducts = await prisma.product.findMany({

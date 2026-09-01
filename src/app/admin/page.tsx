@@ -2,16 +2,28 @@ import Link from 'next/link';
 import prisma from '@/lib/prisma';
 import DeleteButton from './DeleteButton';
 import { sortProductsByBrand } from '@/lib/utils';
+import { Product } from '@/components/StoreFront';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {
-  let products: any[] = [];
+  let products: Product[] = [];
   try {
-    let dbProducts = await prisma.product.findMany({
+    const dbProducts = await prisma.product.findMany({
       orderBy: { createdAt: 'desc' }
     });
-    products = sortProductsByBrand(dbProducts);
+    const sorted = sortProductsByBrand(dbProducts);
+    products = sorted.map((p) => ({
+      id: p.id,
+      brand: p.brand as Product['brand'],
+      name: p.name,
+      category: (p.category.charAt(0).toUpperCase() + p.category.slice(1)) as Product['category'],
+      shades: p.shades,
+      stock: p.stock,
+      note: p.note || undefined,
+      image: p.imageUrl || undefined,
+      price: p.discountPrice ?? p.price,
+    }));
   } catch (error) {
     console.error('Error fetching admin products from database:', error);
   }
@@ -54,9 +66,9 @@ export default async function AdminDashboard() {
                   <tr key={product.id} className="hover:bg-surface-container-lowest transition-colors">
                     <td className="p-4 font-medium text-on-surface">
                       <div className="flex items-center gap-3">
-                        {product.imageUrl ? (
+                        {product.image ? (
                           /* eslint-disable-next-line @next/next/no-img-element */
-                          <img src={product.imageUrl} alt={product.name} className="w-10 h-10 object-cover rounded-md border border-outline-variant/30" />
+                          <img src={product.image} alt={product.name} className="w-10 h-10 object-cover rounded-md border border-outline-variant/30" />
                         ) : (
                           <div className="w-10 h-10 bg-surface-container rounded-md flex items-center justify-center text-on-surface-variant border border-outline-variant/30">
                             <span className="material-symbols-outlined text-[18px]">image</span>
@@ -69,9 +81,6 @@ export default async function AdminDashboard() {
                     <td className="p-4 text-on-surface-variant capitalize">{product.category}</td>
                     <td className="p-4 text-on-surface">
                       ${product.price.toFixed(2)}
-                      {product.discountPrice && (
-                        <span className="text-error ml-2 text-xs line-through">${product.discountPrice.toFixed(2)}</span>
-                      )}
                     </td>
                     <td className="p-4">
                       <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${product.stock > 0 ? 'bg-green-100 text-green-800' : 'bg-error/10 text-error'}`}>
